@@ -3,4 +3,7 @@ main.idx
 main.log
 main.mdf
 main.out
-
+main.fdb_latexmk
+main.fls
+main.ilg
+main.ind
