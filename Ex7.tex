@@ -1,0 +1,104 @@
+\begin{ex} \label{ex_7} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_7}}
+    Show that the lagrangian density
+    \begin{equation}
+    \label{lag_ex7}
+        \La = \frac{1}{2} \left( \partial_\mu \phi_1 \partial^\mu \phi_1 + \partial_\mu \phi_2 \partial^\mu \phi_2 \right) - \frac{m^2}{2} \left( \phi_1^2 + \phi_2^2\right) - \lambda \left( \phi_1^2 + \phi_2^2\right)^2
+    \end{equation}
+    is invariant under
+    \begin{equation}\label{rot}
+        \begin{pmatrix} \phi_1' \\ \phi_2' \end{pmatrix} = R(\theta) \begin{pmatrix} \phi_1 \\ \phi_2 \end{pmatrix} \, ,
+    \end{equation}
+    where $R(\theta)$ is a rotation of an angle $\theta$. Determine the Noether current and charge.
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    Consider the inverse of Eq.~\eqref{rot},\footnote{Also the repeated Latin indices are to be intended summed.}
+    \begin{equation}
+        \begin{pmatrix} \phi_1 \\ \phi_2 \end{pmatrix} = R^{-1}(\theta) \begin{pmatrix} \phi_1' \\ \phi_2' \end{pmatrix} \quad \implies \quad \phi_i = R^{-1}(\theta)_{ij}\phi_j' \, .
+    \end{equation}
+    Since $R(\theta)$ is a rotation matrix, it must be orthogonal, i.e.
+    \begin{equation}
+    \label{orthogonal}
+        R^T(\theta) R(\theta) = \mathbb{1} \, ,
+        %
+        \quad \implies \quad 
+        %
+        R^T(\theta) = R^{-1}(\theta) \, ,
+    \end{equation}
+    so we find
+    \begin{equation}
+        \phi_i = R^{T}(\theta)_{ij}\phi_j' \equiv \phi_j' R(\theta)_{ji} \, .
+    \end{equation}
+    According to this writing, we obtain
+    \begin{equation}
+        \partial_\mu \phi_i \partial^\mu \phi_i 
+        %
+        = \partial_\mu \phi'_j R_{ji}(\theta) \partial^\mu \phi'_k R_{ki}(\theta) 
+        %
+        = \partial_\mu \phi'_j \partial^\mu \phi'_k R_{ji}(\theta) R_{ki}(\theta) 
+        %
+        = \partial_\mu \phi_j' \partial^\mu \phi'_k \, ,
+    \end{equation}
+    where in the last step we used the Eq.~\eqref{orthogonal} to write
+    \begin{equation}
+        R(\theta)_{ji} R(\theta)_{ki} = R(\theta)_{ji} R^T(\theta)_{ik} = \delta_{ik} \, .
+    \end{equation} 
+    The same applies to the potential of $\La$:
+    \begin{equation}
+        \phi_i \phi_i = \phi_j' R(\theta)_{ji} \phi_k' R(\theta)_{ki} = \phi_j' \phi_k' R(\theta)_{ji} R^T(\theta)_{ik} = \phi_j' \phi_j'\,.
+    \end{equation}
+    In conclusion, we have shown that the transformation in Eq.~\eqref{rot} is a symmetry of the Lagrangian in Eq.~\eqref{lag_ex7}.
+    
+    In order to determine the \emph{Noether current} and the \emph{Noether charge}, we have to expand the rotation matrix to first order in the parameter $\theta$ as
+    \begin{equation}
+        R(\theta) =
+        \begin{pmatrix}
+            \cos \theta & - \sin \theta \\
+            \sin \theta & \cos \theta 
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1 & 0 \\
+            0 & 1 
+        \end{pmatrix}
+        + \theta
+        \begin{pmatrix}
+            0 & -1 \\
+            1 & 0 
+        \end{pmatrix}
+        + \order{\theta^2} \, .
+    \end{equation}
+    It follows that
+    \begin{equation}
+        \begin{cases}
+            \phi_1' = \phi_1 - \theta \phi_2 \, ,\\
+            \phi_2' = \phi_2 + \theta \phi_1 \, ,
+        \end{cases}
+        %
+        \quad \Longrightarrow \quad
+        \begin{cases}
+            \delta\phi_1 = \phi_1' - \phi_1 = - \theta \phi_2 \,, \\
+            \delta\phi_2 = \phi_2' - \phi_2 = + \theta \phi_1 \,.
+        \end{cases}
+    \end{equation}
+    Therefore, from the definition of the Noether current we find
+    \begin{equation}
+        j^\mu 
+        %
+        = \frac{\partial\La}{\partial\left(\partial_\mu \phi_i\right)} \delta \phi_i 
+        %
+        = \partial^\mu \phi_1 \, \delta \phi_1 + \partial^\mu \phi_2 \, \delta \phi_2 
+        %
+        = \phi_1 \, \partial^\mu \phi_2 - \phi_2 \, \partial^\mu \phi_1 \,,
+    \end{equation}
+    while the Noether charge corresponds to
+    \begin{equation}
+        Q 
+        %
+        = \int \rmd^3\vx \, j^0(t, \vx) 
+        %
+        = \int \rmd^3\vx \left[\phi_1(t, \vx) \dot{\phi_2}(t, \vx) - \phi_2(t, \vx) \dot{\phi_1}(t, \vx)\right] \,.
+    \end{equation}
+\end{sol}

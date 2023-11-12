@@ -1,0 +1,102 @@
+\begin{ex} \label{Ex_5} \addcontentsline{mdf}{mdf}{Exercise \ref{Ex_5}}
+    Derive the Lorentz algebra, i.e.\ the commutation relations
+    \begin{equation}
+    \label{lorentz_algebra}
+        \left[ J^{\mu \nu}, J^{\rho \sigma}\right] = i\left( \g^{\mu \sigma}J^{\nu \rho} + \g^{\nu \rho} J^{\mu \sigma} - \g^{\mu \rho} J^{\nu \sigma} - \g^{\nu \sigma}J^{\mu \rho} \right)
+    \end{equation}
+    \begin{enumerate}[label=\alph*)]
+        \item using the explicit form of the generators found in Exercise \ref{ex_4}, 
+        \item from the relation $D(\Lambda)^{-1} D(\Lambda') D(\Lambda) = D(\Lambda^{-1} \Lambda' \Lambda)$, which holds for any Lorentz representation $D(\Lambda)$ in the case of infinitesimal transformation (see Problem 1.11-b of V.~Radovanovi\'c's book \emph{Problem Book Quantum Field Theory}).
+    \end{enumerate}
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    \begin{enumerate}[label=\alph*)]
+        \item We proceed inserting the explicit expression of $J^{\mu \nu}$ (see Eq.~\eqref{Eq_Ex4_Jmunu_def} in Problem \ref{ex_4}) inside Eq.~\eqref{lorentz_algebra}. After some algebraic manipulations, we obtain
+        \begin{align}
+            \tensor{[J^{\mu\nu}, J^{\rho \sigma}]}{^\alpha_\beta} ={}& (\g^{\mu\alpha}\tensor{\delta}{^\nu_\gamma} - \g^{\nu\alpha}\tensor{\delta}{^\mu_\gamma})(\g^{\rho\gamma}\tensor{\delta}{^\sigma_\beta} - \g^{\sigma\gamma}\tensor{\delta}{^\rho_\beta}) - (\g^{\rho\alpha}\tensor{\delta}{^\sigma_\gamma} - \g^{\sigma\alpha}\tensor{\delta}{^\rho_\gamma})(\g^{\mu\gamma}\tensor{\delta}{^\nu_\beta} - \g^{\nu\gamma}\tensor{\delta}{^\mu_\beta}) \notag \\
+            %
+            ={}& - \Bigl[ g^{\mu \alpha} g^{\rho \nu} \delta^\sigma{}_\beta - g^{\mu \alpha} g^{\sigma \nu} \delta^\rho{}_\beta -g^{\nu \alpha} g^{\rho \mu} \delta^\sigma{}_\beta + g^{\nu \alpha} g^{\sigma \mu} \delta^\rho{}_\beta \notag \\
+            %
+            & - \g^{\rho \alpha} g^{\mu \sigma} \tensor{\delta}{^\nu_\beta} + \g^{\rho \alpha} \g^{\sigma \nu} \tensor{\delta}{^\mu_\beta} + \g^{\sigma \alpha} \g^{\rho \mu} \tensor{\delta}{^\nu_\beta} - \g^{\sigma \alpha} \g^{\nu \rho} \tensor{\delta}{^\mu_\beta} \Bigr] \notag \\
+            %
+            ={}& -i \Bigl[ (-i)\g^{\mu \sigma}\bigl(\g^{\nu \alpha} \tensor{\delta}{^\rho_\beta} - \g^{\rho \alpha} \tensor{\delta}{^\nu_\beta} \bigr) + (-i) \g^{\nu \rho}\bigl(\g^{\mu \alpha} \tensor{\delta}{^\sigma_\beta} - \g^{\sigma \alpha} \tensor{\delta}{^\mu_\beta} \bigr) \notag \\
+            %
+            & - (-i) \g^{\mu \rho}\bigl(\g^{\nu \alpha} \tensor{\delta}{^\sigma_\beta} - \g^{\sigma \alpha} \tensor{\delta}{^\nu_\beta} \bigr) - (-i)\g^{\nu \sigma}\bigl(\g^{\mu \alpha} \tensor{\delta}{^\rho_\beta} - \g^{\rho \alpha} \tensor{\delta}{^\mu_\beta} \bigr)\Bigr] \notag \\
+            %
+            ={}& i \tensor{\big( \g^{\mu \sigma} J^{\nu \rho} + \g^{\nu \rho} J^{\mu \sigma} - \g^{\mu \rho} J^{\nu \sigma} - \g^{\nu \sigma} J^{\mu \rho} \big)}{^\alpha_\beta} \, ,
+        \end{align}
+        which proves Eq.~\eqref{lorentz_algebra}. \\
+
+        \item Let $\Lambda'$ be an infinitesimal Lorentz transformations $\Lambda' = \id + \omega'$ ($\omega'$ is a term of the Lorentz algebra) and let $D(\Lambda)$ be the representation of any infinitesimal Lorentz transformation $\Lambda$, i.e.
+        \begin{equation}
+            D(\Lambda) = \id - \frac{i}{2} \omega_{\mu \nu} J^{\mu \nu} \, .
+            \label{Eq_Ex5_DLambda_def}
+        \end{equation}
+        Consider $\Lambda'' = \Lambda^{-1} \Lambda' \Lambda$. Using the expansion of $\Lambda'$, we find
+        \begin{equation}
+            \Lambda'' = \Lambda^{-1} \Lambda' \Lambda 
+            %
+            = \id + \Lambda^{-1} \omega' \Lambda \, .
+        \end{equation}
+        Notice that $\Lambda^{-1} \omega' \Lambda$ is the infinitesimal expansion of $\Lambda''$, therefore using Eq.~\eqref{Eq_Ex5_DLambda_def} we get
+        \begin{equation}
+            D(\Lambda'') 
+            %
+            = \id + \Lambda^{-1} \omega' \Lambda = \id - \frac{i}{2} (\Lambda^{-1} \omega' \Lambda)_{\mu\nu} J^{\mu\nu}
+            %
+            = \id - \frac{i}{2} J^{\mu\nu} \tensor{(\Lambda^{-1})}{_\mu^\rho} \tensor{\Lambda}{^\sigma_\nu} \omega'_{\rho\sigma} \, .
+            \label{Eq_Ex5_D(Lambda'')}
+        \end{equation}
+        On the other hand, the identity $D(\Lambda'') = D(\Lambda^{-1} \Lambda' \Lambda) = D(\Lambda)^{-1} D(\Lambda') D(\Lambda)$ holds, and the r.h.s.~corresponds to 
+        \begin{equation}
+            D(\Lambda)^{-1} D(\Lambda') D(\Lambda)
+            %
+            = D^{-1}(\Lambda) \left(\id - \frac{i}{2} \omega'_{\rho \sigma} J^{\rho \sigma}\right) D(\Lambda)
+            %
+            \equiv \id - \frac{i}{2} D^{-1}(\Lambda) J^{\rho\sigma} D(\Lambda)  \omega'_{\rho\sigma} \, .
+        \end{equation}
+        So, comparing the above r.h.s.~with that of Eq.~\eqref{Eq_Ex5_D(Lambda'')}, we find\footnote{Here we use Eq.~\eqref{Eq_Ex4_Lambda_prop_1} to write $\tensor{\Lambda}{^\sigma_\nu} = \tensor{(\Lambda^{-1})}{_\nu^\sigma}$.}
+        \begin{equation}
+            D^{-1}(\Lambda) J^{\rho\sigma} D(\Lambda) 
+            %
+            = \tensor{(\Lambda^{-1})}{_\mu^\rho} \tensor{(\Lambda^{-1})}{_\nu^\sigma} J^{\mu\nu} \, ,
+        \end{equation}
+        that is the transformation law of a second rank tensor. Replacing the expression of $D(\Lambda)$ on the l.h.s.~and $\tensor{(\Lambda^{-1})}{^\mu_\nu}=\tensor{\delta}{^\mu_\nu} - \tensor{\omega}{^\mu_\nu}$ on the r.h.s., we obtain
+        \begin{equation}
+            \left(\id + \frac{i}{2} \omega_{\mu \nu} J^{\mu \nu}\right) J^{\rho \sigma} \left(\id - \frac{i}{2} \omega_{\alpha \beta} J^{\alpha \beta}\right) 
+            %
+            = \left(\tensor{\delta}{_\mu^\rho} - \tensor{\omega}{_\mu^\rho} \right) \left(\tensor{\delta}{_\nu^\sigma} - \tensor{\omega}{_\nu^\sigma} \right) J^{\mu \nu} \, ,
+        \end{equation}
+        which implies
+        \begin{equation}
+            J^{\rho \sigma} + \frac{i}{2} \omega_{\mu\nu} [J^{\mu\nu}, J^{\rho \sigma}] 
+            %
+            = J^{\rho \sigma} - \tensor{\omega}{_\mu^\rho} J^{\mu \sigma} - \tensor{\omega}{_\nu^\sigma} J^{\rho \nu} \, .
+        \end{equation}
+        We thus conclude that\footnote{In what follows we use the asymmetry of both $\omega_{\mu\nu}$ and $J^{\mu\nu}$.}
+        \begin{equation}
+        \begin{split}
+            \frac{i}{2} \omega_{\mu\nu} [J^{\mu\nu}, J^{\rho \sigma}] 
+            %
+            = & - \tensor{\omega}{_\mu^\rho} J^{\mu \sigma} - \tensor{\omega}{_\nu^\sigma} J^{\rho \nu} \\
+            %
+            = & - \tensor{\omega}{_\mu_\nu} \g^{\nu \rho} J^{\mu \sigma} - \tensor{\omega}{_\nu_\mu} \g^{\mu\sigma} J^{\rho \nu} \\
+            %
+            = & - \frac{1}{2} \left(\tensor{\omega}{_\mu_\nu} \g^{\nu \rho} J^{\mu \sigma} + \tensor{\omega}{_\nu_\mu} \g^{\mu \rho} J^{\nu \sigma}\right) - \frac{1}{2} \left(\tensor{\omega}{_\nu_\mu} \g^{\mu\sigma} J^{\rho \nu} + \tensor{\omega}{_\mu_\nu} \g^{\nu\sigma} J^{\rho \mu}\right) \\
+            %
+            = & - \frac{1}{2} \omega_{\mu\nu} \left(\g^{\mu \sigma} J^{\nu \rho} + \g^{\nu \rho} J^{\mu \sigma} - \g^{\mu \rho} J^{\nu \sigma} - \g^{\nu \sigma} J^{\mu \rho}\right) \, ,
+        \end{split}
+        \end{equation}
+        i.e.
+        \begin{equation}
+            [J^{\mu\nu}, J^{\rho \sigma}]
+            %
+            = i\left(\g^{\mu \sigma} J^{\nu \rho} + \g^{\nu \rho} J^{\mu \sigma} - \g^{\mu \rho} J^{\nu \sigma} - \g^{\nu \sigma} J^{\mu \rho}\right) \, .
+        \end{equation}
+        We have got Eq.~\eqref{lorentz_algebra}. 
+    \end{enumerate}
+    $ $
+\end{sol}

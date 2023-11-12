@@ -1,0 +1,87 @@
+\begin{ex} \label{Ex1} \addcontentsline{mdf}{mdf}{Exercise \ref{Ex1}}
+    Consider a system of $N$ coupled harmonic oscillators with potential
+    \begin{equation}
+        V = \sum_{i=1}^{N} \frac{\kappa}{2} (q_{i+1} - q_i)^2 \; .
+        \label{Eq_ex1_V_def}
+    \end{equation}
+    Determine the normal coordinates and the eigenvectors of the potential, with boundary conditions $q_0(t) = q_{N+1}(t) = 0$. Determine directly the equations of motion and the normal coordinates in the continuum limit without using the Lagrangian, by taking the continuum limit of the result obtained in the discrete case.
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    The first request of Exercise \ref{Ex1} is to find the normal coordinates and the eigenvectors of the potential of Eq.~\eqref{Eq_ex1_V_def}. Since the solution is rather cumbersome, we refer the reader to Sec.~2.3 of the textbook by David Morin at the link \url{https://scholar.harvard.edu/david-morin/waves}, where an exhaustive discussion on this topic was dedicated.
+
+    Let's see how to solve the second part of the exercise. Since the kinetic energy of a system of $N$ coupled harmonic oscillators corresponds to 
+    \begin{equation}
+        T =\sum_{i=1}^{N} \frac{m}{2} \dot{q}_i^2 \, ,
+    \end{equation}
+    the Lagrangian reads
+    \begin{equation}
+        L = \sum_{i=1}^{N} \left[\frac{m}{2} \dot{q}_i^2 - \frac{\kappa}{2} (q_{i+1}^2 - q_i^2)\right] \, . 
+    \end{equation}
+    We use it to compute the Euler–Lagrange equation
+    \begin{equation}
+        \frac{d}{dt} \frac{\partial L}{\partial \dot{q}_k} - \frac{\partial L}{\partial q_k} = 0 
+    \end{equation}
+    as
+    \begin{equation}
+    \begin{split}
+        \frac{d}{dt} \frac{\partial L}{\partial \dot{q}_k} 
+        = & \sum_{i=1}^{N} \frac{m}{2} \frac{d}{dt} \frac{\partial \dot{q}_i^2}{\partial \dot{q}_k} = m \Ddot{q}_k \, , \\
+        %
+        - \frac{\partial L}{\partial q_k} = & \sum_{i=1}^{N} \frac{\kappa}{2} \frac{\partial}{\partial q_k} (q_{i+1}^2 - q_i^2) = \sum_{i=1}^{N} \kappa (q_{i+1}^2 - q_i^2) (\delta_{i+1,k} - \delta_{ik}) \\
+        %
+        = &  \kappa (q_k - q_{k-1}) - \kappa(q_{k+1} - q_k) \, , 
+    \end{split}
+    \end{equation}
+    from which we get straightforwardly the discreet equations of motion
+    \begin{equation}
+        \Ddot{q}_k = \frac{\kappa}{m} (q_{k+1} - q_k) - \frac{\kappa}{m} (q_k - q_{k-1}) \, .
+        \label{Eq:question_one_discrete_eom}
+    \end{equation}
+    
+    In order to move to the \emph{continuum limit}, we start by promoting $q_k$ to be a continuous parameter $q(x)$, where $x$ is the position of the $k^{\rm th}$ node along the real axis. Then we define $\Delta x$ as the elongation of the spring between the point $q_k$ and that $q_{k+1}$, i.e.
+    \begin{equation}
+    \begin{split}
+        q_k \mapsto & \, q(t,x) \, , \\
+        %
+        q_{k+1} \mapsto & \, q(t, x + \Delta x) \, , \\
+        %
+        q_{k-1} \mapsto & \, q(t, x - \Delta x) \, ,
+    \end{split}
+    \end{equation}
+    according to which Eq.~\eqref{Eq:question_one_discrete_eom} becomes\footnote{We use the handy notation $\partial_t \equiv \partial/\partial t$ and $\partial_x \equiv \partial/\partial x$.}
+    \begin{equation}
+        \partial_t^2 q(t,x) = \frac{\kappa}{m} \big[q(t, x+\Delta x) - q(t,x)\big] - \frac{\kappa}{m} \big[q(t,x) - q(t, x-\Delta x)\big] \, .
+        \label{Eq_Ex1_qdotdot_def}
+    \end{equation}
+    Assuming $q(t,x)$ smooth enough to have a well defined second derivative in $x$, we can expand the r.h.s.~of Eq.~\eqref{Eq_Ex1_qdotdot_def} in series of $\Delta x \ll 1$ and get
+    \begin{equation}
+    \begin{split}
+        \partial_t^2 q(t,x)|_{\Delta x \ll 1} = & \; \frac{\kappa}{m} \left[q(t,x) + \Delta x \partial_x q(t,x) + \frac{1}{2}(\Delta x)^2 \partial_x^2 q(t,x) - q(t,x) + \mathcal{O}(\Delta x)^3\right] \\
+        %
+        & - \frac{\kappa}{m} \left[q(t,x) - q(t,x) - \Delta x \partial_x q(t,x) + \frac{1}{2}(\Delta x)^2 \partial_x^2 q(t,x) - q(t,x) + \mathcal{O}(\Delta x)^3\right] \\
+        %
+        = & \; \frac{\kappa}{m} (\Delta x)^2 \partial_x^2 q(t,x) + \mathcal{O}(\Delta x)^3 \, .
+    \end{split}
+    \end{equation}
+    Finally, by defining $\omega_c$ as
+    \begin{equation}
+        \omega_c^2 \define \frac{\kappa \Delta x}{m/ \Delta x} = \frac{\kappa_c}{\delta m}  
+        \label{Eq_Ex1_omega_c_def}
+    \end{equation}
+    we find that Eq.~\eqref{Eq:question_one_discrete_eom} can be rewritten in the continuum limit as
+    \begin{equation}
+        \big(\partial_t^2 - \omega_c^2 \partial_x^2\big) \, q(t,x) = 0 \, .    
+    \end{equation}
+    This proves that $q(t,x)$ must satisfy the \emph{wave equation}. 
+
+    It remains only to understand whether $\omega_c$ of Eq.~\eqref{Eq_Ex1_omega_c_def} is well defined when $\Delta x \to 0$. In this regard, we point out that:
+    \begin{itemize}
+        \item $\delta m = m/\Delta x$ is the \textit{mass density} of the new continuum system, which is clearly finite;
+    
+        \item if one cuts a spring in half, it doubles its stiffness. If we then cut the spring into many pieces, each of length $\Delta x$, we expect the stiffness to become proportional to $\kappa \propto 1/\Delta x$, which diverges for $\Delta x \to 0$. It follows that $\kappa_c = \kappa \Delta x$ must be finite in this limit. 
+    \end{itemize}
+    Therefore we conclude stating that $\omega_c$ is finite and and well-defined in the limit $\Delta x \to 0$.
+\end{sol}

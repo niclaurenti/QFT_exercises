@@ -1,0 +1,86 @@
+\begin{ex} \label{ex_17} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_17}}
+    Write the Dirac equations satisfied by the left and right component of a generic Dirac field $\psi$, defined as $\psi_L(x) \equiv \frac{1 - \gamma_5}{2}\psi(x)$ and
+    $\psi_R(x) \equiv \frac{1 + \gamma_5}{2}\psi(x)$. Determine explicitly the form of the $\gamma_5$ matrix in the Weyl representation of the Dirac matrices.
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    Consider the following definitions:
+    \begin{equation}
+    \begin{cases}
+        \PL \define \frac{\id - \gamma^5}{2} \, , \\
+        \PR \define \frac{\id + \gamma^5}{2} \, , \\
+    \end{cases} 
+    \quad \Longrightarrow \quad \;\;
+    \begin{cases}
+        \psi_L(x) \define \PL \psi(x) \, , \\
+        \psi_R(x) \define \PR \psi(x) \, . \\
+    \end{cases} 
+    \end{equation}
+    Notice that
+    \begin{equation}
+        \gamma^\mu \PL = \frac{1}{2} (\gamma^\mu - \gamma^\mu \gamma^5) = \frac{1}{2} (\gamma^\mu + \gamma^5\gamma^\mu) = \PR \gamma^\mu \, , 
+    \end{equation}
+    since $\gamma^\mu \gamma^5 = - \gamma^5\gamma^\mu$. Similarly,
+    \begin{equation}
+        \gamma^\mu \PR = \PL \gamma^\mu \, .
+    \end{equation}
+    Applying $\PL$ and $\PR$ to the Dirac equation, we find
+    \begin{equation}
+        0 = \PL (i\slashed{\partial} -m) \psi(x) = \PL \gamma^\mu i\partial_\mu \psi(x) - m \hat{P}_L \psi(x) = i\slashed{\partial} \psi_R(x) - m \psi_L(x) 
+    \end{equation}
+    and
+    \begin{equation}
+        0 = \PR (i\slashed{\partial} - m) \psi(x) = \PR \gamma^\mu i \partial_\mu \psi(x) - m \PR \psi(x) = i\slashed{\partial} \psi_L(x) - m \psi_R(x) \, ,
+    \end{equation}
+    which means that the Dirac equations satisfied by $\psi_{L,R}$ are
+    \begin{equation}
+        \begin{cases}
+            i\slashed{\partial} \psi_R(x) = m \psi_L(x) \, , \\
+            i\slashed{\partial} \psi_L(x) = m \psi_R(x) \, .
+        \end{cases}
+    \end{equation}
+    In Weyl (chiral) representation, $\gamma^\mu$ matrices are defined as
+    \begin{equation}
+        \gamma^\mu = 
+        \begin{pmatrix}
+            \mathbb{0}_2     & \sigma^\mu \\
+            \bar{\sigma}^\mu & \mathbb{0}_2 
+        \end{pmatrix} \, ,
+    \end{equation}
+    with $\sigma^\mu = (\id_2, \boldsymbol{\sigma})$ and $\bar{\sigma}^\mu = (\id_2, - \boldsymbol{\sigma})$ , where $\sigma^i$ are the Pauli matrices. Therefore, by the definition of $\gamma^5$, we find
+    \begin{equation}
+        \gamma^5 \define i \, \gamma^0 \gamma^1 \gamma^2 \gamma^3 = i
+        \begin{pmatrix}
+            \bar{\sigma}^1 \sigma^2 \bar{\sigma}^3 & \mathbb{0}_2 \\
+            \mathbb{0}_2 & \sigma^1 \sigma^2 \bar{\sigma}^3 
+        \end{pmatrix}
+        = i 
+        \begin{pmatrix}
+            \sigma^1 \sigma^2 \sigma^3 & \mathbb{0}_2 \\
+            \mathbb{0}_2 & - \sigma^1 \sigma^2 \sigma^3 
+        \end{pmatrix} 
+        = 
+        \begin{pmatrix}
+            - \id_2 & \mathbb{0}_2 \\
+            \mathbb{0}_2 & \id_2   
+        \end{pmatrix} ,
+    \end{equation}
+    which implies
+    \begin{equation}
+        \PL = 
+        \begin{pmatrix}
+            \id_2 & \mathbb{0}_2 \\
+            \mathbb{0}_2 & \mathbb{0}_2 
+        \end{pmatrix} \, ,
+        %
+        \qquad
+        %
+        \PR = 
+        \begin{pmatrix}
+            \mathbb{0}_2 & \mathbb{0}_2 \\
+            \mathbb{0}_2 & \id_2 
+        \end{pmatrix} \, .
+    \end{equation}
+\end{sol}

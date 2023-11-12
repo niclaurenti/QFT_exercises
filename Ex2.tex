@@ -1,0 +1,46 @@
+\begin{ex} \label{Ex2} \addcontentsline{mdf}{mdf}{Exercise \ref{Ex2}}
+    Consider the Lagrangian density
+    \begin{equation}
+        \mathcal{L} = \partial_\mu \phi^* \partial^\mu \phi - m^2 \abs{\phi}^2 \; ,
+    \end{equation}
+    where $\phi(x)$ is a complex classical field. Derive the classical equations of motion and solve them using the method of normal coordinates.
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    In order to find the classical equations of motion, we need to apply the Euler-Lagrange equations to both $\phi$ and $\phi^{*}$, i.e.
+    \begin{equation}
+    \begin{split}
+        \partial_{\mu}\frac{\partial \mathcal{L}}{\partial(\partial_{\mu}\phi)} &- \frac{\partial \mathcal{L}}{\partial \phi} =  0 \, ,\\
+        %
+        \partial_{\mu}\frac{\partial \mathcal{L}}{\partial(\partial_{\mu}\phi^{*})} &- \frac{\partial \mathcal{L}}{\partial \phi^{*}} =  0 \, ,
+    \end{split}
+    \end{equation}
+    that, after having computed the derivatives, give
+    \begin{equation}
+    \begin{split}
+        \partial_{\mu}\partial^{\mu} \phi^{*} + m^{2}\phi^{*} &\define (\square + m^{2}) \phi^{*} = 0 \, , \\ 
+        %
+        \partial_{\mu}\partial^{\mu} \phi + m^{2}\phi &\define (\square + m^{2}) \phi = 0 \, .
+    \end{split}
+    \end{equation}
+    We thus find that $\phi$ (and of course $\phi^*$ as well) satisfies the so-called \emph{Klein–Gordon equation} (KG).
+    To solve it, we notice that any plane wave $\phi(x) = e^{\pm ipx}$ is solution of the KG equation if $p^2 = (p^{0})^{2} - \vp^2 = m^2$. It follows that the most general solution of the KG equation must be the superposition of plane waves 
+    \begin{equation}
+        \phi(x) = \int \frac{d^{3} \vp}{(2\pi)^{3} \sqrt{2 \Ep}} \eval{(a_{\vp} e^{- ipx} + b_{\vp}^* e^{ipx})}_{p^{0} = \Ep} \, ,
+    \end{equation}
+    where $\Ep = \sqrt{\vp^2 + m^2} = p^0$. The factor $\sqrt{2 \Ep}$ is a convenient choice of normalization of the coefficients $a_{\vp}$ and $b_{\vp}^*$. It will turn out to be very useful in quantizing fields.
+
+    Before concluding, we point out that a complex scalar field $\phi$ has two degrees of freedom and thus can be written as a combination of two real scalar fields (that have one degree of freedom each)
+    \begin{equation}
+        \phi(x) = \frac{\phi_1(x) + i \phi_2(x)}{\sqrt{2}} \, , 
+        \qquad 
+        \phi^*(x) = \frac{\phi_1(x) - i \phi_2(x)}{\sqrt{2}} \, .
+    \end{equation}
+    One is clearly free to rewrite the Lagrangian density $\mathcal{L}(x)$ with respect to $\phi_{1,2}$, i.e.
+    \begin{equation}
+        \mathcal{L}(x) = \frac{1}{2} \partial_\mu \phi_1 \partial^\mu \phi_1 + \frac{1}{2} \partial_\mu \phi_2 \partial^\mu \phi_2 - \frac{m^2}{2} \big(\phi_1^2 + \phi_2^2\big) \, ,
+    \end{equation}
+    and then derive the equations of motion for $\phi_{1,2}$. We leave it as an exercise to the reader.  
+\end{sol}

@@ -1,0 +1,201 @@
+\documentclass{article}
+
+\usepackage[a4paper,top=4cm,bottom=3cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lineno}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont} %mathds font
+\usepackage{amsfonts}
+\usepackage{nicefrac}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{braket}
+\usepackage{physics}
+\usepackage{tensor}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{imakeidx}
+\usepackage{tikz}
+\makeindex[columns=2, title=Alphabetical Index, intoc]
+\usepackage{enumitem}
+\usepackage{cancel}
+\usepackage{slashed}
+\usepackage{bbold}
+
+\usepackage{tocloft} % Per creare un indice personalizzato
+
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{simpler-wick}
+
+\newcommand{\plogo}{\fbox{$\mathcal{BLT}$}} % Generic dummy publisher logo
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DEFINE BOXES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzstyle{mybox} = [draw=black, very thick, rectangle, rounded corners, inner ysep=5pt, inner xsep=5pt]
+
+\usepackage{mdframed}            % This is the packege to define the style of "Exercise" 
+\mdfdefinestyle{theoremstyle}{
+	linecolor=black,
+	linewidth=1pt, 
+	frametitlerule=true, 
+	frametitlebackgroundcolor=gray!20, 
+	innertopmargin=\topskip,
+}
+\mdtheorem[style=theoremstyle]{ex}{Exercise}
+
+\newlistof{mdf}{mdf}{Table of Contents} % Per fare in modo che gli ambienti creati con \mdfdefinestyle siano inclusi nell'indice
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DEFINE SOLUTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{sol}{
+    \par \medskip \noindent 
+    \textbf{Solution:} \\[5pt]
+    }{\newline \rightline{$\square \qquad$} \newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input texmacros.tex
+
+
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage} % Suppresses headers and footers on the title page
+
+	\centering % Centre everything on the title page
+	
+	\scshape % Use small caps for all text on the title page
+	
+	\vspace*{\baselineskip} % White space at the top of the page
+	
+	%------------------------------------------------
+	%	Title
+	%------------------------------------------------
+	
+	\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal rule
+	\rule{\textwidth}{0.4pt} % Thin horizontal rule
+	
+	\vspace{0.75\baselineskip} % Whitespace above the title
+	
+	{\LARGE EXERCISES\\ OF \\ QUANTUM FIELD THEORY \\} % Title
+	
+	\vspace{0.75\baselineskip} % Whitespace below the title
+	
+	\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal rule
+	\rule{\textwidth}{1.6pt} % Thick horizontal rule
+	
+	\vspace{2\baselineskip} % Whitespace after the title block
+	
+	%------------------------------------------------
+	%	Subtitle
+	%------------------------------------------------
+	
+	In preparation of the course \emph{Theoretical Physics 1} % Subtitle or further description
+    
+	
+	\vspace*{3\baselineskip} % Whitespace under the subtitle
+	
+	%------------------------------------------------
+	%	Editor(s)
+	%------------------------------------------------
+	
+	Written By
+	
+	\vspace{0.5\baselineskip} % Whitespace before the editors
+	
+	{\scshape\Large Andrea  \\ Barontini} % Editor list
+
+    \vspace{0.5\baselineskip} % Whitespace before the editors
+	
+	{\scshape\Large Niccolò \\ Laurenti} % Editor list
+
+    \vspace{0.5\baselineskip} % Whitespace before the editors
+	
+	{\scshape\Large Davide Maria \\ Tagliabue} % Editor list
+	
+	\vspace{5\baselineskip} % Whitespace below the editor list
+	
+	\textit{Università degli Studi \\ Milano} % Editor affiliation
+	
+	\vfill % Whitespace between editor names and publisher logo
+	
+	%------------------------------------------------
+	%	Publisher
+	%------------------------------------------------
+	
+	\plogo % Publisher logo
+	
+	\vspace{0.3\baselineskip} % Whitespace under the publisher logo
+	
+	%2023 % Publication year
+	
+	%{\large publisher} % Publisher
+    {\large 2023}
+    
+
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+
+\clearpage
+\begin{center}
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \begin{em}
+        <<Polish-born, French-educated Madame Curie, co-discover of radioactivity, she was a hero of science until her hair fell out, her vomit and stool became filled with blood, and she was poisoned to death by her own discovery. With a little hard work, I see no reason why that can't also happen to any of you.>>
+    \end{em}
+    \vspace{0.5cm} \\
+    \hspace{11cm}  - Sheldon Lee Cooper 
+    \vspace*{\fill}
+\end{center}
+\clearpage
+
+%----------------------------------------------------------------------------------------
+
+\listofmdf
+
+\newpage
+
+
+\input{Ex1}
+\input{Ex2}
+\input{Ex3}
+\input{Ex4}
+\input{Ex5}
+\input{Ex6}
+\input{Ex7}
+\input{Ex8}
+\input{Ex9}
+\input{Ex10}
+\input{Ex11}
+\input{Ex12}
+\input{Ex13}
+\input{Ex14}
+\input{Ex15}
+\input{Ex16}
+\input{Ex17}
+\input{Ex18}
+\input{Ex19}
+\input{Ex20}
+\input{Ex21}
+\input{Ex22}
+\input{Ex23}
+\input{Ex24}
+\input{Ex25}
+\input{Ex26}
+\input{Ex27}
+\input{Ex28}
+\input{Ex29}
+\input{Ex30}
+
+
+
+
+\end{document}

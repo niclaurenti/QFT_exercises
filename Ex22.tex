@@ -1,0 +1,83 @@
+\begin{ex} \label{ex_22} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_22}}
+    First, determine the classical action for a one-dimensional free particle with fixed initial and final conditions. Then determine explicitly the matrix element of the time-evolution operator
+    \begin{equation}
+        \label{ex_22_result}
+        K(q',t'; q,t) \define \bra{q', t'}\ket{q, t} = \bra{q'}e^{-i\hatH(t-t')}\ket{q}\,,
+    \end{equation}
+    and show that is equal to the exponential of the classical action, times a factor of $i$. \dmt{Why \emph{times a factor of i?}}
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+\begin{enumerate}[label=\alph*)]
+    \item Let $\hatH = \hatp^2/(2m)$ be the Hamiltonian of a one-dimensional free particle and let $T=t-t'$. Then the classical action reads
+    \begin{align}
+        \bra{q', t'}\ket{q, t} 
+        %
+        = &\; \bra{q'}e^{-i\hatH T}\ket{q} = \int_{-\infty}^\infty \rmd p \bra{q'}e^{-i\hatH T}\ket{p} \braket{p}{q} = \int_{-\infty}^\infty \rmd p \braket{q'}{p} \braket{p}{q} e^{-i \frac{p^2}{2m}T} \notag \\
+        %
+        = &\; \int_{-\infty}^\infty \rmd p \frac{e^{ipq'}}{\sqrt{2\pi}} \frac{e^{- ipq}}{\sqrt{2\pi}} e^{-i \frac{p^2}{2m}T} = \int_{-\infty}^\infty \frac{\rmd p}{2\pi}  e^{-i \frac{T}{2m} p^2 + ip(q'-q) } \notag \\
+        %
+        = &\; \sqrt{\frac{m}{2\pi i \, T}} \, e^{i\frac{m}{2T} (q' - q)^2}
+        \label{Eq_Ex22_first_result} \, ,
+    \end{align}
+    where in the last line we used the formula for the Gaussian integral
+    \begin{equation}
+        \int_{-\infty}^{\infty} \rmd p \, e^{-a p^2 + b p + c} = \sqrt{\frac{\pi}{a}} \, e^{\frac{b^2}{4a} + c}\, .
+        \label{Eq_Ex22_gaussian_integral}
+    \end{equation}
+
+    \item To determine Eq.~\eqref{ex_22_result}, we divide the time interval $T = t-t'$ in $N+1$ equal pieces of duration $\delta t = T/(N+1)$ and then we introduce $N$ complete sets of position eigenstates to get
+    \begin{align}
+        \bra{q', t'}\ket{q, t} = \left(\prod_{i=1}^N \int \rmd q_i\right) \bra{q_{N+1}} e ^{-i \hatH \delta t} \ket{q_N} \bra{q_N} e ^{-i \hatH \delta t} \ket{q_{N-1}} ... \bra{q_1} e ^{-i \hatH \delta t} \ket{q_0} \,,
+    \end{align}
+    with boundary conditions $q_{N+1}=q'$ and $q_0=q$. Using Eq.~\eqref{Eq_Ex22_first_result} with $T \mapsto \delta t$ we find
+    \begin{equation}
+        \bra{q_{j+1}} e ^{-i \hatH \delta t} \ket{q_j} 
+        %
+        = \sqrt{\frac{m}{2\pi i \, \delta t}} \, e^{i\frac{m}{2 \delta t} (q_{j+1} - q_j)^2} \, ,
+    \end{equation}
+    from which it follows that
+    \begin{align}
+    \label{integral_qj}
+        \bra{q', t'}\ket{q, t} 
+        %
+        =  \left(\frac{m}{2\pi i \, \delta t}\right)^{\frac{N+1}{2}} \left(\prod_{i=1}^N \int \rmd q_i\right) \;e^{i\frac{m}{2 \delta t} \sum_{j=1}^N\left(q_{j+1} - q_j\right)^2}\,.
+    \end{align}
+    Let's compute all the $\rmd q_i$ integrals step by step. Defining $c= i \, \delta t /m$ and using Eq.~\eqref{Eq_Ex22_gaussian_integral}, the integral over $q_1$ reads
+    \begin{equation}
+        \int_{-\infty}^\infty \rmd q_1 \, e^{-\frac{(q_2 - q_1)^2}{2c}} e^{-\frac{(q_1 - q_0)^2}{2c}} 
+        %
+        = \sqrt{\frac{(2\pi c)}{2}} \, e^{-\frac{(q_2 - q_0)^2}{4c}}\,.
+    \end{equation}
+    Moving to the integral over $q_2$, still using Eq.~\eqref{Eq_Ex22_gaussian_integral} we find
+    \begin{equation}
+        \int_{-\infty}^\infty \rmd q_2 \, e^{-\frac{(q_3 - q_2)^2}{2c}} e^{-\frac{(q_2 - q_0)^2}{4c}} 
+        %
+        = \sqrt{\frac{2(2\pi c)}{3}} \, e^{-\frac{(q_3 - q_0)^2}{6c}}\,.
+    \end{equation}
+    If we iterate this process $N$ times, the integral over $q_N$ must be 
+    \begin{equation}
+        \int_{-\infty}^\infty \rmd q_N \, e^{-\frac{(q_{N+1} - q_N)^2}{2c}} e^{-\frac{(q_N - q_0)^2}{2Nc}} 
+        %
+        = \sqrt{\frac{N (2\pi c)}{N+1}} \, e^{-\frac{(q_{N+1} - q_0)^2}{2(N+1)c}}\,.
+    \end{equation}
+    In conclusion, the integration over all the $q_i$ gives
+    \begin{equation}
+        \left(\prod_{i=1}^N \int \rmd q_i \right) e^{-\sum_{j=1}^N\frac{\left(q_{j+1} - q_j\right)^2}{2c}}
+        %
+        = e^{-\frac{(q_{N+1} - q_0)^2}{2(N+1)c}} \prod_{i=1}^{N} \sqrt{\frac{i (2\pi c)}{i+1}} = \sqrt{\frac{(2\pi c)^N}{N+1}} \, e^{-\frac{(q_{N+1} - q_0)^2}{2(N+1)c}} \, .
+    \end{equation}
+    Therefore, we can replace this result inside Eq.~\eqref{integral_qj} and get
+    \begin{equation}
+         \bra{q', t'}\ket{q, t} = \sqrt{\frac{1}{2 \pi c (N+1)}} \,  e^{-\frac{(q_{N+1} - q_0)^2}{2(N+1)c}} = \sqrt{\frac{m}{2 \pi i \, T}} \,  e^{i\frac{m}{2T} (q' - q)^2}\,,
+    \end{equation}
+    where in the last equality we used that 
+    \begin{equation}
+        \frac{1}{(N+1) c} = \frac{m}{i (N+1)\delta t} = i\, \frac{m}{T} \, .
+    \end{equation}
+    We have thus obtained Eq.\eqref{Eq_Ex22_gaussian_integral}.
+    \end{enumerate}
+    $ $
+\end{sol}

@@ -1,0 +1,47 @@
+\begin{ex} \label{ex_12} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_12}}
+    Derive the canonical commutation relation for the scalar field operator
+    \begin{equation}
+        \left[ \phi(\vx), \pi(\vx ')\right] = i \delta^{(3)}(\vx - \vx')
+        \label{Eq_Ex12_commut_relat}
+    \end{equation}
+    from the expression of the field operators $\phi$ and $\pi$ in terms of creation and annihilation operators, and the commutation relation satisfied by the latter.
+\end{ex}
+
+\begin{sol}
+    We want to prove the canonical commutation relation \eqref{Eq_Ex12_commut_relat}, with $\phi(\vx)\define \phi(0, \vx)$ and the same for $\pi(\vx)$. To do so, we simply use the explicit expressions of $\phi(\vx)$ and $\pi(\vx)$, i.e.
+    \begin{equation}
+    \begin{split}
+        \phi(\vx) = & \int \frac{\rmd^3\vp}{(2\pi)^3} \frac{1}{\sqrt{2E_{\vp}}} \left[\ades_{\vp} e^{i \vp \cdot \vx} + \acon_{\vp} e^{-i \vp \cdot \vx}\right] \, , \\
+        %
+        \pi(\vx) = & \int \frac{\rmd^3\vp}{(2\pi)^3} (-i) \sqrt{\frac{E_{\vp}}{2}} \left[\ades_{\vp} e^{i \vp \cdot \vx} - \acon_{\vp} e^{-i \vp \cdot \vx}\right] \, ,
+    \end{split}
+    \end{equation}
+    to compute 
+    \begin{equation}
+    \begin{split}
+        [\phi(\vx), \pi(\vx')] = & - \frac{i}{2} \int \frac{\rmd^3\vp'}{(2\pi)^3} \frac{\rmd^3\vp}{(2\pi)^3} \sqrt{\frac{E_{\vp'}}{E_{\vp}}} \left[\ades_{\vp} e^{i \vp \cdot \vx} + \acon_{\vp} e^{-i \vp \cdot \vx} , \ades_{\vp'} e^{i \vp' \cdot \vx'} - \acon_{\vp'} e^{-i \vp' \cdot \vx'}\right] \, .
+    \end{split}
+    \end{equation}
+    Since
+    \begin{equation}
+    \begin{split}
+        \left[\ades_{\vp} e^{i \vp \cdot \vx} + \acon_{\vp} e^{-i \vp \cdot \vx} , \ades_{\vp'} e^{i \vp' \cdot \vx'} - \acon_{\vp'} e^{-i \vp' \cdot \vx'}\right] = & \, - \overbrace{[\ades_{\vp}, \acon_{\vp'}]}^{\delta_{\vp \vp'} (2\pi)^3} e^{i(\vp\cdot \vx - \vp'\cdot \vx')} + \overbrace{[\acon_{\vp'}, \ades_{\vp}]}^{-\delta_{\vp \vp'} (2\pi)^3} e^{-i(\vp\cdot \vx - \vp'\cdot \vx')} \\
+        %
+        = & \, - \delta_{\vp \vp'} (2\pi)^3 \left[e^{i\vp \cdot (\vx - \vx')} + e^{-i\vp \cdot (\vx - \vx')}\right] \, ,
+    \end{split}
+    \end{equation}
+    we get 
+    \begin{equation}
+    \begin{split}
+        [\phi(\vx), \pi(\vx')] = & - \frac{i}{2} \int \frac{\rmd^3\vp'}{(2\pi)^3} \frac{\rmd^3\vp}{(2\pi)^3} \sqrt{\frac{E_{\vp'}}{E_{\vp}}} \delta_{\vp \vp'} (2\pi)^3 \left[e^{i\vp \cdot (\vx - \vx')} + e^{-i\vp \cdot (\vx - \vx')}\right] \\
+        %
+        = &\; \frac{i}{2} \int \frac{\rmd^3\vp}{(2\pi)^3} \left[e^{i\vp \cdot (\vx - \vx')} + e^{-i\vp \cdot (\vx - \vx')}\right] \\
+        %
+        = &\; i \int \frac{\rmd^3\vp}{(2\pi)^3} e^{i\vp \cdot (\vx - \vx')} \\
+        %
+        = &\; i \delta^{(3)}(\vx - \vx') \, ,
+    \end{split}
+    \end{equation}
+    which gives exactly the result we are looking for.
+\end{sol}
+

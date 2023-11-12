@@ -1,0 +1,69 @@
+\begin{ex} \label{ex_11} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_11}}
+    Show that the momentum operator for a scalar quantum field, namely
+    \begin{equation}
+        \vP = - \int \rmd^3 \vx \, \dot{\phi}(t, \vx) \vgrad \phi(t, \vx) \; ,
+        \label{Eq_Ex11_vP_def}
+    \end{equation}
+    generates translations of the field operator, i.e.\
+    \begin{equation}
+        \left[ \vP, \phi(t, \vx) \right] = i \vgrad \phi(t, \vx) \,.
+    \end{equation}
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{sol}
+    Let the momentum operator $\vP$ be defined as in Eq.~\eqref{Eq_Ex11_vP_def}. Then the commutator $[\vP, \phi(t,\vx)]$ reads
+    \begin{equation}
+    \begin{split}
+        [\vP, \phi(t,\vx)] 
+        %
+        = & - \int \rmd^3\vx' \bigg[\dot{\phi}(t,\vx') [\vgrad' \phi(t,\vx') , \phi(t,\vx)] + \overbrace{[\dot{\phi}(t,\vx'), \phi(t,\vx)]}^{-i \delta^{(3)}(\vx - \vx')} \vgrad \phi(t,\vx')\bigg] \\
+        %
+        = &\; i \vgrad \phi(t,\vx) - \int \rmd^3\vx' \dot{\phi}(t,\vx') [\vgrad' \phi(t,\vx') , \phi(t,\vx)] \, . 
+    \end{split}
+    \end{equation}
+    We thus need to compute $[\vgrad' \phi(t,\vx') , \phi(t,\vx)]$. Remember that the real scalar quantum field is
+    \begin{equation}
+        \phi(t,\vx) = \int \frac{\rmd^3\vp}{(2\pi)^3} \frac{1}{\sqrt{2E_{\vp}}} \left[\ades_{\vp} e^{-i p x} + \acon_{\vp} e^{i p  x}\right] \, ,
+    \end{equation}
+    so its gradient corresponds to
+    \begin{equation}
+        \vgrad \phi(t,\vx) = \int \frac{\rmd^3\vp}{(2\pi)^3} \frac{i \vp}{\sqrt{2E_{\vp}}} \left[\ades_{\vp} e^{-i p  x} - \acon_{\vp} e^{i p  x}\right] \, .
+    \end{equation}
+    We use it to prove that $[\vgrad' \phi(t,\vx') , \phi(t,\vx)] = 0$. We start from
+    \begin{equation}
+    \begin{split}
+        [\vgrad' \phi(t,\vx') , \phi(t,\vx)] = & \int \frac{\rmd^3\vp'}{(2\pi)^3} \frac{i \vp'}{\sqrt{2E_{\vp'}}} \left[\ades_{\vp'} e^{-i p' x} - \acon_{\vp'} e^{i p'  x} , \phi(t,\vx)\right] \\
+        %
+        = & \int \frac{\rmd^3\vp'}{(2\pi)^3} \frac{\rmd^3\vp}{(2\pi)^3} \frac{i \vp'}{\sqrt{4E_{\vp'} E_{\vp}}} \left[\ades_{\vp'} e^{-i p'  x} - \acon_{\vp'} e^{i p'  x} , \ades_{\vp} e^{-i p  x} + \acon_{\vp} e^{i p  x}\right] \, ,
+    \end{split}
+    \end{equation}
+    where
+    \begin{equation}
+    \begin{split}
+        \left[\ades_{\vp'} e^{-i p' x} - \acon_{\vp'} e^{i p' x} , \ades_{\vp} e^{-i p x} + \acon_{\vp} e^{i p  x}\right] = & \, \overbrace{[\ades_{\vp'}, \acon_{\vp}]}^{\delta_{\vp \vp'} (2\pi)^3} e^{i(p x - p'  x')} - \overbrace{[\acon_{\vp'}, \ades_{\vp}]}^{-\delta_{\vp \vp'} (2\pi)^3} e^{-i(p x - p'  x')} \\
+        %
+        = & \, \delta_{\vp \vp'} (2\pi)^3 \left[e^{i(p x - p'  x')} + e^{-i(p x - p'  x')}\right] \, .
+    \end{split}
+    \end{equation}
+    Notice that the presence of $\delta_{\vp \vp'}$ implies 
+    \begin{equation}
+        i(p x - p'  x') = - i \vp \cdot (\vx - \vx') \, ,
+    \end{equation}
+    since 
+    \begin{equation}
+        p_0' = E_{\vp'} = \sqrt{(\vp')^2 + m^2} = \sqrt{\vp^2 + m^2} = E_{\vp} = p_0 \, .
+    \end{equation}
+    Therefore we conclude that
+    \begin{equation}
+    \begin{split}
+        [\vgrad' \phi(t,\vx') , \phi(t,\vx)] = & \int \frac{\rmd^3\vp}{(2\pi)^3} \frac{i \vp}{2E_{\vp}} \left[e^{i \vp \cdot (\vx - \vx')} + e^{-i \vp \cdot (\vx - \vx')}\right] = 0 \, ,
+    \end{split}
+    \end{equation}
+    where the r.h.s.~vanishes because the integrand is odd under the swap $\vp \mapsto - \vp$. It follows that
+    \begin{equation}
+        [\vP, \phi(t,\vx)] = i \vgrad \phi(t,\vx) \, .
+    \end{equation}
+\end{sol}

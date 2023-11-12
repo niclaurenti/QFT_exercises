@@ -1,0 +1,65 @@
+\begin{ex} \label{ex_24} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_24}}
+    Compute, using the generating functional, the four-point function
+    \begin{equation}
+        G^{(4)}(x_{1}, x_{2}, x_{3}, x_{4}) = \bra{0}\T[\phi(x_{1})\phi(x_{2})\phi(x_{3})\phi(x_{4})]\ket{0}
+    \end{equation}
+    for a free real scalar field.
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    The 4-point function in a free scalar real theory can be written as
+    \begin{equation}
+    \label{eq_4pointfunc}
+        \bra{0}\T[\phi(x_{1})\phi(x_{2})\phi(x_{3})\phi(x_{4})]\ket{0} = \frac{1}{Z_0}\biggl[\frac{\delta}{\delta J(x_1)}\frac{\delta}{\delta J(x_2)}\frac{\delta}{\delta J(x_3)}\frac{\delta}{\delta J(x_4)}Z[J]\biggr]_{J=0} \, ,
+    \end{equation}
+    where $Z[J]$ is the generating functional of the Green’s functions defined as
+    \begin{equation}
+        Z[J] = Z_0 \exp\biggl[\frac{1}{2}\int \rmd^{4}x\, \rmd^{4}y \, J(x)D(x-y)J(y)\biggr] \, ,
+    \end{equation}
+    where we defined $Z_0 = Z[J=0]$.
+    Let's compute the derivatives in Eq.~\eqref{eq_4pointfunc} one at the time. The first derivative reads
+    \begin{equation}
+    \begin{split}
+        \frac{\delta}{\delta J(x_{1})}Z[J] 
+        %
+        = &\; \frac{Z[J]}{2} \int \rmd^{4}x \, \rmd^{4}y \left[\frac{\delta J(x)}{\delta J(x_1)} D(x-y) J(y) + J(x)D(x-y) \frac{\delta J(y)}{\delta J(x_1)} \right] \\
+        = &\; Z[J] \int \rmd^{4}x \, J(x)D(x - x_1) \,,
+    \end{split}
+    \end{equation}
+    where we used
+    \begin{equation}
+        \frac{\delta J(x_i)}{\delta J(x_j)} = \delta^{(4)}(x_i - x_j) \, .
+    \end{equation}
+    For the other derivatives, we proceed in the same way. Defining $D(x_i - x_j) \equiv D_{ij}$ we get
+    \begin{equation}
+        \frac{\delta}{\delta J(x_{2})}\frac{\delta}{\delta J(x_{1})}Z[J] 
+        %
+        = Z[J] \int \rmd^{4}y \, J(y)D(y-x_{2}) \int \rmd^{4}x J(x)D(x-x_1) + Z[J] \, D_{12} \, ,
+    \end{equation}
+    \begin{equation}
+    \begin{split}
+        \frac{\delta}{\delta J(x_{3})}\frac{\delta}{\delta J(x_{2})}\frac{\delta}{\delta J(x_{1})}Z[J] 
+        %
+        = &\; Z[J] \int \rmd^{4}z \, J(z)D(z-x_3) \\
+        %
+        & \qquad \times \int \rmd^{4}y \, J(y)D(y-x_2)\int \rmd^{4}x \, J(x)D(x-x_1) \\
+        %
+        & + Z[J] \, D_{23} \int \rmd^{4}x J(x)D(x-x_{1}) \\
+        %
+        & + Z[J] \, D_{13} \int \rmd^{4}x \, J(x)D(x - x_2) \\
+        %
+        & + Z[J]\, D_{12} \int \rmd^{4}x J(x) D(x-x_3) \, ,
+    \end{split}
+    \end{equation}
+    \begin{equation}
+        \left[\frac{\delta}{\delta J(x_{4})}\frac{\delta}{\delta J(x_{3})}\frac{\delta}{\delta J(x_{2})}\frac{\delta}{\delta J(x_{1})}Z[J]\right]_{J=0} 
+        %
+        = Z_0 \Big[D_{14} D_{23} + D_{13} D_{24} + D_{12} D_{34}\Big] \, ,
+    \end{equation}
+    where we set $J=0$ in the last equation. The final result is then
+    \begin{equation}
+          G(x_1, x_2, x_3, x_4) = D_{14} D_{23} + D_{13} D_{24} + D_{12} D_{34} \, .
+    \end{equation}
+\end{sol}

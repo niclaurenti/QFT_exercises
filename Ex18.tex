@@ -1,0 +1,195 @@
+\begin{ex} \label{ex_18} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_18}}
+    Show that if the solutions of the Dirac equations are normalized as
+    \begin{equation}
+        \sbar{u}^r(\vp) u^s(\vp) = 2m \, \delta^{rs} \,,
+    \end{equation}
+    then
+    \begin{equation}
+        u^{r \dagger}(\vp) u^s(\vp) = 2 \Ep \, \delta^{rs}\,.
+    \end{equation}
+\end{ex}
+
+\begin{sol}
+    If $\psi(x)$ is a plane-wane solution of the Dirac equation, i.e.
+    \begin{equation}
+        \psi(x) = u^s(\vp) e^{-ipx} \,,
+    \end{equation}
+    then the spinor $u^s(\vp)$ must satisfy the equation
+    \begin{equation}
+    \label{dirac_p}
+        \left( \slashed{p} - m\right)u^s(\vp) = 0 \,.
+    \end{equation}
+    In what follows we use the chiral representation
+    \begin{equation}
+        u^s(\vp) = 
+        \begin{pmatrix}
+            u_{L}^s(\vp) \\
+            u_{R}^s(\vp)
+        \end{pmatrix}\,.
+    \end{equation}
+    In order to solve Eq.~\eqref{dirac_p}, we move to the rest frame of the particle (which is always possible in the massive case $m \neq 0$),
+    so that the equation becomes
+    \begin{equation}
+    \label{dirac_p_rest}
+        \left( \gamma^0 E_{\vzero} - m\right)u^s(\vzero) = 0  \quad \implies \quad \left( \gamma^0 - 1\right)u^s(\vzero) = 0 \, ,
+    \end{equation}
+    where we used that in the rest frame $E_{\vzero} = m$.
+    In the chiral representation, where $\gamma^0$ reads
+    \begin{equation}
+        \gamma^0 =
+        \begin{pmatrix}
+            \zero_2 & \id_2 \\
+            \id_2 & \zero_2 
+        \end{pmatrix}\,,
+    \end{equation}
+    Eq.~\eqref{dirac_p_rest} becomes
+    \begin{equation}
+        \begin{pmatrix}
+            -\id_2 & \id_2 \\
+            \id_2 & -\id_2 
+        \end{pmatrix}
+        \begin{pmatrix}
+            u_{L}^s(\vzero) \\
+            u_{R}^s(\vzero)
+        \end{pmatrix}
+        = 0\,,
+    \end{equation}
+    which implies
+    \begin{equation}
+    \label{leodicaprio}
+        u_{L}^s(\vzero) = u_{R}^s(\vzero)\,.
+    \end{equation}
+    After imposing Eq.~\eqref{leodicaprio}, we have to choose the normalization of the vectors $u_{L}^s(\vzero)$ and $u_{R}^s(\vzero)$.
+    It is common to adopt the convention
+    \begin{equation}
+    \label{norm_u}
+        u_{L}^s(\vzero) = u_{R}^s(\vzero) = \sqrt m \, \xi^s \,,
+    \end{equation}
+    where $\xi^s$ with $s=1,2$ are two orthonormal vectors of two components such that
+    \begin{equation}
+        \xi^{s \dagger} \cdot \xi^r = \delta^{sr}\,.
+    \end{equation}
+    In conclusion, we have
+        \begin{equation}
+        u^s(\vzero) = 
+        \sqrt{m}
+        \begin{pmatrix}
+            \xi^s \\
+            \xi^s
+        \end{pmatrix}\,.
+    \end{equation}
+    To come back to a generic frame, we need to apply a boost. We remind that the left and right components of the Dirac field transform as
+    \begin{equation}
+    \begin{split}
+        \psi_L \mapsto \Lambda_L \psi_L &= \exp \left[ \left( -i \vtheta - \veta \right) \cdot \frac{\vsigma}{2} \right] \psi_L \,,\\
+        %
+        \psi_R \mapsto \Lambda_R \psi_R &= \exp \left[ \left( -i \vtheta + \veta \right) \cdot \frac{\vsigma}{2} \right] \psi_R \,,
+    \end{split}
+    \end{equation}
+    where $\veta$ and $\vtheta$ are the rapidity and the angle of the Lorentz transformation, respectively.
+    Note that, since we are applying a boost, we have $\vtheta = \vzero$, that is
+    \begin{equation}
+    \label{lorentz_chiral}
+    \begin{split}
+        \psi_L \mapsto \Lambda_L \psi_L = &\; e^{-\frac{\veta \cdot \vsigma}{2}} \psi_L\,,\\
+        %
+        \psi_R \mapsto \Lambda_R \psi_R = &\; e^{\frac{\veta \cdot \vsigma}{2}} \psi_R\,.
+    \end{split}
+    \end{equation}
+    At this point it is convenient to rewrite Eq.~\eqref{lorentz_chiral} in terms of the matrices $\id_2$ and $\sigma_i$. For simplicity, we consider a boost along the $\hat{z}$ axis
+       \begin{equation}
+    \label{lorentz_chiral_z}
+        \begin{split}
+            \Lambda_L &= e^{-\frac{\eta \sigma_z}{2}} = \cosh \frac{\eta}{2} \id_2 - \sinh \frac{\eta}{2} \sigma_z\,,\\
+            \Lambda_R &= e^{\frac{\eta \sigma_z}{2}} = \cosh \frac{\eta}{2} \id_2 + \sinh \frac{\eta}{2} \sigma_z\,.
+        \end{split}
+    \end{equation}
+    Using the definitions of $\cosh$ and $\sinh$, it is straightforward to see that
+    \begin{equation}
+    \label{lorentz_chiral_eta}
+        \begin{split}
+            \Lambda_L &= \sqrt{\cosh \eta + \sinh \eta}\left( \frac{\id_2 - \sigma_z}{2} \right) + \sqrt{\cosh \eta - \sinh \eta}\left( \frac{\id_2 + \sigma_z}{2} \right)\,,\\
+            \Lambda_R &= \sqrt{\cosh \eta + \sinh \eta}\left( \frac{\id_2 + \sigma_z}{2} \right) + \sqrt{\cosh \eta - \sinh \eta}\left( \frac{\id_2 - \sigma_z}{2} \right)\,.
+        \end{split}
+    \end{equation}
+    The rapidity $\eta$ has to be rewritten in terms of the parameter of the boost $p^z$. In order to do so, we remind that a Lorenz transformation of a generic 4-vector $V^\mu$ along the $\hat{z}$ axis is\footnote{We stress that we use the active point of view, i.e.\ we boost the system and not the reference.}
+    \begin{align}
+        \begin{split}
+            V^0 &\mapsto \cosh \eta V^0 + \sinh \eta V^3 \,,\\
+            V^3 &\mapsto \sinh \eta V^0 + \cosh \eta V^3\,,
+        \end{split}
+    \end{align}
+    which implies
+    \begin{equation}
+    \label{eta_p_E}
+        \begin{split}
+            \cosh \eta &= \gamma = \frac{\Ep}{m} \,,\\
+            \sinh \eta &= \beta \gamma = \frac{p^z}{m}\,.
+        \end{split}
+    \end{equation}
+    Pluggin Eq.~\eqref{eta_p_E} into Eq.~\eqref{lorentz_chiral_eta}, we find
+    \begin{equation}
+        \begin{split}
+            \Lambda_L &= \sqrt{\frac{E_{p^z} + p^z}{m}}\left( \frac{\id_2 - \sigma_z}{2} \right) + \sqrt{\frac{E_{p^z} - p^z}{m}}\left( \frac{\id_2 + \sigma_z}{2} \right)\,,\\
+            \Lambda_R &= \sqrt{\frac{E_{p^z} + p^z}{m}}\left( \frac{\id_2 + \sigma_z}{2} \right) + \sqrt{\frac{E_{p^z} - p^z}{m}}\left( \frac{\id_2 - \sigma_z}{2} \right)\,.
+        \end{split}
+    \end{equation}
+    We can now apply the above Lorentz transformation to $u^s(\vzero)$, i.e.
+    \begin{equation}
+    \label{u_boosted}
+        u^s(\vzero) \rightarrow u^s(\vp) =
+        \sqrt{m}
+        \begin{pmatrix}
+            \Lambda_L \xi^r \\
+            \Lambda_R \xi^r
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            \left[\sqrt{E_{p^z} + p^z}\left( \frac{\id_2 - \sigma_z}{2} \right) + \sqrt{E_{p^z} - p^z}\left( \frac{\id_2 + \sigma_z}{2} \right) \right]\xi^r \\
+            \left[\sqrt{E_{p^z} + p^z}\left( \frac{\id_2 + \sigma_z}{2} \right) + \sqrt{E_{p^z} - p^z}\left( \frac{\id_2 - \sigma_z}{2} \right)\right] \xi^r
+        \end{pmatrix}\,,
+    \end{equation}
+    where the two components $\xi^s$ are chosen as
+    \begin{equation}
+        \xi^1 =
+        \begin{pmatrix}
+            1 \\ 0
+        \end{pmatrix}\,, \quad
+        \xi^2 =
+        \begin{pmatrix}
+            0 \\ 1
+        \end{pmatrix}\,.
+    \end{equation}
+    Taking the hermitian conjugate of Eq.~\eqref{u_boosted} and applying $\gamma^0$, we obtain
+    \begin{equation}
+    \label{ubar_boosted}
+        \sbar{u}^{s}(\vp) = u^{s\dagger}(\vp) \gamma^0 =
+        \begin{pmatrix}
+           \xi^{r\dagger} \left[\sqrt{E_{p^z} + p^z}\left( \frac{\id_2 + \sigma_z}{2} \right) + \sqrt{E_{p^z} - p^z}\left( \frac{\id_2 - \sigma_z}{2} \right) \right]  \\
+            \xi^{r\dagger}\left[\sqrt{E_{p^z} + p^z}\left( \frac{\id_2 - \sigma_z}{2} \right) + \sqrt{E_{p^z} - p^z}\left( \frac{\id_2 + \sigma_z}{2} \right) \right]
+        \end{pmatrix}\,.
+    \end{equation}
+   Finally, we can compute
+    \begin{equation}
+    \begin{split}
+        \sbar{u}^r(\vp) u^s(\vp) = 2 \xi^{r\dagger}&\left[  \sqrt{E_{p^z} + p^z}\left( \frac{\id_2 + \sigma_z}{2} \right)+ \sqrt{E_{p^z} - p^z}\left( \frac{\id_2 - \sigma_z}{2} \right)\right] \\
+        \times &\left[ \sqrt{E_{p^z} + p^z}\left( \frac{\id_2 - \sigma_z}{2} \right) + \sqrt{E_{p^z} - p^z}\left( \frac{\id_2 + \sigma_z}{2} \right)\right] \xi^s\,.
+    \end{split}
+    \end{equation}
+    Using the properties
+    \begin{equation}
+        \left( \frac{\id_2 \pm \sigma_z}{2}\right)^2 = \left( \frac{\id_2 \pm \sigma_z}{2}\right)\,, \quad \left( \frac{\id_2 \pm \sigma_z}{2}\right)\left( \frac{\id_2 \mp \sigma_z}{2}\right) = 0\,,
+    \end{equation}
+    at the end we get
+    \begin{equation}
+    \label{ubar_u}
+        \sbar{u}^r(\vp) u^s(\vp) = 2 \xi^{r\dagger} \left[ \underbrace{\sqrt{E_{p^z}^2 - (p^{z})^2}}_{m} \left(\frac{\id_2 + \sigma_z}{2}\right) + \underbrace{\sqrt{E_{p^z}^2 - (p^{z})^2}}_{m} \left(\frac{\id_2 - \sigma_z}{2}\right) \right] \xi^s = 2 m \, \delta^{rs}\,.
+    \end{equation}
+    This result is a direct consequence of the normalization we chose in Eq.~\eqref{norm_u}.
+    In the same way, starting from Eq.~\eqref{u_boosted} and computing $u^{s\dagger}(\vp)$, we can show that
+    \begin{equation}
+    \label{udag_u}
+        u^{r\dagger}(\vp) u^s(\vp) = 2 \Ep \, \delta^{rs} \,,
+    \end{equation}
+    that is again a consequence of our normalization choice in Eq.~\eqref{norm_u}. In conclusion, we showed that if Eq.~\eqref{ubar_u} holds, then Eq.~\eqref{udag_u} holds as well.
+\end{sol}

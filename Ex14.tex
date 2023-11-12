@@ -1,0 +1,173 @@
+\begin{ex} \label{ex_14} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_14}}
+    Show that the spin operator for the electromagnetic field has the form
+    \begin{equation}
+        s^{i} = \epsilon^{ijk}\int \rmd^3 \vx \, E_{j}A_{k} = \int \frac{\rmd^3p}{(2\pi)^{3}} \sum_{\lambda ,\lambda'=\pm}\Big[\epsilon^*_{j}(\vp,\lambda)\epsilon_{i}(\vp, \lambda') - \epsilon^*_{i}(\vp,\lambda)\epsilon_{j}(\vp, \lambda')\Big]\acon_{\vp,\lambda}\ades_{\vp, \lambda'} \, .
+        \label{Eq_Ex14_spin}
+    \end{equation}
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    Let $\Lambda = \Lambda(\theta)$ be a rotation of an angle $\theta$ around the $\hat{z}$ axis. To prove Eq.~\eqref{Eq_Ex14_spin}, we start by computing the conserved charge of $A_{\mu}(x)$. Remember that the conserved current reads
+    \begin{equation}
+    \label{jmu}
+            j^{\mu} = \frac{\partial \mathcal{L}}{\partial(\partial_{\mu}A_{\nu})} \Delta A_{\nu} \,,
+    \end{equation}
+    where $\Delta A_\nu$ is defined according to
+    \begin{equation}
+            A_\nu' = A_\nu + \theta \Delta A_{\nu}\,.
+    \end{equation}
+    The rotation $\Lambda$ acts on $A_\mu(x)$ as 
+    \begin{equation}
+    \begin{split}
+        A'^{\mu}(x) = \tensor{\Lambda}{^\mu_\nu} A^{\nu}(x_{0}) \,, 
+        %  
+        \qquad 
+        %
+        x = \Lambda x_{0} \,,
+        \end{split}
+    \end{equation}
+    where
+    \begin{equation}
+        \tensor{\Lambda}{^\mu_\nu} = \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & -\theta & 0 \\
+            0 & \theta & 1 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{pmatrix} \,,
+    \end{equation}
+    so we can compute $\Delta A_{\mu}$ as follows
+    \begin{equation}
+        A'^{\mu}(x) = \tensor{\Lambda}{^\mu_\nu} A^{\nu}(x_{0}) = \Bigl(\id - \frac{i}{2}\tensor{\omega}{_\rho_\sigma}J^{\rho \sigma}\tensor{\Bigr)}{^\mu_\nu} A^{\nu}(\Lambda^{-1} x) \,,
+        \label{Eq_Ex14_step1}
+    \end{equation}
+    with
+    \begin{equation}
+        \omega_{\rho \sigma} = \begin{pmatrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & \theta & 0 \\
+            0 & -\theta & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{pmatrix}\,.
+    \end{equation}
+    According to the relation $J^i = \frac{1}{2} \epsilon^{ijk} J^{jk}$ and using the antisymmetry of $J^{\rho \sigma}$, Eq.~\eqref{Eq_Ex14_step1} reduces to\footnote{Notice that $J^{3} = \frac{1}{2}(J^{12}-J^{21}) = J^{12}$.} 
+    \begin{equation}
+    \label{eq_A'mu}
+        A'^{\mu}(x) = \bigl(\id - i \omega_{12}J^{3}\tensor{\bigr)}{^\mu _\nu} A^{\nu}(\Lambda^{-1} x)\,.
+    \end{equation}
+    Now, said $x^\mu = (t,x,y,z)$ and $x_0^\mu = (t,x_0,y_0,z_0)$, to the first order in $\theta$ the spatial coordinates of $x = \Lambda x_0$ are given by
+    \begin{equation}
+        \begin{cases}
+            x = x_0 - \theta y_0 \, , \\
+            y = \theta x_0 + y_0 \, , \\
+            z = z_0 \, ,
+        \end{cases}
+    \end{equation}
+    so those of $x_0 = \Lambda^{-1} x$ are obtained by changing $\theta$ in $-\theta$, that is
+    \begin{equation}
+        A^{\nu}(\Lambda^{-1} x) = A^{\nu}(t, x+\theta y, y-\theta x, z) = A^{\nu}(x) + \frac{\partial A^{\nu}}{\partial x}\theta y - \frac{\partial A^{\nu}}{\partial y}\theta x \,.
+    \end{equation}
+    Plugging this expression into Eq.~\eqref{eq_A'mu}, we get (up to $\mathcal{O}(\theta^{2})$)
+    \begin{align}
+            A'^{\mu}(x) - A^{\mu}(x) &= (\id - i\theta J^{3}\tensor{)}{^\mu _\nu}\biggl(A^{\nu}(x) + \frac{\partial A^{\nu}}{\partial x}\theta y - \frac{\partial A^{\nu}}{\partial y}\theta x\biggr) - A^{\mu}(x) \notag\\
+            &= -i\theta \tensor{(J^3)}{^\mu _\nu} A^{\nu}(x) + \theta(y\partial_{x} - x\partial_{y})A^{\mu}(x) \, .\label{Amu_variation}
+    \end{align}
+    The first part of Eq.~\eqref{Amu_variation} is a variation related to the internal transformations, while the second one is related to the space-time transformations.
+    Since $\Lambda$ is a rotation around the $\hat{z}$ axis, it follows that the spin is the generator of the internal transformations and the orbital angular momentum of the external ones.
+    However in this exercise we are interested in the spin, so from now on we only focus on the first part of Eq.~\eqref{Amu_variation}, i.e.
+    \begin{equation}
+    \label{Amu_variation_spin}
+    \Delta A^{\mu} = -i \tensor{(J^3)}{^\mu _\nu} A^{\nu}(x)\,.
+    \end{equation}
+    Therefore, we plug Eq.~\eqref{Amu_variation_spin} into Eq.~\eqref{jmu}, we use
+    \begin{equation}
+        \frac{\partial \mathcal{L}}{\partial(\partial_{\mu}A_{\nu})} = -F^{\mu \nu} 
+    \end{equation}
+    and then set $\mu = 0$ (we are interested in $j^{0}$), which gives $-F^{0\nu} = E^{\nu}$ (with $E^{0} = 0$ because $F^{00} = 0$).
+    Putting everything together, we find
+    \begin{equation}
+        j^{0} = E^{i}\Delta A_{i} = E^{i}(-i)\tensor{(J^3)}{_i_j} A^{j}(x)\, , 
+    \end{equation}
+    where now $i,j$ run only on spatial components $1,2,3$.  Writing explicitly $J^{3}$ as
+    \begin{equation}
+        \tensor{(J^3)}{_i_j} = \tensor{(J^{12})}{_i_j} = i(\tensor{\eta}{^1_i}\tensor{\eta}{^2_j} - \tensor{\eta}{^2_j}\tensor{\eta}{^1_i} )\, ,
+    \end{equation}
+    we get
+    \begin{equation}
+        j^{0} = E^{1}A^{2} - E^{2}A^{1} = \epsilon^{3ij}E_{i}A_{j}\,,
+    \end{equation}
+    which means that the conserved charge corresponds to
+    \begin{equation}
+            Q^{0} \define s^{3} = \int \rm\rmd^3\vx \;\epsilon^{3jk}E_{j}A_{k}\,.
+    \end{equation}
+    Generalizing this procedure to a generic rotation, one can easily show that 
+    \begin{equation}
+    \label{eq_si}
+        s^{i} = \int \rm\rmd^3\vx \;\epsilon^{ijk}E_{j}A_{k}\, .
+    \end{equation}
+    Now we only need to substitute the explicit expressions of $E_{j}$ and $A_{k}$ in the last equation. Remember the definitions
+    \begin{equation}
+    \label{eq_Ak}
+        \vA = \int \frac{\rm\rmd^3\vp}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{p}}}\sum_{\lambda=\pm}\Big[\veps(p, \lambda)\ades_{\vp, \lambda}e^{-ipx} + \vepsstar(p, \lambda)\acon_{\vp, \lambda}e^{ipx} \Big] \,,
+        %
+        \qquad
+        %
+        \vA_{0} = 0 \,,
+        %
+        \qquad
+        %
+        \omega_{p} = |\vp|\, ,
+    \end{equation}
+    and also the relations 
+    \begin{equation}
+        \vgrad \cdot \vA = 0 \,,
+        %
+        \qquad
+        %
+        [\ades_{\vp,\lambda}, \acon_{\vq, \lambda'}] = (2\pi)^{3}\delta^{(3)}(\vp-\vq)\delta_{\lambda \lambda'}\, .
+    \end{equation}
+    Then, according to the identity $E_{j} = F_{0j} = \partial_{0}A_{j} - \partial_{j}A_{0} = \partial_{0}A_{j}$, we can write $E_j$ as
+    \begin{equation}
+    \label{eq_Ej}
+        \begin{split}
+            E_{j} &= \partial_{0}A_{j} = \frac{\partial}{\partial t} \int \frac{\rm\rmd^3\vp}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{\vp}}}\sum_{\lambda=\pm}\Big[\epsilon_{j}(\vp, \lambda)\ades_{\vp, \lambda}e^{-ipx} + \epsilon^*_{j}(\vp, \lambda)\acon_{\vp, \lambda}e^{ipx} \Big] \\
+            &= i\int \frac{\rm\rmd^3\vp}{(2\pi)^{3}}\sqrt{\frac{\omega_{\vp}}{2}}\sum_{\lambda=\pm}\Big[-\epsilon_{j}(\vp, \lambda)\ades_{\vp, \lambda}e^{-ipx} + \epsilon^*_{j}(\vp, \lambda)\acon_{\vp, \lambda}e^{ipx} \Big]\,.
+        \end{split}
+    \end{equation}
+    At this point we plug both Eqs.~\eqref{eq_Ak} and \eqref{eq_Ej} into Eq.~\eqref{eq_si}, getting
+    \begin{equation}
+    \label{eq_semifinalsk}
+    \begin{split}
+            s^{k} = &\; \epsilon^{kji} \int \rm\rmd^3\vx i \int \frac{\rm\rmd^3\vp}{(2\pi)^{3}}\sqrt{\frac{\omega_{\vp}}{2}}\sum_{\lambda=\pm}\Big[-\epsilon_{j}(\vp, \lambda)\ades_{\vp, \lambda}e^{-ipx} + \epsilon^*_{j}(\vp, \lambda)\acon_{\vp, \lambda}e^{ipx} \Big] \\
+            %
+            &\times \int \frac{\rm\rmd^3\vp'}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{\vp'}}}\sum_{\lambda'=\pm}\Big[\epsilon_{i}(\vp', \lambda')\ades_{\vp', \lambda'}e^{-ip'x'} + \epsilon^*_{i}(\vp', \lambda')\acon_{\vp', \lambda'}e^{ip'x'} \Big] \\
+            %
+            = &\;  i \epsilon^{ijk} \int \frac{\rm\rmd^3\vp}{(2\pi)^{3}} \frac{1}{2}\sum_{\lambda, \lambda'=\pm}\Big[\epsilon^*_{j}(\vp,\lambda)\epsilon_{i}(\vp, \lambda')\acon_{\vp,\lambda}\ades_{\vp, \lambda'} - \epsilon_{j}(\vp,\lambda)\epsilon^*_{i}(\vp, \lambda')\ades_{\vp, \lambda}\acon_{\vp, \lambda'} \\
+            %
+            & + \epsilon^*_{j}(\vp,\lambda)\epsilon^*_{i}(-\vp, \lambda')\acon_{\vp,\lambda}\acon_{-\vp, \lambda'}e^{2ip^{0}t} - \epsilon_{j}(\vp,\lambda)\epsilon_{i}(-\vp, \lambda')\ades_{\vp,\lambda}\ades_{-\vp, \lambda'}e^{-2ip^{0}t}\Big]\, .
+    \end{split}
+    \end{equation}
+    The last two terms of the last line vanish. In fact, taking for instance the first of the two, we can rewrite it as
+    \begin{equation}
+    \begin{split}
+        & \epsilon^{kji} \epsilon_{j}(\vp,\lambda)\epsilon^*_{i}(-\vp, \lambda')\acon_{\vp, \lambda}\acon_{-\vp \lambda'}  \\
+        = &\; \frac{1}{2}\epsilon^{kji}\left(\epsilon^*_{j}(\vp,\lambda)\epsilon^*_{i}(-\vp, \lambda')\acon_{\vp,\lambda}\acon_{-\vp,\lambda'}
+        - \epsilon^*_{i}(\vp,\lambda')\epsilon^*_{j}(-\vp, \lambda)\acon_{\vp, \lambda'}\acon_{-\vp, \lambda}\right)\,,
+    \end{split}
+    \end{equation}
+    which is an odd function under $\vp \mapsto - \vp$ and thus gives zero under integration. \par 
+    We are then left with the first two terms of Eq.~\ref{eq_semifinalsk}. Since they are both multiplied by $\epsilon^{kji}$, it is convenient to antisymmetrize them,
+    \begin{equation}
+    \label{almost_final}
+    \begin{split}
+        s^{k} = i\epsilon^{kji} \int \frac{\rm\rmd^3\vp}{(2\pi)^{3}}\frac{1}{2}\sum_{\lambda, \lambda'=\pm}\Big[&\left(\epsilon^*_{j}(\vp,\lambda)\epsilon_{i}(p, \lambda') - \epsilon^*_{i}(\vp,\lambda)\epsilon_{j}(\vp, \lambda')\right)\acon_{\vp, \lambda}\ades_{\vp, \lambda'} \\
+        &- \left(\epsilon_{j}(\vp,\lambda)\epsilon^*_{i}(\vp, \lambda') - \epsilon_{i}(\vp,\lambda)\epsilon^*_{j}(\vp, \lambda')\right)\ades_{\vp,\lambda}\acon_{\vp, \lambda'}\Big]\, .
+    \end{split}
+    \end{equation}
+    Now it is enough to relabel the summed indices in the last term of Eq.~\eqref{almost_final} as $\lambda \mapsto \lambda'$ and $\lambda' \mapsto \lambda$, and swap the order of the operators $\ades$ and $\acon$ (these operators must be taken inside normal ordering) to get 
+    \begin{equation}
+        s^{k} = i \epsilon^{kji} \int \frac{\rm\rmd^3\vp}{(2\pi)^{3}}\sum_{\lambda ,\lambda'=\pm}\left[\epsilon^*_{j}(\vp,\lambda)\epsilon_{i}(\vp, \lambda') - \epsilon^*_{i}(\vp,\lambda)\epsilon_{j}(\vp, \lambda')\right]\acon_{\vp,\lambda}\ades_{\vp, \lambda'} \,,
+    \end{equation}
+    which is exactly Eq.~\eqref{Eq_Ex14_spin}.
+\end{sol}

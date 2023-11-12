@@ -1,0 +1,166 @@
+\begin{ex} \label{ex_26} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_26}}
+    Prove that if $\theta_{i}$ are (complex) components of an $N$-dimensional vector of Grassmann numbers
+    and $B$ is an $N \times N$ matrix, then
+    \begin{equation}
+        \left(\prod_{k=1}^{N} \int \rmd \theta_k^{*} \rmd \theta_k \right) \theta_{i}\theta_{j}^* \, e^{- \theta_{m}^{*}B_{mn}\theta_{n}} = (B^{-1})_{ij} \det B\, ,
+        \label{Eq_Ex26_request}
+    \end{equation}
+    where we assume the convention that the repeated indices are implicitly summed.
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    Assume in what follows that $\theta_k$ and $\theta'^{*}_k$ are two independent variables. Before proving Eq.~\eqref{Eq_Ex26_request}, we first show that the following identity holds
+    \begin{equation}
+        \left(\prod_{k=1}^{N} \int \rmd \theta_k^{*} \rmd \theta_k \right) \, e^{-\theta_{m}^{*}B_{mn}\theta_{n}} = \det B \, .
+        \label{Eq_Ex26_first_property}
+    \end{equation}
+    To do so, we start introducing two unitary matrices $U$ and $V$ such that
+    \begin{equation}
+        B_{\rm D} = U B V 
+    \end{equation}
+    is diagonal with non-negative numbers on the diagonal\footnote{A generic matrix (it can even be rectangular) can always be diagonalized by means of two unitary matrices into a diagonal non-negative matrix. See \url{https://en.wikipedia.org/wiki/Singular_value_decomposition} for more details.}
+    Then, we perform the change of variables
+    \begin{equation}
+        \theta'_{p} = (V^\dagger)_{pn} \theta_{n} \, ,
+        \qquad
+        \theta'^{*}_{l} = \theta_{m}^{*} (U^\dagger)_{m l} \, ,
+        \label{Eq_Ex26_change_variables}
+    \end{equation}
+    through which we find
+    \begin{equation}
+        \theta_{m}^{*} B_{mn} \theta_{n} 
+        = \theta_{m}^{*} (U^\dagger U B V V^\dagger)_{mn}\theta_{n} 
+        = \theta_{m}^{*} (U^\dagger)_{ml}  (B_{\rm D})_{lp} (V^\dagger)_{pn} \theta_{n} 
+        = \theta'^{*}_l (B_{\rm D})_{lp} \theta'_p 
+        \equiv b_l \, \theta'^{*}_l \theta'_l \, ,
+    \end{equation}
+    where we used $(B_{\rm D})_{lp} \theta'_p = b_l \, \theta'_l$. Relabelling the index $l$ as $n$, we can rewrite the l.h.s~of Eq.~\eqref{Eq_Ex26_first_property} as
+    \begin{equation}
+        \left(\prod_{k=1}^{N} \int \rmd \theta_k^{*} \rmd \theta_k \right) \, e^{-\theta_{m}^{*}B_{mn}\theta_{n}}
+        %
+        = \frac{1}{\det U}\frac{1}{\det V} \left(\prod_{k=1}^{N} \int \rmd \theta_k'^{*} \rmd\theta'_k \right) e^{- b_{n}\, \theta'^{*}_{n} \theta'_{n}} \, ,
+        \label{Eq_Ex26_intermediate_step}
+    \end{equation}
+    where $\det U$ and $\det V$ come from the Jacobian of the change of the variables of integration. At this point we write the exponential in Eq.~\eqref{Eq_Ex26_intermediate_step} as a power series of $b_n \, \theta'^{*}_{n} \theta'_{n}$, i.e.
+    \begin{equation}
+        \frac{1}{\det U}\frac{1}{\det V} \left(\prod_{k=1}^{N} \int \rmd \theta_k'^{*} \rmd\theta'_k \right) e^{- b_{n}\, \theta'^{*}_{n} \theta'_{n}} 
+        %
+        = \frac{1}{\det U}\frac{1}{\det V} \left(\prod_{k=1}^{N} \int \rmd \theta_k'^{*} \rmd\theta'_k \right) \sum_{s=0}^{\infty} \frac{(- b_{n}\, \theta'^{*}_{n} \theta'_{n})^s}{s!} \, .
+        \label{Eq_Ex26_second_intermediate_step}
+    \end{equation}
+    Consider first the case $N=1$. We simply use the properties
+    \begin{equation}
+        (\theta')^2 = (\theta'^{*})^2 = 0 \, ,
+        %
+        \qquad
+        %
+        \int \rmd \theta'^{*} \rmd\theta' \, \theta' \theta'^{*} = 1 \, ,
+        %
+        \qquad
+        %
+        \int \rmd \theta'^{*} \rmd\theta' = 0 \; ,
+        \label{Eq_Ex26_second_property}
+    \end{equation}
+    to show that
+    \begin{equation}
+    \begin{split}
+        \int \rmd \theta'^{*} \rmd\theta' \, e^{- b\, \theta'^{*} \theta'} 
+        %
+        = & \int \rmd \theta'^{*} \rmd\theta' \sum_{s = 0}^{\infty} \frac{(- b\, \theta'^{*} \theta')^s}{s!} 
+        %
+        = \int \rmd \theta'^{*} \rmd \theta' \sum_{s = 0}^{\infty} \frac{(b\, \theta' \theta'^{*})^s}{s!} \\
+        %
+        = &\; \int \rmd \theta'^{*} \rmd\theta' (1 + b\, \theta' \theta'^{*} + \text{higher powers of $\theta' \theta'^{*}$ that vanish}) \\
+        %
+        = &\; b \int \rmd \theta'^{*} \rmd\theta' \,  \theta' \theta'^{*} \equiv b \, ,
+    \end{split}
+    \end{equation}
+    which satisfies the Eq.~\eqref{Eq_Ex26_first_property}. Moving to the case of $N$ generic, in analogy with the case $N=1$ we see that the only non-vanishing contribution on the r.h.s.~of Eq.~\eqref{Eq_Ex26_second_intermediate_step} can come from the power $s = N$, since only the latter produces a term of the kind $\theta'_1 \theta'^{*}_1 ... \theta'_N \theta'^{*}_N$ which does not vanish once integrated. In fact, from $N=1$ we see that each $\theta'_n \theta'^{*}_n$ pair must appear raised exactly to the power of 1, otherwise the integrals vanish. Therefore, using the \emph{multinomial theorem} to read the explicit formula of $(- b_{n}\, \theta'^{*}_{n} \theta'_{n})^N$, we find\footnote{Remember that $\theta'^{*}_{n} \theta'_{n} = - \theta'_{n} \theta'^{*}_{n}$.}
+    \begin{equation}
+        \frac{(- b_{n}\, \theta'^{*}_{n} \theta'_{n})^N}{N!} = \prod_{j=1}^{N} b_{j}\, \theta'_{j} \theta'^{*}_{j} + \text{contributions that vanish once integrated} \, ,
+    \end{equation}
+    through which we finally obtain 
+    \begin{align}
+        \left(\prod_{k=1}^{N} \int \rmd \theta_k^{*} \rmd \theta_k \right) \, e^{-\theta_{m}^{*}B_{mn}\theta_{n}}
+        %
+        = &\; \frac{1}{\det U}\frac{1}{\det V} \left(\prod_{k=1}^{N} \int \rmd \theta_k'^{*} \rmd\theta'_k \right) \frac{(- b_{n}\, \theta'^{*}_{n} \theta'_{n})^N}{N!} \nonumber\allowdisplaybreaks\\
+        %
+        = &\; \frac{1}{\det U}\frac{1}{\det V} \left(\prod_{k=1}^{N} \int \rmd \theta_k'^{*} \rmd\theta'_k \right) \prod_{j=1}^{N} b_{j}\, \theta'_{j} \theta'^{*}_{j} \nonumber\allowdisplaybreaks\\
+        %
+        = &\; \frac{1}{\det U}\frac{1}{\det V} \prod_{k=1}^{N} b_{k} \underbrace{\int \rmd \theta_k'^{*} \rmd\theta'_k  \, \theta'_{k} \theta'^{*}_{k}}_{= 1} \nonumber\allowdisplaybreaks\\
+        %
+        = &\; \frac{1}{\det U}\frac{1}{\det V} \prod_{k=1}^{N} b_{k} \nonumber\allowdisplaybreaks\\
+        %
+        = &\; \frac{\det B_{\rm D}}{\det U \, \det V} \equiv  \det B \, .
+    \end{align}
+    This proves Eq.~\eqref{Eq_Ex26_first_property}.
+    
+    Now we have all the instruments to compute the integral of Eq.~\eqref{Eq_Ex26_request}. First, we apply the change of coordinates of Eq.~\eqref{Eq_Ex26_change_variables}, rewriting the l.h.s.~of the Eq.~\eqref{Eq_Ex26_request} (we call it $I_{ij}$ for convenience) as
+    \begin{equation}
+        I_{ij} 
+        %
+        =\left(\prod_{k=1}^{N} \int \rmd \theta_k^{*} \rmd \theta_k \right) \theta_{i}\theta_{j}^* \, e^{- \theta_{m}^{*}B_{mn}\theta_{n}}
+        %
+        = \frac{1}{\det U}\frac{1}{\det V} \left(\prod_k \int \rmd \theta_k'^{*} \rmd\theta'_k \right) V_{il} U_{pj} \, \theta'_{l} \theta'^{*}_{p} \, e^{- b_{n}\, \theta'^{*}_{n} \theta'_{n}} \, .
+        \label{Eq_Ex26_third_intermediate_step1}
+    \end{equation}
+    Then we write the exponential as in Eq.~\eqref{Eq_Ex26_second_intermediate_step}, i.e.
+    \begin{equation}
+        I_{ij}
+        %
+        = \frac{1}{\det U}\frac{1}{\det V} \left(\prod_k \int \rmd \theta_k'^{*} \rmd\theta'_k \right) V_{il} U_{pj} \, \theta'_{l} \theta'^{*}_{p} \, \sum_{s=0}^{\infty} \frac{(- b_{n}\, \theta'^{*}_{n} \theta'_{n})^s}{s!} \, .
+        \label{Eq_Ex26_third_intermediate_step2}
+    \end{equation}
+    This time the non-vanishing contribution comes from the power $s = N-1$. In fact, since the integrals do not vanish only if the integrand is a term of the kind $\theta'_1 \theta'^{*}_1 ... \theta'_N \theta'^{*}_N$, and since we already have an extra $\theta'_{l} \theta'^{*}_{p}$ pair, then we need precisely other $N-1$ $\theta'_{n} \theta'^{*}_{n}$ pairs to get $\theta'_1 \theta'^{*}_1 ... \theta'_N \theta'^{*}_N$. Therefore, setting $s = N-1$ and using again the multinomial theorem, we find 
+    \begin{equation}
+        \frac{(- b_{n}\, \theta'^{*}_{n} \theta'_{n})^{N-1}}{(N-1)!} = \sum_{r=1}^{N} \prod_{t \not= r}^{N} b_{t}\, \theta'_{t} \theta'^{*}_{t} + \text{contributions that vanish once integrated} \, .
+    \end{equation}
+    In other words, the contribution we are interested in has the form
+    \begin{equation}
+    \label{davidonemifalavoraredisera}
+        b_2 \theta'_2 \theta'^*_2 b_3 \theta'_3 \theta'^*_3 ... b_N \theta'_N \theta'^*_N 
+        %
+        + b_1 \theta'_1 \theta'^*_1 b_3 \theta'_3 \theta'^*_3 ... b_N \theta'_N \theta'^*_N 
+        %
+        + \dots 
+        %
+        +b_1 \theta'_1 \theta'^*_1 b_2 \theta'_2 \theta'^*_2 ... b_{N-1} \theta'_{N-1} \theta'^*_{N-1} \,.
+    \end{equation}
+    Putting this expression in place of the exponential in Eq.~\eqref{Eq_Ex26_third_intermediate_step2}, we find
+    \begin{equation}
+        I_{ij}
+        %
+        = \frac{1}{\det U}\frac{1}{\det V} \left(\prod_{k=1}^{N} \int \rmd \theta_k'^{*} \rmd\theta'_k \right) V_{il} U_{pj} \, \theta'_{l} \theta'^{*}_{p} \sum_{r=1}^{N} \prod_{t \not= r}^{N} b_{t} \,  \theta'_{t} \theta'^{*}_{t} \, . 
+    \end{equation}
+    Notice that the condition $\theta'_{l} \theta'^{*}_{p} = \delta_{lp} \theta'_{l} \theta'^{*}_{l}$ must hold, otherwise a pair remains ``unmatched'' and the corresponding integral vanishes. It follows that
+    \begin{align}
+        I_{ij}
+        %
+        = &\; \frac{1}{\det U}\frac{1}{\det V} \left(\prod_{k=1}^{N} \int \rmd \theta_k'^{*} \rmd\theta'_k \right) V_{il} U_{lj} \, \theta'_{l} \theta'^{*}_{l} \sum_{r=1}^{N} \prod_{t \not= r}^{N} b_{t} \,  \theta'_{t} \theta'^{*}_{t} \notag\\
+        %
+        = &\; \frac{1}{\det U}\frac{1}{\det V} \left(\prod_{k=1}^{N} \int \rmd \theta_k'^{*} \rmd\theta'_k \right) (b_1 ... b_N) V_{il} \frac{1}{b_l} U_{lj} \, \theta'_{l} \theta'^{*}_{l} \sum_{r=1}^{N} \prod_{t \not= r}^{N}  \theta'_{t} \theta'^{*}_{t} \, .
+    \end{align}
+    Finally, we point out that the integrals vanish if $r\not= l$, because in that case we would have a missing $\theta' \theta'^{*}$ pair and another pair raised to the power of 2.
+    In other words, we have to multiply to every piece of Eq.~\eqref{davidonemifalavoraredisera} the missing couple of $\theta' \theta'^{*}$.
+    So, also by noticing that $1/b_l = (B_{\rm D}^{-1})_{ll}$, we find
+    \begin{align}
+        I_{ij}
+        %
+        = &\; \frac{\det B_{\rm D}}{\det U \, \det V} \left(\prod_{k=1}^{N} \int \rmd \theta_k'^{*} \rmd\theta'_k  \right) V_{il} (B_{\rm D}^{-1})_{ll} U_{lj} \, \theta'_{1} \theta'^{*}_{1}...\theta'_{N} \theta'^{*}_{N} \notag\allowdisplaybreaks \\
+        %
+        = &\; \det B \left(\prod_{k=1}^{N} \int \rmd \theta_k'^{*} \rmd\theta'_k  \, \theta'_{k} \theta'^{*}_{k} \right) \underbrace{V_{il} (B_{\rm D}^{-1})_{ll} U_{lj}}_{\equiv \, (B^{-1})_{ij}} \notag\allowdisplaybreaks \\
+        %
+        = &\; (B^{-1})_{ij} \det B \, ,
+    \end{align}
+    where we used
+    \begin{equation}
+        B_{\rm D}^{-1} = (U B V)^{-1} = V^{-1} B^{-1} U^{-1} 
+        %
+        \quad \Longrightarrow \quad
+        %
+        V B_{\rm D}^{-1} U = B^{-1} \, .
+    \end{equation}
+    We have thus obtained Eq.~\eqref{Eq_Ex26_request}.
+\end{sol}

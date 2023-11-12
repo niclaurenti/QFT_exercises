@@ -1,0 +1,85 @@
+\begin{ex} \label{ex_4} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_4}}
+    Show that requiring invariance of the metric upon Lorentz transformations
+    \begin{equation}
+        \tensor{\Lambda}{^\mu_\nu} \tensor{\Lambda}{^\rho_\sigma} \g^{\nu \sigma} = \g^{\mu \rho} \, ,
+        \label{Eq_Ex4_Lambda_prop_1}
+    \end{equation}
+    and writing the infinitesimal transformation in terms of its generators $J_{\rho \sigma}$
+    \begin{equation}
+    \label{lorentz_algebra1}
+        \tensor{\Lambda}{^\mu_\nu} = \tensor{\g}{^\mu_\nu} - \frac{i}{2} \omega^{\rho \sigma} \tensor{(J_{\rho \sigma})}{^\mu_\nu} \, ,
+    \end{equation}
+    completely fixes the explicit form of the generators, viewed as $4 \times 4$ Lorenz matrices $\tensor{(J_{\rho \sigma})}{^\mu_\nu}$, and determine their explicit expression. 
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    Let $\Lambda$ and $\omega$ be an element of the Lorentz group and of the Lorentz algebra respectively. The Eq.~\eqref{lorentz_algebra1} states that
+    \begin{equation}
+        \tensor{\Lambda}{^\mu_\nu} = \tensor{\g}{^\mu_\nu} + \tensor{\omega}{^\mu_\nu} + \mathcal{O}(\omega^2) \, .
+    \end{equation}
+    Substituting this identity in Eq.~\eqref{Eq_Ex4_Lambda_prop_1} we obtain
+    \begin{equation}
+    \begin{split}
+        & \big[\tensor{\g}{^\mu_\nu} + \tensor{\omega}{^\mu_\nu} + \mathcal{O}(\omega^2)\big] \big[\tensor{\g}{^\rho_\sigma} + \tensor{\omega}{^\rho_\sigma} + \mathcal{O}(\omega^2)\big] \g^{\nu \sigma} \\
+        %
+        = & \, \g^{\mu \rho} + \tensor{\omega}{^\mu_\nu} \tensor{\g}{^\rho_\sigma} \g^{\nu \sigma} + \tensor{\omega}{^\rho_\sigma} \tensor{\g}{^\mu_\nu} \g^{\nu \sigma} + \mathcal{O}(\omega^2) \\
+        %
+        = & \, \g^{\mu \rho} + \omega^{\mu \rho} + \omega^{\rho \mu} + \mathcal{O}(\omega^2) \\
+        = & \, \g^{\mu\rho} \, ,
+    \end{split}
+    \end{equation}
+    from which we find
+    \begin{equation}
+        \omega^{\mu \rho} = - \omega^{\rho \mu} \, .
+    \end{equation}
+    Therefore, a generic element of the Lorentz algebra in the vector representation ($4 \times 4$ matrices) with both high (or low) indices must be \textit{totally antisymmetric}. This implies that the Lorentz algebra necessarily has 6 generators, i.e.
+    \begin{equation}
+        \omega_{\mu \nu} = 
+        \begin{pmatrix}
+            0          & \alpha     & \beta    & \gamma \\
+            - \alpha   & 0          & \delta   & \epsilon \\
+            -\beta     & - \delta   & 0        & \theta \\
+            - \gamma   & - \epsilon & - \theta & 0 
+        \end{pmatrix} ,
+    \end{equation}
+    or, written in a more useful way as far as it concerns, 
+    \begin{equation}
+        \tensor{\omega}{^\mu_\nu} = \g^{\mu\sigma} \omega_{\sigma \nu} = 
+        \begin{pmatrix}
+            0        & \alpha   & \beta    & \gamma \\
+            \alpha   & 0        & - \delta & - \epsilon \\
+            \beta    & \delta   & 0        & -\theta \\
+            \gamma   & \epsilon & \theta & 0 
+        \end{pmatrix} \, .
+    \end{equation}
+    Basically $\tensor{\omega}{^\mu_\nu}$ is
+    \begin{itemize}
+        \item symmetric in $(0i)$ and $(i0)$ indices, i.e.
+        \begin{equation}
+            \tensor{\omega}{^0_i} = \tensor{\omega}{^i_0} \, ,
+        \end{equation}
+    
+        \item antisymmetric in the spatial entries
+        \begin{equation}
+            \tensor{\omega}{^i_j} = - \tensor{\omega}{^j_i} \, . 
+        \end{equation}
+    \end{itemize}
+    This completely fixes the Lorentz algebra. One can show that $\tensor{\omega}{^0_i}$ correspond to the Lorentz boosts $K^i$, while the antisymmetric part $\tensor{\omega}{^i_j}$ to rotations $\tensor{J}{^i_j}$. 
+    
+    Let's now see how generators $J^{\rho\sigma}$ appears in the theory. Since $\omega_{\rho \sigma}$ is antisymmetric, we can derive the following identity
+    \begin{equation}
+        \tensor{\omega}{^\mu_\nu} = \g^{\mu\rho} \tensor{\delta}{^\sigma_\nu} \omega_{\rho \sigma} = \frac{1}{2} \g^{\mu\rho} \tensor{\delta}{^\sigma_\nu} (\omega_{\rho \sigma} - \omega_{\sigma \rho}) = \frac{1}{2} \omega_{\rho \sigma} (\g^{\mu \rho} \tensor{\delta}{^\sigma_\nu} - \g^{\mu \sigma} \tensor{\delta}{^\rho_\nu}) \, .
+    \end{equation}
+    We are thus free to introduce an antisymmetric tensor $J^{\rho\sigma}$, defined as
+    \begin{equation}
+        \tensor{(J^{\rho\sigma})}{^\mu_\nu} \define i (\g^{\mu \rho} \tensor{\delta}{^\sigma_\nu} - \g^{\mu \sigma} \tensor{\delta}{^\rho_\nu}) \, , 
+        \label{Eq_Ex4_Jmunu_def}
+    \end{equation}
+    such that
+    \begin{equation}
+        \tensor{\omega}{^\mu_\nu} = - \frac{i}{2} \omega_{\rho\sigma}\tensor{(J^{\rho\sigma})}{^\mu_\nu} \, .
+    \end{equation}
+    The definition of these ``new'' generators $J^{\rho\sigma}$ completely determines the Lorentz algebra.
+\end{sol}

@@ -1,0 +1,81 @@
+\begin{ex} \label{ex_20} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_20}}
+    Define creation and annihilation operators $\ades_{\vp, s}$, $\acon_{\vp, s}$, $\bdes_{\vp, s}$ and $\bcon_{\vp, s}$ for the Dirac field according to
+    \begin{equation} \label{Eq_Ex20_fermion_field_def}
+        \psi(x) = \int \frac{\rmd^3 \vp}{(2\pi)^3} \frac{1}{\sqrt{2 \Ep}} \sum_{s=1,2} \left( u^s(\vp) \ades_{\vp, s}e^{-ipx} + v^s(\vp) \bcon_{\vp, s}e^{ipx}\right)\,,
+    \end{equation}
+    where $u^s(\vp)$ and $v^s(\vp)$ are solution to the momentum-space Dirac equation, and determine in term of these operators the expression of the Dirac Hamiltonian
+    \begin{equation}
+        H = \int \rmd^3 \vx \; \sbar{\psi}(x)\left( i \vgamma \cdot \vgrad +m\right) \psi(x) \,.
+    \end{equation}
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    Consider the Dirac equation
+    \begin{equation}
+        \left( i \gamma^\mu \partial_\mu -m\right) \psi(x) = \left( i \gamma^0 \partial_0 + \gamma^i \partial_i -m\right) \psi(x) = 0\,,
+    \end{equation}
+    which can be rewritten as
+    \begin{equation}
+        i \gamma^0 \partial_0 \psi(x) = \left( -i \gamma^i \partial_i + m \right) \psi(x)\,.
+    \end{equation}
+    Using that $\vgamma \cdot \vgrad= \gamma^i \frac{\partial}{\partial x^i}=\gamma^i \partial_i$, we find
+    \begin{equation}
+    \label{first_H}
+        H=\int \rmd^3 \vx \;\psi^\dagger(x) \gamma^0 i \gamma^0 \partial_0 \psi(x) = i \int\rmd^3\vx \; \psi^\dagger(x) \partial_0 \psi(x)\,.
+    \end{equation}
+    The derivative of $\psi$ with respect to the time reads
+    \begin{equation}
+        \partial_0 \psi(x) = i \int \frac{\rmd^3\vp}{(2\pi)^3}\sqrt{\frac{\Ep}{2}} \sum_s \left( - u^s(\vp) \ades_{\vp,s} e^{-ipx} + v^s(\vp) \bcon_{\vp, s} e^{ipx} \right) \,,
+    \end{equation}
+    so we plug this expression into Eq.~\eqref{first_H}, getting
+    \begin{equation}
+    \begin{split}
+        H = &\; i \int \rmd^3 \vx \int \frac{\rmd^3 \vp}{(2\pi)^3}\frac{1}{\sqrt{\Ep}} \sum_s \left( u^{s\dagger}(\vp) \acon_{\vp,s} e^{ipx} + v^{s\dagger}(\vp) \bdes_{\vp,s} e^{-ipx} \right) \\
+        %
+        & \times i \int \frac{\rmd^3 \vp'}{(2\pi)^3}\sqrt{\frac{E_{\vp'}}{2}} \sum_{s'} \left( -u^{s'}(\vp') \ades_{\vp',s'} e^{-ip'x} + v^{s'}(\vp') \bcon_{\vp',s'} e^{ipx} \right) \\
+        %
+        = &\; \int \rmd^3 \vx \frac{\rmd^3\vp \rmd^3\vp'}{(2\pi)^6} \frac{1}{\sqrt{\Ep}} \sqrt{\frac{E_{\vp'}}{2}} \sum_{s,s'} \Bigl( u^{s\dagger}(\vp) u^{s'}(\vp') \acon_{\vp, s}\ades_{\vp', s'} e^{i(p-p')x} \\
+        %
+        &- u^{s\dagger}(\vp) v^{s'}(\vp') \acon_{\vp, s}\bcon_{\vp', s'} e^{i(p+p')x} + v^{s\dagger}(\vp) u^{s'}(\vp') \bdes_{\vp, s}\ades_{\vp', s'} e^{-i(p+p')x}  \\
+        %
+        & -v^{s\dagger}(\vp) v^{s'}(\vp') \bdes_{\vp, s}\bcon_{\vp', s'} e^{-i(p-p')x}
+        \Bigr)\,.
+    \end{split}
+    \end{equation}
+    Then we notice that
+    \begin{equation}
+    \begin{split}
+        \int \rmd^3 \vx \;e^{i(p-p')x} &= e^{i(\Ep-E_{p'}')t}\int \rmd^3\vx \;e^{-i(\vp-\vp')\cdot \vx} \\ &= e^{i(\overbrace{\Ep - E_{\vp'}}^{=0})t}(2\pi)^3 \delta^{(3)}(\vp - \vp')= (2\pi)^3 \delta^{(3)}(\vp - \vp')\,,
+    \end{split}
+    \end{equation}
+    through which we can rewrite $H$ as
+    \begin{equation}
+    \begin{split}
+        H = \int \frac{\rmd^3\vp}{(2\pi)^3} \frac{1}{2} \sum_{s,s'} \Bigl( &u^{s\dagger}(\vp) u^{s'}(\vp) \acon_{\vp, s}\ades_{\vp, s'}
+        - u^{s\dagger}(\vp) v^{s'}(-\vp) \acon_{\vp, s}\bcon_{-\vp, s'}e^{2i\Ep t} \\
+        + & v^{s\dagger}(\vp) u^{s'}(-\vp) \bdes_{\vp, s}\ades_{-\vp, s'} e^{-2i\Ep t}
+        -v^{s\dagger}(\vp) v^{s'}(\vp) \bdes_{\vp, s}\bcon_{\vp, s'}
+        \Bigr)\,,
+        \end{split}
+    \end{equation}
+    Finally, applying the relations
+    \begin{align}
+        &u^{s\dagger}(\vp) u^{s'}(\vp) = v^{s\dagger}(\vp) v^{s'}(\vp) = 2 \Ep \delta^{ss'} \,,\\ 
+        &u^{s\dagger}(\vp) v^{s'}(-\vp) = v^{s\dagger}(\vp) u^{s}(-\vp) = 0\,,
+    \end{align}
+    and using the normal ordering
+    \begin{equation}
+    \begin{split}
+        : \ades_{\vp, s} \acon_{\vp', s} : \;=- \acon_{\vp', s} \ades_{\vp, s} \,, \\
+        : \bdes_{\vp, s} \bcon_{\vp', s} : \;=- \bcon_{\vp', s} \bdes_{\vp, s}\,,
+        \end{split}
+    \end{equation}
+    we find
+    \begin{equation}
+    \label{H_ab}
+        H = \int \frac{\rmd^3 \vp}{(2\pi)^3} \Ep \sum_s \left( \acon_{\vp, s} \ades_{\vp, s} + \bcon_{\vp, s} \bdes_{\vp, s}\right)\,.
+    \end{equation}
+    The normal ordering in Eq.~\eqref{H_ab} is understood.
+\end{sol}

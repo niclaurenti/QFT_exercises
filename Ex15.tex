@@ -1,0 +1,67 @@
+\begin{ex} \label{ex_15} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_15}}
+    Prove that if $\gamma^\mu$ are $N\,\times\,N$ matrices satisfying the Clifford algebra
+    \begin{equation}
+        \{ \gamma^\mu, \gamma^\nu \} = 2 \g^{\mu \nu} \id_N \,,
+    \end{equation}
+    where $\id_N$ is the $N$ dimensional identity matrix, then the matrices
+    \begin{equation}
+        \sigma^{\mu \nu} = \frac{i}{4} \left[ \gamma^\mu, \gamma^n \right] 
+    \end{equation}
+    satisfy the Lorentz algebra, as given in problem \ref{Ex_5}, Eq.~\eqref{lorentz_algebra}.
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    Let $\gamma^\mu$ be a set of $N \times N$ matrices satisfying the Clifford algebra 
+    \begin{equation}
+        \{\gamma^\mu, \gamma^\nu\} = 2 \g^{\mu \nu} \id_N \, .
+    \end{equation}
+    Consider the operator 
+    \begin{equation}
+        \sigma^{\mu\nu} = \frac{i}{4} [\gamma^\mu, \gamma^\nu] \, ,
+    \end{equation}
+    which we can rewrite as
+    \begin{equation}
+        \sigma^{\mu\nu} = \frac{i}{4} (\gamma^\mu \gamma^\nu - \gamma^\nu \gamma^\mu) = \frac{i}{4} (\gamma^\mu \gamma^\nu \overbrace{- \gamma^\nu \gamma^\mu - \gamma^\mu \gamma^\nu}^{-\{\gamma^\mu, \gamma^\nu\} =-2g^{\mu\nu}} + \gamma^\mu \gamma^\nu) = \frac{i}{2} (\gamma^\mu \gamma^\nu - \g^{\mu \nu}) \, .
+    \end{equation}
+    In order to show that it satisfies the Lorentz algebra, we start by computing the commutator $[\sigma^{\mu\nu} , \sigma^{\rho\sigma}]$. Using the property 
+    \begin{equation}
+        \gamma^\mu \gamma^\nu = 2 \g^{\mu \nu} - \gamma^\nu \gamma^\mu \, ,
+    \end{equation}
+    we obtain the following expression
+    \begin{equation}
+    \begin{split}
+        4 [\sigma^{\mu\nu} , \sigma^{\rho\sigma}] = & -[\gamma^\mu \gamma^\nu - \cancel{\g^{\mu \nu}} , \gamma^\rho \gamma^\sigma - \cancel{\g^{\rho \sigma}}] = -[\gamma^\mu \gamma^\nu , \gamma^\rho \gamma^\sigma] \\
+        %
+        = & - \gamma^\mu (\gamma^\nu \gamma^\rho) \gamma^\sigma + \gamma^\rho (\gamma^\sigma \gamma^\mu) \gamma^\nu \\
+        %
+        = & - 2\g^{\nu\rho} \gamma^\mu \gamma^\sigma + \gamma^\mu \gamma^\rho \gamma^\nu \gamma^\sigma + 2\g^{\sigma\mu} \gamma^\rho \gamma^\nu - \gamma^\rho \gamma^\mu (\gamma^\sigma \gamma^\nu) \\
+        %
+        = & - 2\g^{\nu\rho} \gamma^\mu \gamma^\sigma + 2\g^{\sigma\mu} \gamma^\rho \gamma^\nu - 2\g^{\sigma\nu} \gamma^\rho \gamma^\mu + (\gamma^\mu \gamma^\rho) \gamma^\nu \gamma^\sigma + \gamma^\rho \gamma^\mu \gamma^\nu \gamma^\sigma \\
+        %
+        = & - 2\g^{\nu\rho} \gamma^\mu \gamma^\sigma + 2\g^{\sigma\mu} \gamma^\rho \gamma^\nu - 2\g^{\sigma\nu} \gamma^\rho \gamma^\mu + 2\g^{\mu\rho} \gamma^\nu \gamma^\sigma - \cancel{\gamma^\rho \gamma^\mu \gamma^\nu \gamma^\sigma} + \cancel{\gamma^\rho \gamma^\mu \gamma^\nu \gamma^\sigma} \\
+        %
+        = & - 2\g^{\nu\rho} \gamma^\mu \gamma^\sigma + 2\g^{\sigma\mu} \gamma^\rho \gamma^\nu - 2\g^{\sigma\nu} \gamma^\rho \gamma^\mu + 2\g^{\mu\rho} \gamma^\nu \gamma^\sigma \, . 
+    \end{split}
+    \end{equation}
+    At this point, by using the identity 
+    \begin{equation}
+        2 \gamma^\mu \gamma^\nu = [\gamma^\mu, \gamma^\nu] + \{\gamma^\mu, \gamma^\nu\} = [\gamma^\mu, \gamma^\nu] + 2\g^{\mu \nu} \id_N \, , 
+    \end{equation}
+    we find
+    \begin{equation}
+    \begin{split}
+        4 [\sigma^{\mu\nu} , \sigma^{\rho\sigma}] = & - \g^{\nu\rho} \big([\gamma^\mu, \gamma^\sigma] + \cancel{2\g^{\mu\sigma}}\big) + \g^{\sigma\mu} \big([\gamma^\rho, \gamma^\nu] + \cancel{2\g^{\rho\nu}}\big) - \g^{\sigma\nu} \big([\gamma^\rho, \gamma^\mu] + \cancel{2\g^{\rho\mu}}\big) \\
+        %
+        & + \g^{\mu\rho} \big([\gamma^\nu, \gamma^\sigma] + \cancel{2\g^{\nu\sigma}}\big) \\
+        %
+        = & + i \big(\g^{\nu\rho} i[\gamma^\mu, \gamma^\sigma] + \g^{\sigma\mu} i[\gamma^\nu, \gamma^\rho] - \g^{\sigma\nu} i[\gamma^\mu, \gamma^\rho] - \g^{\mu\rho} i[\gamma^\nu, \gamma^\sigma]\big) \, ,
+    \end{split}
+    \end{equation}
+    that is
+    \begin{equation}
+        [\sigma^{\mu\nu} , \sigma^{\rho\sigma}] = i \big(\g^{\nu\rho} \sigma^{\mu\sigma} + \g^{\sigma\mu} \sigma^{\nu\rho} - \g^{\sigma\nu} \sigma^{\mu\rho} - \g^{\mu\rho} \sigma^{\nu\sigma}\big) \, .
+    \end{equation}
+    This proves that $\sigma^{\mu\nu}$ satisfies the Lorentz algebra (see Eq.~\eqref{lorentz_algebra} of Problem \ref{Ex_5}). 
+\end{sol}

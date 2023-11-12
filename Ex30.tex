@@ -1,0 +1,578 @@
+\begin{ex} \label{ex_30} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_30}}
+    Write down the Feynman rules for the theories defined by the following Lagrangians:
+        \begin{align}
+           {\rm a)} \quad \La_1 = &\; \frac{1}{2}\left( \partial_\mu \phi \partial^\mu \phi - M^2 \phi^2\right) + \sbar{\psi} \left( i \slashed{\partial} - m \right)\psi + g \sbar{\psi} \psi \phi \,, \label{L_1}\\
+           %
+           {\rm b)} \quad \La_2 = &\; -\frac{1}{4} F_{\mu \nu} F^{\mu \nu} + \left(D_\mu \phi \right)^* \left(D^\mu \phi \right) - m^2 \phi^* \phi\,, \label{L_2} \\
+           %
+           {\rm c)} \quad \La_3 = &\; \sbar{\psi}_1 i \slashed{\partial} \psi_1 + \sbar{\psi}_2 i \slashed{\partial} \psi_2 + G \sbar{\psi}_1 \gamma^\mu \psi_2 \sbar{\psi}_2 \gamma_\mu \psi_1 \,, \label{L_3} \\
+           %
+           {\rm d)} \quad \La_4 = & -\frac{1}{4} F_{\mu \nu} F^{\mu \nu} + \frac{1}{2} (\partial_\mu\phi \partial^\mu\phi - m_s^2 \phi^2) + \sbar{\psi}(i\slashed{\partial} - m_f) \psi - g'\sbar{\psi} \gamma^\mu \psi B_\mu + \frac{g}{4} \phi F_{\mu \nu} F^{\mu \nu} \,, \label{L_4}
+        \end{align}
+        where in Eq.~\eqref{L_1} $\psi$ and $\phi$ are respectively a Dirac field and a real scalar field (Yukawa theory), in Eq.~\eqref{L_2} $\phi$ is a complex scalar field and $F^{\mu \nu}$ is the Maxwell field strength tensor (scalar electrodynamics), in Eq.~\eqref{L_3} $\psi_1$ and $\psi_2$ are two Dirac fields (four-Fermi theory), and in Eq.~\eqref{L_4} $F^{\mu \nu}$ is the Maxwell field strength tensor, $\phi$ is a real scalar field, $\psi$ is a Dirac field and $B_\mu$ is an external vector field (i.e.~such that its free Lagrangian is nor part of the Lagrangian of the given theory).
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    \begin{enumerate}[label=\alph*)]
+        \item In order to write down the Feynman rules of the theory, we compute the leading order amplitude for the process $f(p_1)+\sbar{f}(p_2)\rightarrow f(p_3)+\sbar{f}(p_4)$.\footnote{All the derivation that we are going to do in this exercise can be found with more details in \emph{An Introduction to Quantum Field Theory}, by M.E.~Peskin and D.V.~Schroeder (sections 4.6-4.7).}
+        To reach this goal, we have to compute
+        \begin{align}
+            \bra{f(p_3),\sbar{f}(p_4)}iT \ket{f(p_1), \sbar{f}(p_2)} &= \bra{f(p_3),\sbar{f}(p_4)} \T \left[e^{i\int \rmd^4 x \La_I(x)}\right]\ket{f(p_1), \sbar{f}(p_2)} \notag \\
+            & = \bra{f(p_3),\sbar{f}(p_4)} \T \left[ \sum_{n=0}^\infty \frac{1}{n!}\left(\int \rmd^4x \La_I(x)\right)^n\right]\ket{f(p_1), \sbar{f}(p_2)} \label{ampl}\,,
+        \end{align}
+        where $\La_I=g\sbar{\psi} \psi \phi$ is the interaction part of the Lagrangian.
+        The time ordering is removed applying the Wick's theorem to all pieces.
+        The first non zero contribution to Eq.~\eqref{ampl} comes from the term with $n=2$ because we have four particles in the external states (two in the initial state and two in the final state), and thus we need four uncontracted fermion fields. This is achieved expanding at second order (the interaction Lagrangian has two fermion fields) and contracting two fields by means of the Wick's theorem, so that we are left with exactly four uncontracted fields in the integral. So we have
+        \begin{align}
+            & \bra{f(p_3),\sbar{f}(p_4)} \T \left[ \frac{1}{2!}(ig)^2 \int \rmd^4x \; \rmd^4y \; \sbar{\psi}(x) \psi(x) \phi(x) \;\sbar{\psi}(y) \psi(y) \phi(y) \right]\ket{f(p_1), \sbar{f}(p_2)} \notag \\
+            = &\; \bra{f(p_3),\sbar{f}(p_4)} \frac{1}{2!}(ig)^2 \int \rmd^4x \; \rmd^4y \; : \wick{ \sbar{\psi}(x) \psi(x) \c \phi(x) \; \sbar{\psi}(y)  \psi(y) \c \phi(y)} : \ket{f(p_1), \sbar{f}(p_2)} \notag \\
+            = &\; \bra{f(p_3),\sbar{f}(p_4)} \frac{1}{2!}(ig)^2 \int \rmd^4x \; \rmd^4y \; D(x-y): \sbar{\psi}(x) \psi(x) \; \sbar{\psi}(y)  \psi(y) : \ket{f(p_1), \sbar{f}(p_2)} \,, \label{wick_contracion}
+        \end{align}
+        where $D(x-y)$ is the $x$-space propagator of the scalar field and it is given by
+        \begin{equation}
+        \label{scalar_propagator}
+            D(x-y) = \bra{0} \T \left[ \phi(x) \phi(y)\right] \ket{0} = \int \frac{\rmd^4 q}{(2\pi)^4} \frac{i}{q^2 - M^2 + i\epsilon} e^{-iq(x-y)} \,.
+        \end{equation}
+        Now, in Eq.~\eqref{wick_contracion} we have to take all the possible contractions of the fields with the external states.
+        For example, the contraction of $\psi(x)$ with the fermion in the initial state gives
+        \begin{align}
+            \wick{ \c \psi(x) \ket{\c f(p)} } = \int \frac{\rmd^3 \vp'}{(2\pi)^3} \frac{1}{\sqrt{E_{\vp'}}} \sum_{s'} \ades_{\vp', s'} u^{s'}(\vp') e^{-ip'x} \sqrt{2 \Ep} \acon_{\vp, s} \ket{0} = e^{-ip x} u^{s}(\vp)\ket{0}\,.
+        \end{align}
+        All the other possible contractions give
+        \begin{align}
+            &\wick{  \sbar{\psi}\c1(x) \ket{\sbar{\c1 f}(p)} } = \sbar{v}^s(\vp) e^{-ipx} \ket{0} \, , \\
+            &\wick{  \langle \c f(p)| \sbar{ \c \psi}(x) } = \sbar{u}^s(\vp) e^{ipx} \bra{0} \, , \\
+            & \wick{  \langle \sbar{f}\c(p) | \c \psi(x) } = v^s(\vp) e^{ipx} \bra{0}\,.
+        \end{align}
+        One of the possible contractions of the fields with the external particles that we can have is the following
+        \begin{equation}
+        \label{s_contraction}
+            \wick{ \langle \c3 f(p_3),\sbar{f}\c4(p_4) | : \sbar{ \psi}\c3(x) \c4 \psi(x) \; \sbar{\psi}\c2(y) \c1 \psi(y) : \ket{ \c1 f(p_1), \sbar{ \c2 f}(p_2)} }\,.
+        \end{equation}
+        Then we can also have
+        \begin{equation}
+        \label{u_contraction}
+            \wick{ \langle \c4 f(p_3),\sbar{f}\c3(p_4) | : \sbar{ \psi}\c2(x) \c3 \psi(x) \; \sbar{\psi}\c4(y) \c1 \psi(y) : \ket{ \c1 f(p_1), \sbar{ \c2 f}(p_2)} }\,.
+        \end{equation}
+        These objects can be drawn diagrammatically as follows
+        \begin{align}
+		\begin{tikzpicture}[baseline=(c1.base)]
+			\begin{feynman}
+				\vertex [dot] (c1) at (0,0) {};
+				\vertex [above left=of c1] (v1) {$p_1$};
+				\vertex [below left=of c1] (v2) {$p_2$};
+				\vertex [dot, right=of c1] (c2) {};
+				\vertex [above right=of c2] (v3) {$p_3$};
+				\vertex [below right=of c2] (v4) {$p_4$};
+				%
+				\diagram* {
+					(v1) -- [fermion] (c1) -- [fermion] (v2);
+                    (v4) -- [fermion] (c2) -- [fermion] (v3);
+					(c1) -- [scalar] (c2);
+				};
+			\end{feynman} 
+		\end{tikzpicture} ~ - ~ 
+		\begin{tikzpicture}[vertical'=c1 to c2, baseline=($0.5*(c1)+0.5*(c2)$)]
+			\begin{feynman}
+				\vertex [dot] (c1) {};
+				\vertex [dot, below=of c1] (c2) {};
+				\vertex [above left=of c1] (v1) {$p_1$};
+				\vertex [above right=of c1] (v4) {$p_3$};
+				\vertex [below left=of c2] (v2) {$p_2$};
+				\vertex [below right=of c2] (v3) {$p_4$};
+				%
+				\diagram* {
+					(v1) -- [fermion] (c1) -- [fermion] (v4) ;
+					(c1) -- [scalar] (c2);
+					(v2) -- [fermion] (c2) -- [fermion] (v3) ;
+				};
+			\end{feynman} 
+		\end{tikzpicture} ~ = ~ i\mathcal{M}_s - i\mathcal{M}_u \, .
+	\end{align}
+    Observe that the two diagrams have a difference of a minus sign
+    since in Eq.~\eqref{u_contraction} we moved $\sbar{\psi}(x)$ of two spaces to the right, while $\psi(x)$ must be moved of one space to the right, so we are left with a minus sign.  The reason why also $\psi(x)$ must be moved is that all the external state contractions must be done in the same order\footnote{this is related to the fact that we can define $|f(p_1), \sbar{f}(p_2)\rangle \sim \acon_{\vp_1,s} \bcon_{\vp_2,s}\ket{0}$ or $|f(p_1), \sbar{f}(p_2)\rangle \sim \bcon_{\vp_1,s} \acon_{\vp_2,s} \ket{0}$. Both definitions are possible but differ by a minus sign.}: in Eq.~\eqref{s_contraction} we applied to the final particles first $\sbar{\psi}$ and then $\psi$.
+    However, in Eq.~\eqref{u_contraction} the fields are placed in the opposite order.
+    Therefore, in order to be consistent with the choice done in Eq.~\eqref{s_contraction}, we have to exchange $\psi(x)$ and $\sbar{\psi}(y)$, getting an extra minus sign.
+    %
+    Other than these two contractions, we can have the cases in which $x$ and $y$ are exchanged.
+        Since they give contributions identical to Eqs.~\eqref{s_contraction} and \eqref{u_contraction} (we have to exchange an even number of fermion fields), we can just cancel the prefactor $1/2!$ in Eq.~\eqref{wick_contracion} and forget about such diagrams.
+        Considering just the contraction in Eq.~\eqref{s_contraction} (for the other one the derivation is identical), we find
+        \begin{align}
+            &\bra{f(p_3),\sbar{f}(p_4)}iT \ket{f(p_1), \sbar{f}(p_2)} \notag \\
+            = &\; (ig)^2 \int \rmd^4x \; \rmd^4y \; D(x-y) \,e^{i(p_3+p_4) x} \, \sbar{u}^{s_3}(\vp_3) v^{s_4}(\vp_4)  \sbar{v}^{s_2}(\vp_2) u^{s_1}(\vp_1)e^{-i(p_1+p_2) y}\label{ciao}\,.
+        \end{align}
+        Inserting Eq.~\eqref{scalar_propagator} into Eq.~\eqref{ciao} we obtain
+        \begin{align}
+            &\bra{f(p_3),\sbar{f}(p_4)}iT \ket{f(p_1), \sbar{f}(p_2)} \notag \\
+            = &\; (ig)^2 \int \frac{\rmd^4 q}{(2\pi)^4} \rmd^4x \; \rmd^4y \; \frac{i}{q^2 - M^2 + i\epsilon} \, e^{i(p_3+p_4 - q) x} \, \sbar{u}^{s_3}(\vp_3) v^{s_4}(\vp_4)  \sbar{v}^{s_2}(\vp_2) u^{s_1}(\vp_1)e^{-i(p_1+p_2-q) y}\notag \\
+            = &\; (ig)^2 \int \frac{\rmd^4 q}{(2\pi)^4} \frac{i}{q^2 - M^2 + i\epsilon} \sbar{u}^{s_3}(\vp_3) v^{s_4}(\vp_4)  \sbar{v}^{s_2}(\vp_2) u^{s_1}(\vp_1) \notag \\ 
+            & \times (2\pi)^4\delta^{(4)}(q - p_1 - p_2) (2\pi)^4\delta^{(4)}(q - p_3 - p_4) \notag \\
+            = &\; i\mathcal{M}\left( p_1, p_2, p_3, p_4\right) (2 \pi)^4 \delta^{(4)}(p_1 + p_2 - p_3 - p_4)\,,
+        \end{align}
+        with
+        \begin{equation}
+            i \mathcal{M} \left( p_1, p_2, p_3, p_4\right) = (ig)^2 \frac{i}{q^2 - M^2 + i\epsilon} \sbar{u}^{s_3}(\vp_3) v^{s_4}(\vp_4)  \sbar{v}^{s_2}(\vp_2) u^{s_1}(\vp_1) \, .
+        \end{equation}
+        In conclusion, we have found that the Feynman rules of the theory are
+	\begin{itemize}
+		\item \textbf{External lines}
+    \begin{align}
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex (v1) at (0,0);
+			\vertex [dot, right=of v1] (v2) {};
+			%
+			\diagram {
+				(v1) -- [scalar, momentum=$p$] (v2);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = 1 \,, 
+	&
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex [dot] (v1) at (0,0) {};
+			\vertex [right=of v1] (v2);
+			%
+			\diagram {
+				(v1) -- [scalar, momentum=$p$] (v2);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = 1 \,, \\
+	% ---------------------------------------------
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex (v1) at (0,0);
+			\vertex [dot, right=of v1] (v2) {};
+			%
+			\diagram {
+				(v1) -- [fermion, edge label=$p$] (v2);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = u^s(\vp) \,, 
+	&
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex [dot] (v1) at (0,0) {};
+			\vertex [right=of v1] (v2);
+			%
+			\diagram {
+				(v1) -- [fermion, edge label=$p$] (v2);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = \bar{u}^s(\vp) \,, \\
+	% ---------------------------------------------
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex (v1) at (0,0);
+			\vertex [dot, right=of v1] (v2) {};
+			%
+			\diagram {
+				(v2) -- [fermion, edge label'=$p$] (v1);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = \bar{v}^s(\vp) \,, 
+	&
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex [dot] (v1) at (0,0) {};
+			\vertex [right=of v1] (v2);
+			%
+			\diagram {
+				(v2) -- [fermion, edge label'=$p$] (v1);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = v^s(\vp) \,,
+    \end{align}
+
+    \item \textbf{Propagators}
+	\begin{align}
+    &
+	\begin{tikzpicture}[baseline=(c.base)]
+		\begin{feynman}
+			\vertex [dot] (c) at (0,0) {};
+			\vertex [dot] [right=of c] (r) {} ;
+			%
+			\diagram {
+				(c) --[scalar, edge label=$q$] (r);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = ~ \frac{i}{q^2-M^2+i\epsilon} \,,
+    %
+	&& \text{scalar propagator}\,, \\
+    % ---------------------------------------------
+	&
+	\begin{tikzpicture}[baseline=(c.base)]
+		\begin{feynman}
+			\vertex [dot] (c) at (0,0) {};
+			\vertex [dot] [right=of c] (r) {} ;
+			%
+			\diagram {
+				(c) --[fermion, edge label=$q$] (r);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = ~ \frac{i(\slashed{q}+m)}{q^2-m^2+i\epsilon} \,,
+    %
+    && \text{fermion propagator}\,,
+    \end{align}
+
+    \item \textbf{Vertex}
+	\begin{equation}
+		\begin{tikzpicture}[baseline=(c.base)]
+			\begin{feynman}
+				\vertex [dot] (c) at (0,0) {};
+				\vertex [above left=of c] (v1);
+				\vertex [below left=of c] (v2);
+				\vertex [right=of c] (v3);
+				%
+				\diagram {
+					(v1) --[fermion] (c);
+					(c) -- [fermion] (v2);
+					(c) -- [scalar] (v3);
+				};
+			\end{feynman} 
+		\end{tikzpicture} ~ = ~ i g \, .
+	\end{equation}
+    \end{itemize}
+
+        \item In this case, using that the covariant derivative is defined as
+        \begin{equation}
+            D_\mu = \partial_\mu + ie A_\mu \,,
+        \end{equation}
+        we can rewrite $\La_2$ as
+        \begin{equation}
+        \label{L_2_new}
+            \La_2 = -\frac{1}{4} F_{\mu \nu} F^{\mu \nu} + \partial^\mu \phi^* \partial_\mu \phi - m^2 \phi^* \phi + ie \left(   A^\mu \partial_\mu \phi^* \phi - A_\mu \phi^* \partial^\mu \phi \right) +e^2 A^\mu A_\mu \phi^* \phi \,.
+        \end{equation}
+        The first three terms of Eq.~\eqref{L_2_new} correspond to the kinetic terms of the photon and of the complex scalars.
+        Following the derivation of the previous point one finds
+        \begin{itemize}
+		\item \textbf{External lines}
+    \begin{align}
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex (v1) at (0,0);
+			\vertex [dot, right=of v1] (v2) {};
+			%
+			\diagram {
+				(v1) -- [charged scalar, edge label=$p$] (v2);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = & ~ 1 \,, 
+	&
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex [dot] (v1) at (0,0) {};
+			\vertex [right=of v1] (v2);
+			%
+			\diagram {
+				(v1) -- [charged scalar, edge label=$p$] (v2);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = 1 \,, \\
+	% ---------------------------------------------
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex (v1) at (0,0) {\(\mu\)};
+			\vertex [dot, right=of v1] (v2) {};
+			%
+			\diagram {
+				(v1) -- [boson, edge label=$p$] (v2);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = & ~ \epsilon_\mu(\vp, \lambda) \,, 
+	&&
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex [dot] (v1) at (0,0) {};
+			\vertex [right=of v1] (v2) {\(\mu\)};
+			%
+			\diagram {
+				(v1) -- [boson, edge label=$p$] (v2);
+			};
+		\end{feynman} 
+	\end{tikzpicture} = \epsilon_\mu^*(\vp, \lambda) \,,
+	% ---------------------------------------------
+    \end{align}
+
+    \item \textbf{Propagators}
+	\begin{align}
+	\begin{tikzpicture}[baseline=(c.base)]
+		\begin{feynman}
+			\vertex [dot] (c) at (0,0) {};
+			\vertex [dot] [right=of c] (r) {} ;
+			%
+			\diagram {
+				(c) --[charged scalar, edge label=$q$] (r);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = & ~ \frac{i}{q^2-M^2+i\epsilon} \,, 
+	%
+    && \text{scalar propagator}\,, \\
+    % ---------------------------------------------
+	\begin{tikzpicture}[baseline=(c.base)]
+		\begin{feynman}
+			\vertex [dot, label=90:$\mu$] (c) at (0,0) {};
+			\vertex [dot, label=90:$\nu$] [right=of c] (r) {} ;
+			%
+			\diagram {
+				(c) --[boson, edge label=$q$] (r);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = & ~ -\frac{i}{q^2+i\epsilon}\left(g_{\mu \nu} - (1 - \xi) \frac{q_\mu q_\nu}{q^2}\right) \,,
+    %
+    && \text{photon propagator} \,.
+    \end{align}
+
+\item  \textbf{Vertices} 
+
+        Regarding the vertices, the interaction Lagrangian is
+        \begin{equation}
+        \label{L_2_int}
+            \La_{2,int} = ie \left(   A^\mu \partial_\mu \phi^* \phi - A_\mu \phi^* \partial^\mu \phi \right) +e^2 A^\mu A_\mu \phi^* \phi\,.
+        \end{equation}
+        The second term gives an interaction between two photons and two scalars.
+        It is easy to get that the last term of Eq.~\eqref{L_2_int} corresponds to the vertex
+        \begin{equation}
+		\begin{tikzpicture}[baseline=(c.base)]
+			\begin{feynman}
+				\vertex [dot] (c) at (0,0) {};
+				\vertex [above left=of c] (v1) {\(\mu\)};
+				\vertex [below left=of c] (v2) {\(\nu\)};
+				\vertex [above right=of c] (v3);
+                \vertex [below right=of c] (v4) ;
+				%
+				\diagram {
+					(v1) --[boson] (c);
+					(c) -- [boson] (v2);
+					(c) -- [charged scalar] (v3);
+                    (v4) -- [charged scalar] (c);
+				};
+			\end{feynman} 
+		\end{tikzpicture} ~ = ~ 2 i e^2 \g^{\mu \nu} \,.
+	\end{equation}
+    The factor of 2 comes from the exchanging of the photon field. The first term of Eq.~\eqref{L_2_int} gives an interaction between two scalars and a photon. It reads
+ \begin{equation}
+		\begin{tikzpicture}[baseline=(c.base)]
+			\begin{feynman}
+				\vertex [dot] (c) at (0,0) {};
+				\vertex [above left=of c] (v1);
+				\vertex [below left=of c] (v2);
+				\vertex [right=of c] (v3) {\(\mu\)} ;
+				%
+				\diagram {
+					(v1) --[charged scalar] (c);
+					(c) -- [charged scalar] (v2);
+					(c) -- [boson] (v3);
+				};
+			\end{feynman} 
+		\end{tikzpicture} = ~ i e (p_1^\mu - p_2^\mu) \,.
+	\end{equation}
+    The momenta come from applying the derivative to the initial state scalars. Since we have that
+    \begin{align}
+        &\wick{  \c \phi(x) \ket{\c s(p)} } = e^{-ipx} \ket{0} \, , \\
+        &\wick{  \c \phi^*(x) \ket{\sbar{\c s}(p)} } = e^{-ipx} \ket{0} \, , \\
+        &\wick{  \langle \c s(p)| \c \phi^*(x) } = e^{ipx} \bra{0} \, , \\
+        &\wick{  \langle \sbar{\c s}(p)| \c \phi^*(x) } = e^{ipx} \bra{0} \, , 
+    \end{align}
+    each derivative yields a factor of $-ip^\mu$. In the case where the scalar is in the outgoing state, the factor becomes $ip^\mu$ and so we have to invert the sign of the momentum.
+    \end{itemize}
+    
+    \item In this case we have massless fermions coupled by an interaction Lagrangian of the form
+    \begin{equation}
+    \label{lint_3}
+    \begin{split}
+        \La_I &=  G \sbar{\psi}_1 \gamma^\mu \psi_2 \sbar{\psi}_2 \gamma_\mu \psi_1 \\
+              &= G \sbar{\psi}_{1,c} \left(\gamma^\mu\right)_{cd} \psi_{2,d} \sbar{\psi}_{2,b} \left(\gamma_\mu\right)_{ba} \psi_{1,a}\,,
+    \end{split}
+    \end{equation}
+    where in the last line we spelled out explicitly the Dirac indices.
+    The external lines and the propagators are the same as in point a), and are given by
+
+    \begin{itemize}
+		\item \textbf{External lines}
+    \begin{align}
+	% ---------------------------------------------
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex (v1) at (0,0);
+			\vertex [dot, right=of v1] (v2) {};
+			%
+			\diagram {
+				(v1) -- [fermion, edge label=$p$] (v2);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = u_1^s(\vp) \,, 
+	&
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex [dot] (v1) at (0,0) {};
+			\vertex [right=of v1] (v2);
+			%
+			\diagram {
+				(v1) -- [fermion, edge label=$p$] (v2);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = \bar{u}_1^s(\vp) \,, \\
+	% ---------------------------------------------
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex (v1) at (0,0);
+			\vertex [dot, right=of v1] (v2) {};
+			%
+			\diagram {
+				(v2) -- [fermion, edge label'=$p$] (v1);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = \bar{v}_1^s(\vp) \,, 
+	&
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex [dot] (v1) at (0,0) {};
+			\vertex [right=of v1] (v2);
+			%
+			\diagram {
+				(v2) -- [fermion, edge label'=$p$] (v1);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = v_1^s(\vp) \,, \\
+ % ---------------------------------------------
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex (v1) at (0,0);
+			\vertex [dot, right=of v1] (v2) {};
+			%
+			\diagram {
+				(v1) -- [red, fermion, edge label=$p$] (v2);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = u_2^s(\vp) \,, 
+	&
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex [dot] (v1) at (0,0) {};
+			\vertex [right=of v1] (v2);
+			%
+			\diagram {
+				(v1) -- [red, fermion, edge label=$p$] (v2);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = \bar{u}_2^s(\vp) \,, \\
+	% ---------------------------------------------
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex (v1) at (0,0);
+			\vertex [dot, right=of v1] (v2) {};
+			%
+			\diagram {
+				(v2) -- [red, fermion, edge label'=$p$] (v1);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = \bar{v}_2^s(\vp) \,, 
+	&
+	 &
+	\begin{tikzpicture}[baseline=(v1.base)]
+		\begin{feynman}
+			\vertex [dot] (v1) at (0,0) {};
+			\vertex [right=of v1] (v2);
+			%
+			\diagram {
+				(v2) -- [red, fermion, edge label'=$p$] (v1);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = v_2^s(\vp) \,,
+    \end{align}
+
+    \item \textbf{Propagators}
+	\begin{align}
+	&
+	\begin{tikzpicture}[baseline=(c.base)]
+		\begin{feynman}
+			\vertex [dot] (c) at (0,0) {};
+			\vertex [dot] [right=of c] (r) {} ;
+			%
+			\diagram {
+				(c) --[fermion, edge label=$q$] (r);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = ~ \frac{i\slashed{q}}{q^2+i\epsilon} \,,
+    %
+    && \text{$\psi_1$ propagator}\,, \\
+        % ---------------------------------------------
+	&
+	\begin{tikzpicture}[baseline=(c.base)]
+		\begin{feynman}
+			\vertex [dot] (c) at (0,0) {};
+			\vertex [dot] [right=of c] (r) {} ;
+			%
+			\diagram {
+				(c) --[red, fermion, edge label=$q$] (r);
+			};
+		\end{feynman} 
+	\end{tikzpicture} ~ = ~ \frac{i\slashed{q}}{q^2+i\epsilon} \,,
+    %
+    && \text{$\psi_2$ propagator} \,,
+    \end{align}
+    where black lines and red lines denote fermions of type 1 and type 2 respectively. 
+    \item  \textbf{Vertices} 
+    
+    Regarding the vertices, we can observe that the interaction Lagrangian in Eq.\eqref{lint_3} is a 4-fermion interaction,
+    with two fermions of each type.
+    The two possible vertices are
+        \begin{equation}
+		\begin{tikzpicture}[baseline=(c.base)]
+			\begin{feynman}
+				\vertex [dot] (c) at (0,0) {};
+				\vertex [above left=of c] (v1) {\(a\)};
+				\vertex [below left=of c] (v2) {\(b\)};
+				\vertex [above right=of c] (v3) {\(c\)};
+                \vertex [below right=of c] (v4) {\(d\)};
+				%
+				\diagram {
+					(v1) --[fermion] (c);
+					(c) -- [red, fermion] (v2);
+					(c) -- [fermion] (v3);
+                    (v4) -- [red, fermion] (c);
+				};
+			\end{feynman} 
+		\end{tikzpicture} ~ = ~ i G \left(\gamma^\mu\right)_{cd} \left(\gamma_\mu\right)_{ba} 
+	\end{equation}
+    and
+        \begin{equation}
+		\begin{tikzpicture}[baseline=(c.base)]
+			\begin{feynman}
+				\vertex [dot] (c) at (0,0) {};
+				\vertex [above left=of c] (v1) {\(a\)};
+				\vertex [below left=of c] (v2) {\(b\)};
+				\vertex [above right=of c] (v3) {\(c\)};
+                \vertex [below right=of c] (v4) {\(d\)};
+				%
+				\diagram {
+					(v1) --[fermion] (c);
+					(v2) -- [red, fermion] (c);
+					(c) -- [fermion] (v3);
+                    (c) -- [red, fermion] (v4);
+				};
+			\end{feynman} 
+		\end{tikzpicture} ~ = ~ i G \left(\gamma^\mu\right)_{cb} \left(\gamma_\mu\right)_{da} \,.
+	\end{equation}
+    \end{itemize}
+    \item Left to the reader.
+    \end{enumerate}
+    $ $
+\end{sol}

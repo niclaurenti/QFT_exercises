@@ -1,0 +1,67 @@
+\begin{ex} \label{ex_28} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_28}}
+    Prove that if one defines
+    \begin{equation}
+        \ades_{\vp}(t) = i \int \frac{d^3 \vx}{\sqrt{2\omega}} e^{i(\omega t - \vp \cdot \vx)} \cevec{\partial}_t \,  \phi(t,\vx) \, , 
+        \label{Eq_Ex28_ades_t_def}
+    \end{equation}
+    where $f \cevec{\partial}_t \, g \equiv f (\partial_t g) - (\partial_t f) g$, then
+    \begin{equation}
+        \phi(t,\vx) = \int \frac{d^3 \vp}{(2\pi)^3 \sqrt{2\omega}} \Big[e^{-ipx} \ades_{\vp}(t) + e^{ipx} \acon_{\vp}(t)\Big] \, , 
+        \label{Eq_Ex28_phi}
+    \end{equation}
+    with $p^\mu = (\omega, \vp)$.
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    In order to prove that Eq.~\eqref{Eq_Ex28_phi} holds, we rewrite explicitly its r.h.s.~to show that it is equivalent to $\phi(t,\vx)$. To do so, we first compute $e^{-ipx} \ades_{\vp}(t)$ as
+    \begin{equation}
+    \begin{split}
+        e^{-ipx} \ades_{\vp}(t) 
+        %
+        = &\; i \int \frac{d^3 \vy}{\sqrt{2\omega}} \Big[e^{i(\omega t - \vp \cdot \vy) - ipx} \partial_t  \phi(t,\vy) - e^{- ipx}\big(\partial_t e^{i(\omega t - \vp \cdot \vy)}\big) \phi(t,\vx)\Big] \\
+        %
+        = &\; i \int \frac{d^3 \vy}{\sqrt{2\omega}} e^{i(\omega t - \vp \cdot \vy) - ipx} \Big[\partial_t  \phi(t,\vy) - i \omega \phi(t,\vy)\Big] \\
+        %
+        = &\; i \int \frac{d^3 \vy}{\sqrt{2\omega}} e^{i\vp \cdot(\vx - \vy)} \Big[\partial_t  \phi(t,\vy) - i \omega \phi(t,\vy)\Big] \, ,
+    \end{split}
+    \end{equation}
+    where
+    \begin{equation}
+        i(\omega t - \vp \cdot \vy) - ipx = i(\omega t - \vp \cdot \vy) - i(\omega t - \vp \cdot \vx) = i\vp \cdot(\vx - \vy) \, ,
+    \end{equation}
+    and its complex conjugate as
+    \begin{equation}
+        e^{ipx} \acon_{\vp}(t)
+        %
+        = \big(e^{-ipx} \ades_{\vp} \big)^\dagger
+        %
+        = - i \int \frac{d^3 \vy}{\sqrt{2\omega}} e^{-i\vp \cdot(\vx - \vy)} \Big[\partial_t  \phi(t,\vy) + i \omega \phi(t,\vy)\Big] \, .
+    \end{equation}
+    Then, we substitute these expressions inside the r.h.s.~of the Eq.~\eqref{Eq_Ex28_phi}, getting 
+    \begin{equation}
+    \begin{split}
+        & \int \frac{d^3 \vp}{(2\pi)^3 \sqrt{2\omega}} \Big[e^{-ipx} \ades_{\vp}(t) + e^{ipx} \acon_{\vp}(t)\Big] \\
+        %
+        = &\; i \int \frac{d^3 \vp}{(2\pi)^3 \sqrt{2\omega}} \int \frac{d^3 \vy}{\sqrt{2\omega}} \Big[\partial_t  \phi(t,\vy)\left(e^{i\vp \cdot(\vx - \vy)} - e^{-i\vp \cdot(\vx - \vy)}\right) \\
+        %
+        & - i \omega \phi(t,\vy) \left(e^{i\vp \cdot(\vx - \vy)} + e^{-i\vp \cdot(\vx -\vy)}\right)\Big] \, . 
+    \end{split}
+    \end{equation}
+    Finally, since 
+    \begin{equation}
+        \int \frac{d^3 \vp}{(2\pi)^3} e^{i\vp \cdot(\vx - \vy)} = \int \frac{d^3 \vp}{(2\pi)^3} e^{-i\vp \cdot(\vx - \vy)} = \delta^{(3)}(\vx - \vy) \, ,
+    \end{equation}
+    we obtain 
+    \begin{equation}
+    \begin{split}
+        & \int \frac{d^3 \vp}{(2\pi)^3 \sqrt{2\omega}} \Big[e^{-ipx} \ades_{\vp}(t) + e^{ipx} \acon_{\vp}(t)\Big] \\
+        %
+        = &\; i \int \frac{d^3 \vy}{2\omega} \Big[\partial_t  \phi(t,\vy) \left(\cancel{\delta^{(3)}(\vx - \vy)} - \cancel{\delta^{(3)}(\vx - \vy)}\right) - i\omega \phi(t,\vy) \left(\delta^{(3)}(\vx - \vy) + \delta^{(3)}(\vx - \vy)\right) \Big] \\
+        %
+        = &\; i \int \frac{d^3 \vy}{2\omega} 2\omega \, \phi(t,\vy) \delta^{(3)}(\vx - \vy) \equiv \phi(t,\vx) \, ,
+    \end{split}
+    \end{equation}
+    which proves the Eq.~\eqref{Eq_Ex28_phi}.
+\end{sol}

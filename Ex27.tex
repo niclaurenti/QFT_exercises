@@ -1,0 +1,138 @@
+\begin{ex} \label{ex_27} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_27}}
+    Compute explictly the two-point function for a Dirac field
+    \begin{equation}
+        G^{(2)}(x, x) = \bra{0}\T[\psi_{a}(x)\sbar{\psi}_{b}(y)]\ket{0} \, ,  
+    \end{equation}
+    by expressing the field in terms of creation and annihilation operators and using the anticommutation relations.
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    We start by writing the the two-point function as
+    \begin{equation}
+    \begin{split}
+        G^{(2)}(x, y) 
+        %
+        = &\; \bra{0}\T[\psi_{a}(x)\sbar{\psi}_{b}(y)]\ket{0} \\
+        %
+        \equiv &\; \Theta\big(x^0 - y^0\big) \bra{0} \psi_{a}(x)\sbar{\psi}_{b}(y) \ket{0} - \Theta\big(y^0 - x^0\big) \bra{0} \sbar{\psi}_{b}(y) \psi_{a}(x) \ket{0} \, ,
+    \end{split}
+    \end{equation}
+    where we express the fields in terms of creation and annihilation operators as
+    \begin{equation}
+        \begin{split}
+            \psi_{a}(x) &= \int \frac{\rmd^{3}\vp}{(2\pi)^{3}} \frac{1}{\sqrt{2 \Ep}}\sum_{s}\left(\ades_{p, s}u^{s}(\vp)e^{-ipx} + \bcon_{\vp, s}v^{s}(\vp)e^{ipx}\right) \,,\\
+            \sbar{\psi}_{b}(x) &= \int \frac{\rmd^{3}\vp}{(2\pi)^{3}} \frac{1}{\sqrt{2 \Ep}}\sum_{s}\left(\bdes_{p, s}\sbar{v}^{s}(\vp)e^{-ipx} + \acon_{\vp, s}\sbar{u}^{s}(\vp)e^{ipx}\right)\, ,
+        \end{split}
+    \end{equation}
+    with 
+    \begin{equation} \label{eq_crean_rel}
+    \begin{split}
+        \text{fermion}: &\; \qquad \ades_{\vp, s}\ket{0} \, , \qquad \acon_{\vp, s}\ket{0} = \frac{1}{\sqrt{2\Ep}}\ket{\vp, s}\, , \\
+        %
+        \text{antifermion}: &\; \qquad \bdes_{\vp, s}\ket{0} \, , \qquad \bcon_{\vp, s}\ket{0} = \frac{1}{\sqrt{2\Ep}}\ket{\vp, s} \, . 
+    \end{split}
+    \end{equation}
+    We first consider the term with $x^{0} > y^{0}$. In this case we have
+    \begin{align}
+        \bra{0}\psi_{a}(x)\sbar{\psi}_{b}(y) \ket{0} 
+        %
+        = & \int \frac{\rmd^{3}\vp}{(2\pi)^{3}} \frac{\rmd^{3}\vp'}{(2\pi)^{3}} \frac{1}{\sqrt{2 \Ep}}\frac{1}{\sqrt{2 E_{\vp'}}} \sum_{s} \bra{0} \left(\ades_{\vp, s}u^{s}_{a}(\vp)e^{-ipx} + \bcon_{\vp,s}v^{s}_{a}(\vp)e^{ipx}\right) \notag\allowdisplaybreaks\\ 
+        %
+        & \times \sum_{s'}\left(\bdes_{\vp', s}\sbar{v}^{s'}_{b}(\vp')e^{-ip'y} + \acon_{\vp', s'}\sbar{u}^{s}_{b}(\vp')e^{ip'y}\right)\ket{0} \notag\allowdisplaybreaks\\
+        %
+        = & \int \frac{\rmd^{3}\vp}{(2\pi)^{3}} \frac{\rmd^{3}\vp'}{(2\pi)^{3}} \frac{1}{\sqrt{4 \Ep E_{\vp'}}} \sum_{s s'} u^{s}_{a}(\vp) \sbar{u}^{s'}_{b}(\vp') \, e^{-ipx} e^{ip'y} \bra{0} \ades_{\vp, s} \acon_{\vp', s'} \ket{0} \, , \notag\allowdisplaybreaks\\
+        %
+        = & \int \frac{\rmd^{3}\vp}{(2\pi)^{3}} \frac{\rmd^{3}\vp'}{(2\pi)^{3}} \frac{1}{\sqrt{4 \Ep E_{\vp'}}} \sum_{s s'} u^{s}_{a}(\vp) \sbar{u}^{s'}_{b}(\vp') \, e^{-ipx} e^{ip'y} \braket{\vp,s}{\vp',s'} \, ,
+    \end{align}
+    where in the last step we used the relations in Eq.~\eqref{eq_crean_rel}. Remember that the physical states satisfy the condition
+    \begin{equation}
+        \braket{\vp,s}{\vp',s'} 
+        %
+        = 2\Ep(2\pi)^{3}\delta^{(3)} (\vp-\vp')\delta_{ss'} \, ,
+    \end{equation}
+    se we can rewrite $\bra{0} \psi_{a}(x)\sbar{\psi}_{b}(y) \ket{0}$ as 
+    \begin{align} \label{eq_norm_temp}
+        \bra{0}\psi_{a}(x)\sbar{\psi}_{b}(y) \ket{0}
+        %
+        = & \int \frac{\rmd^{3}\vp}{(2\pi)^{3}} \frac{\rmd^{3}\vp'}{(2\pi)^{3}} \frac{2\Ep (2\pi)^{3}\delta^{(3)}(\vp-\vpprime)}{\sqrt{4 \Ep E_{\vp'}}} \sum_{s s'} \delta^{ss'} u^{s}_{a}(\vp)\sbar{u}^{s'}_{b}(\vp') \, e^{-ipx+ip'y} \notag\allowdisplaybreaks \\
+        %
+        = & \int \frac{\rmd^{3}\vp}{(2\pi)^{3}} \frac{1}{2\Ep} \underbrace{\sum_{s}u^{s}_{a}(\vp)\sbar{u}^{s}_{b}(\vp)}_{= \, (\slashed{p}+m)_{ab}} \, e^{-ip(x-y)} \notag\allowdisplaybreaks \\
+        %
+        = & \int \frac{\rmd^{3}\vp}{(2\pi)^{3}} \frac{1}{2\Ep} (\slashed{p}+m)_{ab} \, e^{-ip(x-y)} \notag\allowdisplaybreaks \\
+        %
+        = &\; (i\slashed{\partial}_{x} + m)_{ab}\int \frac{\rmd^{3}\vp}{(2\pi)^{3}}\frac{1}{2\Ep}e^{-ip(x-y)}\, . 
+    \end{align}
+    
+    As for the case $x^0 < y^0$, it can be computed in an analogous way as $x^0 > y^0$. The result reads
+    \begin{equation}
+    \label{eq_rev_temp}
+        \bra{0}\sbar{\psi}_b(y)\psi_{a}(x)\ket{0} = -(i\slashed{\partial}_{x} + m)_{ab}\int \frac{\rmd^{3} \vp}{(2\pi)^{3}}\frac{1}{2\Ep}e^{ip(x-y)} \, .
+    \end{equation}
+    Therefore, combining the results of Eqs.~\eqref{eq_norm_temp} and \eqref{eq_rev_temp}, we obtain
+    \begin{equation} \label{eq_Tproduct}
+    \begin{split}
+        \bra{0}\T[\psi_{a}(x)\sbar{\psi}_b(y)]\ket{0} 
+        %
+        = &\; (i\slashed{\partial}_{x} + m)_{ab} \int \frac{\rmd^{3}\vp}{(2\pi)^{3}}\frac{1}{2\Ep} \left[\Theta\big(x^0 - y^0\big)e^{-ip(x-y)} + \Theta\big(y^0 - x^0\big) e^{ip(x-y)}\right] \\
+        %
+        = &\; (i\slashed{\partial}_{x} + m)_{ab}\int \frac{\rmd^{4}p}{(2\pi)^{4}} \frac{i}{p^{2} - m^{2} + i\epsilon} e^{-ip(x-y)} \\
+        %
+        = & \int \frac{\rmd^{4}p}{(2\pi)^{4}} \frac{i (\slashed{p} + m)}{p^{2} - m^{2} + i\epsilon}e^{-ip(x-y)}\, ,
+    \end{split}
+    \end{equation}
+    that is the final result of the problem. The only non-trivial step is how to move from the first to the second line of Eq.~\eqref{eq_Tproduct}. Let's show they are the same. First, we rewrite the second line as
+    \begin{equation}
+        \int \frac{\rmd^{4}p}{(2\pi)^{4}} \frac{i}{p^{2} - m^{2} + i\epsilon} e^{-ip(x-y)} = \int \frac{\rmd^{3}\vp}{(2\pi)^{3}}e^{i\vp\cdot(\vx-\vy)}\int_{-\infty}^{\infty}\frac{\rmd p^{0}}{2\pi}\frac{i}{(p^{0})^{2} - \Ep^{2} + i\epsilon} e^{-ip^{0}(x^{0}-y^{0})}\, .
+    \end{equation}
+    Regarding the integral over $p^{0}$, the integrand has two poles in $p^{0} = \pm \Ep(1 - i\epsilon / 2 \Ep^{2})$, so we can use the \emph{residue theorem} to compute it. Specifically, we close the integration path below the $x$ axis if $x^0 > y^0$ and above the $x$ axis if $y^0 > x^0$. For instance, in the case $x^0 > y^0$ we get
+    \begin{equation}
+        \begin{split}
+            \int_{-\infty}^{\infty}\frac{\rmd p^{0}}{2\pi} \frac{i}{(p^{0})^{2} - \Ep^{2} + i\epsilon}e^{-ip^{0}(x^{0}-y^{0})} &= \frac{i}{2\pi}(-2\pi i)\frac{e^{-i \Ep(x^{0} - y^{0})}}{2\Ep} = \frac{e^{-i \Ep(x^{0} - y^{0})}}{2\Ep} \, .
+        \end{split}
+    \end{equation}
+    Doing the same also for $y^0 > x^0$, one easily obtains the first line of Eq.~\eqref{eq_Tproduct}.
+
+    Clearly the method just proposed requires knowing the second line of Eq.~\eqref{eq_Tproduct} a priori. We show below a second approach that allows us to obtain the second line starting from the first. To do so, it is useful to introduce an integral representation for the Heaviside function
+    \begin{equation}
+        \Theta(t)
+        %
+        = i \int_{-\infty}^{+ \infty} \frac{d\omega}{2\pi} \frac{e^{-i \omega t}}{\omega + i \epsilon} \, ,
+    \end{equation}
+    through which we find
+    \begin{equation}
+    \begin{split}
+        \int \frac{\rmd^{3}\vp}{(2\pi)^{3}}\frac{1}{2\Ep} \Theta\big(x^0 - y^0\big)e^{-ip(x-y)} 
+        %
+        = &\; i \int \frac{\rmd^{3}\vp}{(2\pi)^{3}}\frac{1}{2\Ep} \int_{-\infty}^{\infty} \frac{d\omega}{2\pi} \frac{e^{-i (\omega + p^0) (x^0 - y^0) + i \vp\cdot(\vx-\vy)}}{\omega + i \epsilon} \\
+        %
+        = &\; i \int \frac{\rmd^{3}\vp}{(2\pi)^{3}} \frac{e^{i \vp\cdot(\vx-\vy)}}{2\Ep} \int_{-\infty}^{\infty} \frac{d\tilde{\omega}}{2\pi} \frac{e^{-i \tilde{\omega} (x^0 - y^0)}}{\tilde{\omega} - p^0 + i \epsilon}
+    \end{split}
+    \end{equation}
+    and\footnote{In the second line of the following equation, we send $\tilde{\omega} \mapsto - \tilde{\omega}$ and $\vp \mapsto - \vp$.}
+    \begin{equation}
+    \begin{split}
+        \int \frac{\rmd^{3}\vp}{(2\pi)^{3}}\frac{1}{2\Ep} \Theta\big(y^0 - x^0\big)e^{ip(x-y)} 
+        %
+        = &\; i \int \frac{\rmd^{3}\vp}{(2\pi)^{3}} \frac{e^{-i \vp\cdot(\vx-\vy)}}{2\Ep} \int_{-\infty}^{\infty} \frac{d\tilde{\omega}}{2\pi} \frac{e^{i \tilde{\omega} (x^0 - y^0)}}{\tilde{\omega} - p^0 + i \epsilon} \\
+        %
+        = & - i \int \frac{\rmd^{3}\vp}{(2\pi)^{3}} \frac{e^{i \vp\cdot(\vx-\vy)}}{2\Ep} \int_{-\infty}^{\infty} \frac{d\tilde{\omega}}{2\pi} \frac{e^{-i \tilde{\omega} (x^0 - y^0)}}{\tilde{\omega} + p^0 - i \epsilon} \, .
+    \end{split}
+    \end{equation}
+    It follows that (recall that $p^0 = \Ep$)
+    \begin{equation}
+    \begin{split}
+        & \int \frac{\rmd^{3}\vp}{(2\pi)^{3}}\frac{1}{2\Ep} \left[\Theta(x^0 - y^0)e^{-ip(x-y)} + \Theta(y^0 - x^0) e^{ip(x-y)}\right] = \\
+        %
+        = &\; i \int \frac{\rmd^{3}\vp}{(2\pi)^{3}} e^{i \vp\cdot(\vx-\vy)} \int_{-\infty}^{\infty} \frac{d\tilde{\omega}}{2\pi} \frac{e^{-i \tilde{\omega} (x^0 - y^0)}}{\tilde{\omega}^2 - \Ep^2 + i\epsilon} \, .
+    \end{split}
+    \end{equation}
+    At this point, we define the momentum $\tilde{p}^\mu = (\tilde{\omega}, \vp)$ and, since the latter is and integrated variable, we relabel it as $\tilde{p}^\mu \mapsto p^\mu$. We thus conclude that
+    \begin{equation}
+        \int \frac{\rmd^{3}\vp}{(2\pi)^{3}}\frac{1}{2\Ep} \left[\Theta\big(x^0 - y^0\big)e^{-ip(x-y)} + \Theta\big(y^0 - x^0\big) e^{ip(x-y)}\right] 
+        %
+        = \int \frac{\rmd^{4}p}{(2\pi)^{4}} \frac{i}{p^{2} - m^{2} + i\epsilon} e^{-ip(x-y)} \, ,
+    \end{equation}
+    which proves the step used in Eq.~\eqref{eq_Tproduct}.
+\end{sol}

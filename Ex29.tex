@@ -1,0 +1,211 @@
+\begin{ex} \label{ex_29} \addcontentsline{mdf}{mdf}{Exercise \ref{ex_29}}
+    Prove the reduction formula for a fermion field, namely, for incoming and outgoing particles,
+    % \begin{equation}
+    % \label{sandwich}
+    %     \begin{split}
+    %         & \braket{\vp_1^{s_1} \dots \vp_n^{s_n}, {\rm out}}{\vk_1^{r_1} \dots \vk_m^{r_n}, {\rm in}} = \\
+    %         & \hspace{-0.35cm}\int \prod_{\substack{i=1, \dots, n \\ j=1, \dots, m}} \rmd^4x_j \rmd^4 y_i
+    %         e^{i y_i p_i} e^{-i x_j k_j} \sbar{u}^{s_i}(\vp_i) \tilde{S}^{-1}(p_i) \bra{0} T\left[ \psi(y_1) \dots \psi(y_n) \sbar{\psi}(x_1) \dots \sbar{\psi}(x_m) \right]\ket{0} \tilde{S}^{-1}(k_j) u^{r_j}(\vp_j)\,,
+    %     \end{split}
+    % \end{equation}
+    \begin{equation} \label{sandwich}
+    \begin{split}
+        & \braket{\vp_1^{s_1} ...\, \vp_n^{s_n}, {\rm out}}{\vk_1^{r_1} ...\, \vk_m^{r_m}, {\rm in}} \\
+        %
+        = &\; \int \rmd^4x_1 ... \rmd^4x_m \, \rmd^4y_1 ... \rmd^4y_n \, e^{i(p_1 y_1 + ... + p_n y_n - k_1 x_1 - ... - k_m x_m)}  \\
+        %
+        & \times \sbar{u}^{s_1}(\vp_1) \tilde{S}^{-1}(y_1) ... \sbar{u}^{s_n}(\vp_n) \tilde{S}^{-1}(y_n) \bra{0} T\left[\psi(y_1) ... \psi(y_n) \sbar{\psi}(x_1) ... \sbar{\psi}(x_m) \right]\ket{0} \\
+        %
+        & \times \tilde{S}^{-1}(x_1) u^{r_1}(\vk_1) ... \tilde{S}^{-1}(x_m) u^{r_m}(\vk_m) \, ,
+    \end{split}
+    \end{equation}
+    and $u \leftrightarrow v$, $\sbar{u} \leftrightarrow \sbar{v}$ , $k \leftrightarrow -k$ for outgoing or incoming antiparticles respectively (an outgoing particle is like an incoming antiparticle and conversely).
+\end{ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sol}
+    We begin by observing that the expansion of a free fermion field $\psi(x)$ in terms of creation and annihilation operators $\acon_{\vp,s}$ and $\ades_{\vp,s}$ (see Eq.~\eqref{Eq_Ex20_fermion_field_def}) can be inverted to give
+    \begin{equation} \label{Eq_Ex29_first_step}
+        \begin{split}
+            \sqrt{2 \Ep} \, \acon_{\vp,s} & = \int \rmd^3 \vx \,\sbar{\psi}(x) \gamma^0 u^s(\vp) e^{-ipx} \,,\\
+            \sqrt{2 \Ep} \, \ades_{\vp, s} & = \int \rmd^3 \vx \, \gamma^0 \psi(x) \sbar{u}^s(\vp) e^{ipx}\,.
+        \end{split}
+    \end{equation}
+    This means that the \emph{free operators} are defined as\footnote{If the field is not \emph{free}, it cannot be expanded in terms of creation and annihilation operators as in Eq.~\eqref{Eq_Ex20_fermion_field_def}, so Eq.~\eqref{Eq_Ex29_first_step} does not hold. However, in a scattering process, we expect the theory to be a \emph{free theory} if $t \to -\infty$ or $t \to \infty$, namely at times very distant from the instant in which the scattering takes place. For this reason, we can hypothesize that, as $t \to -\infty$, 
+    \begin{equation}
+        \lim_{t \to -\infty}\psi(x) = Z^{\frac{1}{2}} \psi_{\rm in}(x) \, ,
+    \end{equation}
+    where $\psi_{\rm in}(x)$ is a free fermion field and $Z$ is a $c$-number, known as \emph{wave function renormalization}. Similarly, as $t \to \infty$, we have
+    \begin{equation}
+        \lim_{t \to \infty}\psi(x) = Z^{\frac{1}{2}} \psi_{\rm out}(x) \, ,
+    \end{equation}
+    with $\psi_{\rm out}(x)$ again a free field.
+    }
+    \begin{align}
+            \sqrt{2 \Ep} \, \aincon_{\vp, s} & = Z^{-\frac{1}{2}} \lim_{t\rightarrow - \infty} \int \rmd^3 \vx \,\sbar{\psi}(x) \gamma^0 u^s(\vp) e^{-ipx} \label{ain_dag}\,,\\
+            %
+            \sqrt{2 \Ep} \, \aindes_{\vp, s}& = Z^{-\frac{1}{2}} \lim_{t\rightarrow - \infty}\int \rmd^3 \vx \, \gamma^0 \psi(x) \sbar{u}^s(\vp) e^{ipx} \label{ain}\,,\\
+            %
+            \sqrt{2 \Ep} \, \aoutcon_{\vp, s} & = Z^{-\frac{1}{2}} \lim_{t\rightarrow \infty} \int \rmd^3 \vx \,\sbar{\psi}(x) \gamma^0 u^s(\vp) e^{-ipx} \label{aout_dag}\,,\\
+            %
+            \sqrt{2 \Ep} \, \aoutdes_{\vp, s} & = Z^{-\frac{1}{2}} \lim_{t\rightarrow \infty}\int \rmd^3 \vx \, \gamma^0 \psi(x) \sbar{u}^s(\vp) e^{ipx} \,.\label{aout}
+    \end{align}
+    We remind that one-particle initial of final states are defined as
+    \begin{align}
+        \ket{\vp^s, {\rm in}} = &\; \sqrt{2 \Ep} \, \aincon_{\vp, s} \ket{0} \,, \label{pin} \\
+        %
+        \ket{\vp^s, {\rm out}} = &\; \sqrt{2 \Ep} \, \aoutcon_{\vp, s} \ket{0} \,. \label{pout}
+    \end{align}
+    Using Eq.~\eqref{pin} and Eq.~\eqref{ain_dag} on the l.h.s.~of Eq.~\eqref{sandwich}, we find
+    \begin{align}
+        \braket{\vp_1^{s_1} ...\, \vp_n^{s_n}, {\rm out}}{\vk_1^{r_1} ...\, \vk_m^{r_m}, {\rm in}} 
+        %
+        = \left( 2 E_{\mathbf{k}_1} \right)^{\frac{1}{2}} \bra{\vp_1^{s_1} ...\, \vp_n^{s_n}, {\rm out}} \aincon_{\vk_1, r_1} \ket{\vk_2^{r_2} ...\, \vk_m^{r_m}, {\rm in}} \,.
+    \end{align}
+    In the assumption that none of the momenta of the outgoing particles coincides with the momenta of the ingoing ones (i.e.\ we assume to have no forward scattering), we write
+    \begin{align}
+        \braket{\vp_1^{s_1} ...\, \vp_n^{s_n}, {\rm out}}{\vk_1^{r_1} ...\, \vk_m^{r_m}, {\rm in}} 
+        %
+        = \left( 2 E_{\mathbf{k}_1} \right)^{\frac{1}{2}} \bra{\vp_1^{s_1} ...\, \vp_n^{s_n}, {\rm out}} \big(\aincon_{\vk_1, r_1}-\aoutcon_{\vk_1, r_1} \big) \ket{\vk_2^{r_2} ...\, \vk_m^{r_m}, {\rm in}}\,.
+    \end{align}
+    The operators can be rearranged in the following way
+    \begin{align}
+        \left( 2 E_{\mathbf{k}_1} \right)^{\frac{1}{2}} \left(\aincon_{\vk_1, r_1}-\aoutcon_{\vk_1, r_1} \right) 
+        %
+        = &\; Z^{-\frac{1}{2}} \left( \lim_{t \rightarrow \infty} - \lim_{t \rightarrow -\infty}\right) \int \rmd^3 \vx_1 \,\sbar{\psi}(x_1) \gamma^0 u^{r_1}(\vk_1) e^{-ik_1 x_1} \notag \\
+        %
+        = & - Z^{-\frac{1}{2}} \int_{-\infty}^{\infty} \rmd t \, \frac{\partial}{\partial t} \int \rmd^3 \vx_1 \, e^{-i k_1 x_1} \sbar{\psi}(x_1) \gamma^0 u^{r_1}(\vk_1)\,, \label{lebron}
+    \end{align}
+    where we used that
+    \begin{equation}
+        \lim_{t \rightarrow \infty} f(t) - \lim_{t \rightarrow -\infty} f(t) = \int_{-\infty}^{\infty} \rmd t f'(t) \,.
+    \end{equation}
+    Let's focus on the integrand of Eq.~\eqref{lebron}:
+    \begin{align}
+        &\left( \frac{\partial}{\partial t} e^{-i k_1 x_1}\right) \sbar{\psi} (x_1) \gamma^0 u^{r_1}(\vk_1) + e^{-i k_1 x_1} \left( \frac{\partial}{\partial t} \sbar{\psi}(x_1)\right) \gamma^0 u^{r_1}(\vk_1) \notag \\
+        ={}& \sbar{\psi}(x_1) \gamma^0 \frac{\partial}{\partial t} \left( e^{-i k_1 x_1} u^{r_1}(\vk_1) \right) + e^{-i k_1 x_1} \left( \frac{\partial}{\partial t} \sbar{\psi}(x_1) \right) \gamma^0 u^{r_1}(\vk_1) \,.\label{dwyane}
+    \end{align}
+    We know that $e^{-i k_1 x_1} u^{r_1}(\vk_1)$ is solution of the Dirac equation, with $u^{r_1}(\vk_1)$ that satisfies 
+    \begin{equation}
+        \left( \slashed{k}_1 -m \right) u^{r_1}(\vk_1) =0 \, .
+    \end{equation}
+    Therefore,
+    \begin{equation}
+        0 = \left( i \slashed{\partial}_{x_1} - m\right) e^{-i k_1 x_1} u^{r_1}(\vk_1) = \left( i \gamma^0 \partial_t + i \gamma^i \partial_i - m\right) e^{-i k_1 x_1} u^{r_1}(\vk_1) \,,
+    \end{equation}
+    from which it follows that
+    \begin{equation}
+        \gamma^0 \partial_t e^{-i k_1 x_1} u^{r_1}(\vk_1) = \left(- \gamma^i \partial_i - i m \right) e^{-i k_1 x_1} u^{r_1}(\vk_1) \,.
+    \end{equation}
+    We con substitute the above r.h.s.\ into Eq.~\eqref{dwyane}, getting
+    \begin{equation}
+        \sbar{\psi}(x_1) \left( - \gamma^i \partial_i - i m  \right) e^{-i k_1 x_1} u^{r_1}(\vk_1) + \left( \partial_t \sbar{\psi}(x_1)\right) \gamma^0 e^{-i k_1 x_1} u^{r_1}(\vk_1) \,,
+    \end{equation}
+    and then integrate by parts as
+    \begin{align}
+        & \sbar{\psi}(x_1) \left( \gamma^i \cev{\partial}_i -im\right) e^{-i k_1 x_1} u^{r_1}(\vk_1) + \left( \partial_t \sbar{\psi}(x_1)\right) \gamma^0 e^{-i k_1 x_1} u^{r_1}(\vk_1) \notag \\
+        = & -i \sbar{\psi}(x_1) \left( i \cev{\slashed{\partial}}_{x_1} + m\right)e^{-i k_1 x_1} u^{r_1}(\vk_1) \,.\label{giannis}
+    \end{align}
+    At this point we can plug Eq.~\eqref{giannis} into Eq.~\eqref{lebron}, obtaining
+    \begin{equation}
+    \label{jokic}
+        \left( 2 E_{\vk_1} \right)^{\frac{1}{2}} \left(\aincon_{\vk_1, r_1}-\aoutcon_{\vk_1, r_1} \right) = i Z^{-\frac{1}{2}} \int \rmd^4 x_1 \, \sbar{\psi}(x_1) \left( i \cev{\slashed{\partial}}_{x_1} + m\right) e^{-i k_1 x_1} u^{r_1}(\vk_1)\,.
+    \end{equation}
+    In conclusion we have found that
+    \begin{equation}
+    \label{topolino}
+    \begin{split}
+        &\braket{\vp_1^{s_1} \dots \vp_n^{s_n}, {\rm out}}{\vk_1^{r_1} \dots \vk_m^{r_m}, {\rm in}} \\
+        %
+        = &\; i Z^{-\frac{1}{2}} \int \rmd^4 x_1 \bra{\vp_1^{s_1} \dots \vp_n^{s_n}, {\rm out}}\sbar{\psi}(x_1) \ket{\vk_2^{r_2} \dots \vk_m^{r_m}, {\rm in}}\left( i \cev{\slashed{\partial}}_{x_i} + m\right) e^{-i k_1 x_1} u^{r_1}(\vk_1)\,.
+        \end{split}
+    \end{equation}
+    Let's consider now the object $\bra{\vp_1^{s_1} \dots \vp_n^{s_n}, {\rm out}}\sbar{\psi}(x_1) \ket{\vk_2^{r_2} \dots \vk_m^{r_m}, {\rm in}}$, which we rewrite as
+    \begin{align}
+        &\bra{\vp_1^{s_1} ...\, \vp_n^{s_n}, {\rm out}}\sbar{\psi}(x_1) \ket{\vk_2^{r_2} ...\, \vk_m^{r_m}, {\rm in}}  \notag \\
+        %
+        = & \; \left(2E_{\vp_1}\right)^{\frac{1}{2}}\bra{\vp_2^{s_2} ...\, \vp_n^{s_n}, {\rm out}}\aoutdes_{\vp_1, s_1}\sbar{\psi}(x_1) \ket{\vk_2^{r_2} ...\, \vk_m^{r_m}, {\rm in}} \notag \\
+        %
+        = & \; \left(2E_{\vp_1}\right)^{\frac{1}{2}}\bra{\vp_2^{s_2} ...\, \vp_n^{s_n}, {\rm out}}\left( \aoutdes_{\vp_1, s_1}\sbar{\psi}(x_1) + \sbar{\psi}(x_1) \aindes_{\vp_1, s_1} \right)\ket{\vk_2^{r_2} ...\, \vk_m^{r_m}, {\rm in}} \notag \\
+        = & \; \left(2E_{\vp_1}\right)^{\frac{1}{2}}\bra{\vp_2^{s_2} ...\, \vp_n^{s_n}, {\rm out}}\T \left[ \left(\aoutdes_{\vp_1, s_1} - \aindes_{\vp_1, s_1} \right)\sbar{\psi}(x_1)\right]\ket{\vk_2^{r_2} ...\, \vk_m^{r_m}, {\rm in}} \,. \label{ercapitano}
+    \end{align}
+    In the same way we derived Eq.~\eqref{jokic}, we can show that
+    \begin{equation}
+    \label{nowitzki}
+        \left( 2 E_{\vp_1} \right)^{\frac{1}{2}} \left(\aoutdes_{\vp_1, r_1} - \aindes_{\vp_1, r_1} \right) = i Z^{-\frac{1}{2}} \int \rmd^4 y_1 \sbar{u}^{s_1}(\vp_1) e^{i p_1 y_1} \left( -i \slashed{\partial}_{y_1} + m\right) \psi(y_1)\,.
+    \end{equation}
+    Plugging Eq.~\eqref{nowitzki} into Eq.~\eqref{ercapitano}, we find
+    \begin{equation}
+    \begin{split}
+        &\bra{\vp_1^{s_1} ...\, \vp_n^{s_n}, {\rm out}}\sbar{\psi}(x_1) \ket{\vk_2^{r_2} ...\, \vk_m^{r_m}, {\rm in}} \\
+        %
+        = &\; iZ^{\frac{1}{2}} \int\rmd^4 y_1 \, \sbar{u}^{s_1}(\vp_1) e^{i p_1 y_1} \left( -i \slashed{\partial}_{y_1} + m\right) \bra{\vp_1^{s_1} ...\, \vp_n^{s_n}, {\rm out}} \T\left[ \psi(y_1) \sbar{\psi}(x_1)\right]\ket{\vk_2^{r_2} ...\, \vk_m^{r_m}, {\rm in}}\,,
+        \end{split}
+    \end{equation}
+    that, inserted back into Eq.~\eqref{topolino}, gives
+    \begin{equation}
+    \label{paperino}
+    \begin{split}
+        &\bra{\vp_1^{s_1} ...\, \vp_n^{s_n}, {\rm out}} \ket{\vk_1^{r_1} ...\, \vk_m^{r_m}, {\rm in}} \\
+        %
+        = & \left(i Z^{-\frac{1}{2}}\right)^{2} \int \rmd^4 x_1 \rmd^4 y_1 \, e^{ip_1 y_1 - ik_1 x_1} \sbar{u}^{s_1}(\vp_1) \left( -i \slashed{\partial}_{y_1} + m\right) \\
+        %
+        & \times \bra{\vp_1^{s_1} ...\, \vp_n^{s_n}, {\rm out}}\T\left[ \psi(y_1) \sbar{\psi}(x_1)\right]\ket{\vk_2^{r_2} ...\, \vk_m^{r_m}, {\rm in}}
+        \left( i \cev{\slashed{\partial}}_{x_i} + m\right) e^{-i k_1 x_1} u^{r_1}(\vk_1)\,.
+    \end{split}
+    \end{equation}
+    Eq.~\eqref{paperino} shows that we can remove momenta from both \emph{in} or \emph{out} states, using \emph{in} or \emph{out} creation and annihilation operators, getting the expected values of time ordered products of fields.
+    We can easily generalize this result to the case of $n$ outgoing and $m$ incoming particles, getting
+    % \begin{equation}
+    % \label{sandwich2}
+    % \begin{split}
+    %     &\bra{\vp_1^{s_1} ...\, \vp_n^{s_n}, {\rm out}} \ket{\vk_1^{r_1} ...\, \vk_m^{r_m}, {\rm in}} \\
+    %     %
+    %     = & \;\left(i Z^{-\frac{1}{2}}\right)^{n+m}\int \prod_{\substack{i=1, \dots, n \\ j=1, \dots, m}}^n \rmd^4x_j \rmd^4 y_i
+    %     e^{i y_i p_i} e^{-i x_j k_j} \sbar{u}^{s_i}(\vp_i) \left( -i \slashed{\partial}_{y_i} + m\right) \times \\ 
+    %     &\bra{0} T\left[ \psi(y_1) \dots \psi(y_n) \sbar{\psi}(x_1) \dots \sbar{\psi}(x_m) \right]\ket{0} \left( i \cev{\slashed{\partial}}_{x_j} + m\right) u^{r_j}(\vk_j)\,,
+    %     \end{split}
+    % \end{equation}
+    \begin{equation}
+    \label{sandwich2}
+    \begin{split}
+        &\bra{\vp_1^{s_1} ...\, \vp_n^{s_n}, {\rm out}} \ket{\vk_1^{r_1} ...\, \vk_m^{r_m}, {\rm in}} \\
+        %
+        = & \;\left(i Z^{-\frac{1}{2}}\right)^{n+m} \int \rmd^4x_1 ... \rmd^4x_m \, \rmd^4y_1 ... \rmd^4y_n \,
+        e^{i(p_1 y_1 + ... + p_n y_n - k_1 x_1 - ... - k_m x_m)} \\ 
+        %
+        & \times \sbar{u}^{s_1}(\vp_1) \left(-i \slashed{\partial}_{y_1} + m\right) ...\, \sbar{u}^{s_n}(\vp_n) \left(-i \slashed{\partial}_{y_n} + m\right) \bra{0} T\left[ \psi(y_1) ... \psi(y_n) \sbar{\psi}(x_1) ... \sbar{\psi}(x_m) \right]\ket{0} \\
+        %
+        & \times \left(i \cev{\slashed{\partial}}_{x_1} + m\right) u^{r_1}(\vk_1) ...\, \left(i \cev{\slashed{\partial}}_{x_m} + m\right) u^{r_m}(\vk_m) \,.
+        \end{split}
+    \end{equation}
+    Eq.~\eqref{sandwich2} can be further simplified integrating the derivatives by parts as
+    \begin{align}
+        & e^{i p_i y_i} \left( -i \slashed{\partial}_{y_i} + m\right) \bra{0} \T \left[ \psi(y_1) ... \psi(y_n) \sbar{\psi}(x_1) ... \sbar{\psi}(x_m) \right]\ket{0}\notag \\
+        %
+        = &\; \left[ \left( i \slashed{\partial}_{y_i} + m\right) e^{i p_i y_i} \right]  \bra{0} \T \left[ \psi(y_1) ... \psi(y_n) \sbar{\psi}(x_1) ... \sbar{\psi}(x_m) \right]\ket{0} \notag \\
+        %
+        = &\; e^{i p_i y_i} \left( - \slashed{p_i} + m \right) \bra{0} \T \left[ \psi(y_1) ... \psi(y_n) \sbar{\psi}(x_1) ... \sbar{\psi}(x_m) \right]\ket{0} \,, \label{pippo}
+    \end{align}
+    and
+    \begin{align}
+        &\bra{0} \T \left[ \psi(y_1) ... \psi(y_n) \sbar{\psi}(x_1) ... \sbar{\psi}(x_m) \right]\ket{0} \left( i \cev{\slashed{\partial}}_{x_j} + m\right) e^{-i k_j x_j} \notag \\
+        %
+        = &\; \bra{0} \T \left[ \psi(y_1) ... \psi(y_n) \sbar{\psi}(x_1) ... \sbar{\psi}(x_m) \right]\ket{0} \left( - \slashed{k}_j + m \right)e^{-i k_j x_j} \,. \label{franco}
+    \end{align}
+    Substituting Eqs.~\eqref{pippo} and \eqref{franco} into Eq.~\eqref{sandwich2} and using that the Fourier transform of the two points function of the fermion field is
+    \begin{equation}
+        \tilde{S}(p) = i Z^{\frac{1}{2}} \frac{\left( \slashed{p} + m\right)}{p^2 - m^2} \,,
+    \end{equation}
+    we find precisely Eq.~\eqref{sandwich}.
+
+    We point out that in this exercise we assumed that all the particles were \emph{fermions}. The case with \emph{antifermion} is analogous and can be obtained using that
+        \begin{equation}
+        \begin{split}
+            \sqrt{2 \Ep} \, \bcon_{\vp, s} & = \int \rmd^3 \vx \, \sbar{v}^s(\vp)  \gamma^0 \psi(x) e^{-ipx} \,, \\
+            %
+            \sqrt{2 \Ep} \, \bdes_{\vp, s} & = \int \rmd^3 \vx \, \sbar{\psi}(x) \gamma^0 v^s(\vp) e^{ipx} \,.
+        \end{split}
+    \end{equation}
+\end{sol}
