@@ -99,17 +99,17 @@
     \end{equation}
     which means that the conserved charge corresponds to
     \begin{equation}
-            Q^{0} \define s^{3} = \int \rm\rmd^3\vx \;\epsilon^{3jk}E_{j}A_{k}\,.
+            Q^{0} \define s^{3} = \int \rmd^3\vx \;\epsilon^{3jk}E_{j}A_{k}\,.
     \end{equation}
     Generalizing this procedure to a generic rotation, one can easily show that 
     \begin{equation}
     \label{eq_si}
-        s^{i} = \int \rm\rmd^3\vx \;\epsilon^{ijk}E_{j}A_{k}\, .
+        s^{i} = \int \rmd^3\vx \;\epsilon^{ijk}E_{j}A_{k}\, .
     \end{equation}
     Now we only need to substitute the explicit expressions of $E_{j}$ and $A_{k}$ in the last equation. Remember the definitions
     \begin{equation}
     \label{eq_Ak}
-        \vA = \int \frac{\rm\rmd^3\vp}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{p}}}\sum_{\lambda=\pm}\Big[\veps(p, \lambda)\ades_{\vp, \lambda}e^{-ipx} + \vepsstar(p, \lambda)\acon_{\vp, \lambda}e^{ipx} \Big] \,,
+        \vA = \int \frac{\rmd^3\vp}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{p}}}\sum_{\lambda=\pm}\Big[\veps(p, \lambda)\ades_{\vp, \lambda}e^{-ipx} + \vepsstar(p, \lambda)\acon_{\vp, \lambda}e^{ipx} \Big] \,,
         %
         \qquad
         %
@@ -131,19 +131,19 @@
     \begin{equation}
     \label{eq_Ej}
         \begin{split}
-            E_{j} &= \partial_{0}A_{j} = \frac{\partial}{\partial t} \int \frac{\rm\rmd^3\vp}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{\vp}}}\sum_{\lambda=\pm}\Big[\epsilon_{j}(\vp, \lambda)\ades_{\vp, \lambda}e^{-ipx} + \epsilon^*_{j}(\vp, \lambda)\acon_{\vp, \lambda}e^{ipx} \Big] \\
-            &= i\int \frac{\rm\rmd^3\vp}{(2\pi)^{3}}\sqrt{\frac{\omega_{\vp}}{2}}\sum_{\lambda=\pm}\Big[-\epsilon_{j}(\vp, \lambda)\ades_{\vp, \lambda}e^{-ipx} + \epsilon^*_{j}(\vp, \lambda)\acon_{\vp, \lambda}e^{ipx} \Big]\,.
+            E_{j} &= \partial_{0}A_{j} = \frac{\partial}{\partial t} \int \frac{\rmd^3\vp}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{\vp}}}\sum_{\lambda=\pm}\Big[\epsilon_{j}(\vp, \lambda)\ades_{\vp, \lambda}e^{-ipx} + \epsilon^*_{j}(\vp, \lambda)\acon_{\vp, \lambda}e^{ipx} \Big] \\
+            &= i\int \frac{\rmd^3\vp}{(2\pi)^{3}}\sqrt{\frac{\omega_{\vp}}{2}}\sum_{\lambda=\pm}\Big[-\epsilon_{j}(\vp, \lambda)\ades_{\vp, \lambda}e^{-ipx} + \epsilon^*_{j}(\vp, \lambda)\acon_{\vp, \lambda}e^{ipx} \Big]\,.
         \end{split}
     \end{equation}
     At this point we plug both Eqs.~\eqref{eq_Ak} and \eqref{eq_Ej} into Eq.~\eqref{eq_si}, getting
     \begin{equation}
     \label{eq_semifinalsk}
     \begin{split}
-            s^{k} = &\; \epsilon^{kji} \int \rm\rmd^3\vx i \int \frac{\rm\rmd^3\vp}{(2\pi)^{3}}\sqrt{\frac{\omega_{\vp}}{2}}\sum_{\lambda=\pm}\Big[-\epsilon_{j}(\vp, \lambda)\ades_{\vp, \lambda}e^{-ipx} + \epsilon^*_{j}(\vp, \lambda)\acon_{\vp, \lambda}e^{ipx} \Big] \\
+            s^{k} = &\; \epsilon^{kji} \int \rmd^3\vx i \int \frac{\rmd^3\vp}{(2\pi)^{3}}\sqrt{\frac{\omega_{\vp}}{2}}\sum_{\lambda=\pm}\Big[-\epsilon_{j}(\vp, \lambda)\ades_{\vp, \lambda}e^{-ipx} + \epsilon^*_{j}(\vp, \lambda)\acon_{\vp, \lambda}e^{ipx} \Big] \\
             %
-            &\times \int \frac{\rm\rmd^3\vp'}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{\vp'}}}\sum_{\lambda'=\pm}\Big[\epsilon_{i}(\vp', \lambda')\ades_{\vp', \lambda'}e^{-ip'x'} + \epsilon^*_{i}(\vp', \lambda')\acon_{\vp', \lambda'}e^{ip'x'} \Big] \\
+            &\times \int \frac{\rmd^3\vp'}{(2\pi)^{3}}\frac{1}{\sqrt{2\omega_{\vp'}}}\sum_{\lambda'=\pm}\Big[\epsilon_{i}(\vp', \lambda')\ades_{\vp', \lambda'}e^{-ip'x'} + \epsilon^*_{i}(\vp', \lambda')\acon_{\vp', \lambda'}e^{ip'x'} \Big] \\
             %
-            = &\;  i \epsilon^{ijk} \int \frac{\rm\rmd^3\vp}{(2\pi)^{3}} \frac{1}{2}\sum_{\lambda, \lambda'=\pm}\Big[\epsilon^*_{j}(\vp,\lambda)\epsilon_{i}(\vp, \lambda')\acon_{\vp,\lambda}\ades_{\vp, \lambda'} - \epsilon_{j}(\vp,\lambda)\epsilon^*_{i}(\vp, \lambda')\ades_{\vp, \lambda}\acon_{\vp, \lambda'} \\
+            = &\;  i \epsilon^{ijk} \int \frac{\rmd^3\vp}{(2\pi)^{3}} \frac{1}{2}\sum_{\lambda, \lambda'=\pm}\Big[\epsilon^*_{j}(\vp,\lambda)\epsilon_{i}(\vp, \lambda')\acon_{\vp,\lambda}\ades_{\vp, \lambda'} - \epsilon_{j}(\vp,\lambda)\epsilon^*_{i}(\vp, \lambda')\ades_{\vp, \lambda}\acon_{\vp, \lambda'} \\
             %
             & + \epsilon^*_{j}(\vp,\lambda)\epsilon^*_{i}(-\vp, \lambda')\acon_{\vp,\lambda}\acon_{-\vp, \lambda'}e^{2ip^{0}t} - \epsilon_{j}(\vp,\lambda)\epsilon_{i}(-\vp, \lambda')\ades_{\vp,\lambda}\ades_{-\vp, \lambda'}e^{-2ip^{0}t}\Big]\, .
     \end{split}
@@ -161,13 +161,13 @@
     \begin{equation}
     \label{almost_final}
     \begin{split}
-        s^{k} = i\epsilon^{kji} \int \frac{\rm\rmd^3\vp}{(2\pi)^{3}}\frac{1}{2}\sum_{\lambda, \lambda'=\pm}\Big[&\left(\epsilon^*_{j}(\vp,\lambda)\epsilon_{i}(p, \lambda') - \epsilon^*_{i}(\vp,\lambda)\epsilon_{j}(\vp, \lambda')\right)\acon_{\vp, \lambda}\ades_{\vp, \lambda'} \\
+        s^{k} = i\epsilon^{kji} \int \frac{\rmd^3\vp}{(2\pi)^{3}}\frac{1}{2}\sum_{\lambda, \lambda'=\pm}\Big[&\left(\epsilon^*_{j}(\vp,\lambda)\epsilon_{i}(p, \lambda') - \epsilon^*_{i}(\vp,\lambda)\epsilon_{j}(\vp, \lambda')\right)\acon_{\vp, \lambda}\ades_{\vp, \lambda'} \\
         &- \left(\epsilon_{j}(\vp,\lambda)\epsilon^*_{i}(\vp, \lambda') - \epsilon_{i}(\vp,\lambda)\epsilon^*_{j}(\vp, \lambda')\right)\ades_{\vp,\lambda}\acon_{\vp, \lambda'}\Big]\, .
     \end{split}
     \end{equation}
     Now it is enough to relabel the summed indices in the last term of Eq.~\eqref{almost_final} as $\lambda \mapsto \lambda'$ and $\lambda' \mapsto \lambda$, and swap the order of the operators $\ades$ and $\acon$ (these operators must be taken inside normal ordering) to get 
     \begin{equation}
-        s^{k} = i \epsilon^{kji} \int \frac{\rm\rmd^3\vp}{(2\pi)^{3}}\sum_{\lambda ,\lambda'=\pm}\left[\epsilon^*_{j}(\vp,\lambda)\epsilon_{i}(\vp, \lambda') - \epsilon^*_{i}(\vp,\lambda)\epsilon_{j}(\vp, \lambda')\right]\acon_{\vp,\lambda}\ades_{\vp, \lambda'} \,,
+        s^{k} = i \epsilon^{kji} \int \frac{\rmd^3\vp}{(2\pi)^{3}}\sum_{\lambda ,\lambda'=\pm}\left[\epsilon^*_{j}(\vp,\lambda)\epsilon_{i}(\vp, \lambda') - \epsilon^*_{i}(\vp,\lambda)\epsilon_{j}(\vp, \lambda')\right]\acon_{\vp,\lambda}\ades_{\vp, \lambda'} \,,
     \end{equation}
     which is exactly Eq.~\eqref{Eq_Ex14_spin}.
 \end{sol}
