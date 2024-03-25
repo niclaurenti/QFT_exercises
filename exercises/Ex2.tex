@@ -1,46 +1,100 @@
 \begin{ex} \label{Ex2} \addcontentsline{mdf}{mdf}{Exercise \ref{Ex2}}
-    Consider the Lagrangian density
-    \begin{equation}
-        \mathcal{L} = \partial_\mu \phi^* \partial^\mu \phi - m^2 \abs{\phi}^2 \; ,
-    \end{equation}
-    where $\phi(x)$ is a complex classical field. Derive the classical equations of motion and solve them using the method of normal coordinates.
+	Consider the Lagrangian density
+	\begin{equation}
+		\mathcal{L} = \partial_\mu \phi^* \partial^\mu \phi - m^2 \abs{\phi}^2 \; ,
+	\end{equation}
+	where $\phi(x)$ is a complex classical field. Derive the classical equations of motion and solve them using the method of normal coordinates.
 \end{ex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{sol}
-    In order to find the classical equations of motion, we need to apply the Euler-Lagrange equations to both $\phi$ and $\phi^{*}$, i.e.
-    \begin{equation}
-    \begin{split}
-        \partial_{\mu}\frac{\partial \mathcal{L}}{\partial(\partial_{\mu}\phi)} &- \frac{\partial \mathcal{L}}{\partial \phi} =  0 \, ,\\
-        %
-        \partial_{\mu}\frac{\partial \mathcal{L}}{\partial(\partial_{\mu}\phi^{*})} &- \frac{\partial \mathcal{L}}{\partial \phi^{*}} =  0 \, ,
-    \end{split}
-    \end{equation}
-    that, after having computed the derivatives, give
-    \begin{equation}
-    \begin{split}
-        \partial_{\mu}\partial^{\mu} \phi^{*} + m^{2}\phi^{*} &\define (\square + m^{2}) \phi^{*} = 0 \, , \\ 
-        %
-        \partial_{\mu}\partial^{\mu} \phi + m^{2}\phi &\define (\square + m^{2}) \phi = 0 \, .
-    \end{split}
-    \end{equation}
-    We thus find that $\phi$ (and of course $\phi^*$ as well) satisfies the so-called \emph{Klein–Gordon equation} (KG).
-    To solve it, we notice that any plane wave $\phi(x) = e^{\pm ipx}$ is solution of the KG equation if $p^2 = (p^{0})^{2} - \vp^2 = m^2$. It follows that the most general solution of the KG equation must be the superposition of plane waves 
-    \begin{equation}
-        \phi(x) = \int \frac{d^{3} \vp}{(2\pi)^{3} \sqrt{2 \Ep}} \eval{(a_{\vp} e^{- ipx} + b_{\vp}^* e^{ipx})}_{p^{0} = \Ep} \, ,
-    \end{equation}
-    where $\Ep = \sqrt{\vp^2 + m^2} = p^0$. The factor $\sqrt{2 \Ep}$ is a convenient choice of normalization of the coefficients $a_{\vp}$ and $b_{\vp}^*$. It will turn out to be very useful in quantizing fields.
-
-    Before concluding, we point out that a complex scalar field $\phi$ has two degrees of freedom and thus can be written as a combination of two real scalar fields (that have one degree of freedom each)
-    \begin{equation}
-        \phi(x) = \frac{\phi_1(x) + i \phi_2(x)}{\sqrt{2}} \, , 
-        \qquad 
-        \phi^*(x) = \frac{\phi_1(x) - i \phi_2(x)}{\sqrt{2}} \, .
-    \end{equation}
-    One is clearly free to rewrite the Lagrangian density $\mathcal{L}(x)$ with respect to $\phi_{1,2}$, i.e.
-    \begin{equation}
-        \mathcal{L}(x) = \frac{1}{2} \partial_\mu \phi_1 \partial^\mu \phi_1 + \frac{1}{2} \partial_\mu \phi_2 \partial^\mu \phi_2 - \frac{m^2}{2} \big(\phi_1^2 + \phi_2^2\big) \, ,
-    \end{equation}
-    and then derive the equations of motion for $\phi_{1,2}$. We leave it as an exercise to the reader.  
+	In order to derive the classical equations of motion, we need to apply the Euler-Lagrange equations to both $\phi$ and $\phi^{*}$, i.e.
+	\begin{equation}
+		\begin{split}
+			\partial_{\mu}\frac{\partial \mathcal{L}}{\partial(\partial_{\mu}\phi)} &- \frac{\partial \mathcal{L}}{\partial \phi} =  0 \, ,\\
+			%
+			\partial_{\mu}\frac{\partial \mathcal{L}}{\partial(\partial_{\mu}\phi^{*})} &- \frac{\partial \mathcal{L}}{\partial \phi^{*}} =  0 \, ,
+		\end{split}
+	\end{equation}
+	which, after computing the derivatives, yield
+	\begin{equation}
+		\begin{split}
+			& \partial_{\mu}\partial^{\mu} \phi^{*} + m^{2}\phi^{*} = (\square + m^{2}) \phi^{*} = 0 \, , \\ 
+			%
+			& \partial_{\mu}\partial^{\mu} \phi + m^{2}\phi = (\square + m^{2}) \phi = 0 \, .
+			\label{eq_ex2_KG_eqs}
+		\end{split}
+	\end{equation}
+	Thus, we find that $\phi$ (and, of course, $\phi^*$ as well) satisfies the so-called \emph{Klein–Gordon equation} (KG). 
+	
+	Now, let's discuss how we can solve it. 
+	We write $\phi(x) = \phi(t,\vx)$ in the Fourier space of $\vx$, i.e.,
+	\begin{equation}
+		\phi(t,\vx) = \int \frac{\rmd^{3} \vp}{(2\pi)^{3}} \, e^{i \vp \cdot \vx}\phi(t,\vp) \,.
+		\label{eq_ex2_eq_fourier_1}
+	\end{equation}
+	The KG equation becomes (recall that $\partial_\mu \partial^\mu = \partial_t^2 - \vgrad^2$)
+	\begin{equation}
+		(\partial_{\mu}\partial^{\mu} + m^{2} ) \phi(t,\vx)
+		=
+		\int \frac{\rmd^{3} \vp}{(2\pi)^{3}} \, e^{i \vp \cdot \vx} (\partial_t^2 + \vp^2 + m^2) \phi(t,\vp)
+		=
+		0 \,,
+	\end{equation}
+	which implies
+	\begin{equation}
+		\partial_t^2 \phi(t,\vp) = - \Ep^2 \, \phi(t,\vp) \,,
+		\qquad
+		\Ep \define \sqrt{\vp^2 + m^2} \,. 
+		\label{eq_ex2_eq_fourier_2}
+	\end{equation}
+	Notice that $\Ep$ is the relativistic energy of the field $\phi$. 
+	The general solution of Eq.~\eqref{eq_ex2_eq_fourier_2} reads 
+	\begin{equation}
+		\phi(t,\vp) = A(\vp) \, e^{-i \Ep t} + B(\vp) \, e^{i \Ep t} \,, 
+		\label{eq_ex2_eq_fourier_3}
+	\end{equation}
+	where $A(\vp)$ and $B(\vp)$ are two distinct time-independent complex functions.
+	Substituting this result into Eq.~\eqref{eq_ex2_eq_fourier_1}, we obtain
+	\begin{equation}
+		\begin{split}
+			\phi(t,\vx) & = \int \frac{\rmd^{3} \vp}{(2\pi)^{3}} \big( A(\vp) \, e^{-i \Ep t + i \vp \cdot \vx} + B(\vp) \, e^{i \Ep t + i \vp \cdot \vx} \big)
+			\\
+			& = \int \frac{d^{3} \vp}{(2\pi)^{3}} \big( A(\vp) \, e^{-i \Ep t + i \vp \cdot \vx} + B(-\vp) \, e^{i \Ep t - i \vp \cdot \vx} \big) \,,
+		\end{split}
+	\end{equation}
+	where in the second line we replaced the variable of integration as $\vp \mapsto - \vp$. 
+	At this point, we redefine the functions $A(\vp)$ and $B(\vp)$ as follows:
+	\begin{equation}
+		A(\vp) \define \frac{a_{\vp}}{\sqrt{2\Ep}} \,,
+		\qquad
+		B(-\vp) \define \frac{b_{\vp}^*}{\sqrt{2\Ep}} \,,
+	\end{equation}
+	where the prefactor $1/\sqrt{2\Ep}$ will turn out to be a very useful choice of normalization in quantizing fields.    
+	We point out that there is no specific reason to write $b_{\vp}^*$ instead of $b_{\vp}$ at this stage. 
+	However, in the quantization of the fields, we will see that $a_{\vp}$ and $b_{\vp}$ will be promoted to operators acting on Hilbert spaces, specifically $b_{\vp} \mapsto \bdes_{\vp}$ and $b_{\vp}^* \mapsto \bcon_{\vp}$. 
+	So, we choose $b_{\vp}^*$ to represent a classical solution in a form ready for quantization.
+	Finally, we introduce the four-momentum $p^\mu$ defined as
+	\begin{equation}
+		p^\mu \define (\Ep, \vp) \,,
+	\end{equation}
+	such that the time component reads $p^0 = \Ep$. 
+	This is equivalent to requiring $p^\mu$ to satisfy the equation $p^2 = (p^{0})^{2} - \vp^2 = m^2$. 
+	Therefore, the general solution of the KG equation from Eq.~\eqref{eq_ex2_KG_eqs} corresponds to
+	\begin{equation}
+		\phi(x) = \int \frac{\rmd^{3} \vp}{(2\pi)^{3} \sqrt{2 \Ep}} \eval{(a_{\vp} \, e^{- ipx} + b_{\vp}^* \, e^{ipx})}_{p^{0} = \Ep} \,.
+	\end{equation}
+	
+	Before concluding, we observe that a complex scalar field $\phi$ possesses two degrees of freedom and can be expressed as a combination of two real scalar fields, $\phi_1$ and $\phi_2$:
+	\begin{equation}
+		\phi(x) = \frac{\phi_1(x) + i \phi_2(x)}{\sqrt{2}} \,,
+		\qquad
+		\phi^*(x) = \frac{\phi_1(x) - i \phi_2(x)}{\sqrt{2}} \,.
+	\end{equation}
+	One can freely rewrite the Lagrangian density $\mathcal{L}(x)$ in terms of $\phi_{1,2}$ as:
+	\begin{equation}
+		\mathcal{L}(x) = \frac{1}{2} \partial_\mu \phi_1 \partial^\mu \phi_1 + \frac{1}{2} \partial_\mu \phi_2 \partial^\mu \phi_2 - \frac{m^2}{2} \big(\phi_1^2 + \phi_2^2\big) \,,
+	\end{equation}
+	and then derive the equations of motion for $\phi_{1,2}$. This task is left as an exercise for the reader.
 \end{sol}
