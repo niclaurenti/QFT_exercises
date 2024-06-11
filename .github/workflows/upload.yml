@@ -1,0 +1,42 @@
+name: Deploy PDF
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+    
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-full
+
+      - name: Compile LaTeX to PDF
+        run: make
+
+      - name: Clone niclaurenti.github.io
+        uses: actions/checkout@v2
+        with:
+          repository: niclaurenti/niclaurenti.github.io
+          token: ${{ secrets.NICLAURENTI_TOKEN }}
+          path: niclaurenti.github.io
+
+      - name: Copy main.pdf
+        run: |
+            cp main.pdf niclaurenti.github.io/files/qft_exercises.pdf
+    
+      - name: Commit and Push Changes
+        run: |
+          cd niclaurenti.github.io
+          git config user.email "niclaurenti@gmail.com"
+          git config user.name "niclaurenti"
+          git add files/qft_exercises.pdf
+          git commit -m "Automated update of qft_exercises.pdf: ${{ github.event.head_commit.message }}"
+          git push
